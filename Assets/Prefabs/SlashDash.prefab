@@ -46,9 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 356b4cf75333317458df94417ab68fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashDistance: 5
-  dashSpeed: 20
-  damage: 1
+  dashDistance: 7
+  dashSpeed: 30
+  damage: 2
   knockbackForce: 5
 --- !u!58 &293744843913709943
 CircleCollider2D:

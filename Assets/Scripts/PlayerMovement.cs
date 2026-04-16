@@ -37,7 +37,6 @@ public class PlayerMovement : MonoBehaviour
         rb.MovePosition(rb.position + movementInput * movementSpeed * Time.fixedDeltaTime);
     }
 
-    // Allow dash script to read movement direction (if needed later)
     public Vector2 GetMovementInput()
     {
         return movementInput;

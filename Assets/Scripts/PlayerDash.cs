@@ -37,7 +37,8 @@ public class PlayerDash : MonoBehaviour
         isDashing = true;
 
         // Start ghost trail
-        ghostTrail.StartTrail();
+        if (ghostTrail != null)
+            ghostTrail.StartTrail();
 
         // 1. Try to dash in movement direction
         Vector2 moveInput = movement.GetMovementInput();
@@ -60,7 +61,8 @@ public class PlayerDash : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
 
         // Stop ghost trail
-        ghostTrail.StopTrail();
+        if (ghostTrail != null)
+            ghostTrail.StopTrail();
 
         isDashing = false;
 
@@ -72,5 +74,25 @@ public class PlayerDash : MonoBehaviour
     public bool IsDashing()
     {
         return isDashing;
+    }
+
+    // -------- FOR SLASHDASH --------
+    public void ForceDash(Vector2 direction, float distance, float speed)
+    {
+        StartCoroutine(ForceDashRoutine(direction, distance, speed));
+    }
+
+    private IEnumerator ForceDashRoutine(Vector2 direction, float distance, float speed)
+    {
+        isDashing = true;
+
+        float dashDuration = distance / speed;
+
+        rb.linearVelocity = direction.normalized * speed;
+
+        yield return new WaitForSeconds(dashDuration);
+
+        rb.linearVelocity = Vector2.zero;
+        isDashing = false;
     }
 }

@@ -5,9 +5,12 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 3;
 
+    [Header("Damage Settings")]
+    [SerializeField] private int contactDamage = 1;
+
     [Header("Knockback Settings")]
-    [SerializeField] private float knockbackStrength = 0.2f;   // small twitch
-    [SerializeField] private float knockbackDuration = 0.1f;   // short freeze
+    [SerializeField] private float knockbackStrength = 0.2f;
+    [SerializeField] private float knockbackDuration = 0.1f;
 
     private int currentHealth;
     private Rigidbody2D rb;
@@ -23,7 +26,6 @@ public class Enemy : MonoBehaviour
     {
         currentHealth -= amount;
 
-        // Start knockback twitch
         StartCoroutine(Knockback(knockbackDirection));
 
         if (currentHealth <= 0)
@@ -34,7 +36,7 @@ public class Enemy : MonoBehaviour
     {
         isKnockedBack = true;
 
-        // Apply tiny positional twitch (not physics)
+        // Tiny positional twitch
         transform.position += (Vector3)(direction * knockbackStrength);
 
         yield return new WaitForSeconds(knockbackDuration);
@@ -45,6 +47,24 @@ public class Enemy : MonoBehaviour
     public bool IsKnockedBack()
     {
         return isKnockedBack;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Player"))
+        {
+            PlayerStats stats = collision.collider.GetComponent<PlayerStats>();
+
+            if (stats != null)
+            {
+                // Deal damage
+                stats.TakeDamage(contactDamage);
+
+                // Knock the player back slightly
+                Vector2 direction = (collision.transform.position - transform.position).normalized;
+                collision.transform.position += (Vector3)(direction * knockbackStrength);
+            }
+        }
     }
 
     private void Die()

@@ -12,31 +12,30 @@ public class SlashDash : MonoBehaviour
 
     private PlayerAttack playerAttack;
     private PlayerStats playerStats;
-    private PlayerMovement playerMovement; // your movement script
+    private PlayerDash playerDash;
 
     private void Start()
     {
         playerAttack = FindFirstObjectByType<PlayerAttack>();
         playerStats = FindFirstObjectByType<PlayerStats>();
-        playerMovement = FindFirstObjectByType<PlayerMovement>();
+        playerDash = FindFirstObjectByType<PlayerDash>();
 
-        // Make player invincible
-        playerStats.SetInvincible(true);
+        if (playerStats != null)
+            playerStats.SetInvincible(true);
 
-        // ALWAYS dash in the direction the player is facing
+        // Always dash in facing direction
         Vector2 dashDir = transform.right.normalized;
 
-        // Start the dash
-        playerMovement.Dash(dashDir, dashDistance, dashSpeed);
+        if (playerDash != null)
+            playerDash.ForceDash(dashDir, dashDistance, dashSpeed);
 
-        // Destroy this hitbox after dash duration
+        // Keep hitbox alive for entire dash
         float dashTime = dashDistance / dashSpeed;
         Destroy(gameObject, dashTime);
     }
 
     private void OnDestroy()
     {
-        // Remove invincibility when dash ends
         if (playerStats != null)
             playerStats.SetInvincible(false);
     }

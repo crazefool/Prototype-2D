@@ -17,9 +17,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject megaSlashPrefab;
     public bool megaSlashUnlocked = false;
 
-    [Header("Sharp Dart Ability")]
-    [SerializeField] private GameObject sharpDartPrefab;
-    public bool sharpDartUnlocked = false;
+    [Header("Slash Dash Ability")]
+    [SerializeField] private GameObject slashDashPrefab;
+    public bool slashDashUnlocked = false;
 
     private PlayerStats playerStats;
     private bool isHitStopping = false;
@@ -50,10 +50,10 @@ public class PlayerAttack : MonoBehaviour
             TryMegaSlash();
         }
 
-        // "3" key = Sharp Dart
+        // "3" key = Slash Dash
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            TrySharpDart();
+            TrySlashDash();
         }
     }
 
@@ -91,16 +91,16 @@ public class PlayerAttack : MonoBehaviour
         Instantiate(megaSlashPrefab, transform.position, Quaternion.identity);
     }
 
-    private void TrySharpDart()
+    private void TrySlashDash()
     {
-        if (!sharpDartUnlocked)
+        if (!slashDashUnlocked)
             return;
 
         if (!playerStats.SpendMana(1))
             return;
 
-        Instantiate(sharpDartPrefab, transform.position, transform.rotation);
-
+        // IMPORTANT: parent to player so hitbox follows during dash
+        Instantiate(slashDashPrefab, transform.position, transform.rotation, transform);
     }
 
     public IEnumerator HitStop(float duration)

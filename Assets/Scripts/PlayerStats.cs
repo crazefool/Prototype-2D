@@ -10,6 +10,7 @@ public class PlayerStats : MonoBehaviour
     [Header("Mana Settings")]
     [SerializeField] private int maxMana = 3;
     public int CurrentMana { get; private set; }
+    public int MaxMana => maxMana;
 
     [SerializeField] private int hitsPerMana = 3;
     private int hitCounter = 0;
@@ -42,7 +43,10 @@ public class PlayerStats : MonoBehaviour
             StartCoroutine(InvincibilityFrames());
         }
 
-        // TODO: Update HP UI
+        // Update HP UI
+        
+        FindFirstObjectByType<UI_Health>().UpdateHearts();
+
     }
 
     public void Heal(int amount)
@@ -51,7 +55,10 @@ public class PlayerStats : MonoBehaviour
         if (CurrentHealth > maxHealth)
             CurrentHealth = maxHealth;
 
-        // TODO: Update HP UI
+        
+        // Update HP UI
+        FindFirstObjectByType<UI_Health>().UpdateHearts();
+
     }
 
     private IEnumerator InvincibilityFrames()
@@ -60,6 +67,7 @@ public class PlayerStats : MonoBehaviour
         yield return new WaitForSeconds(invincibilityDuration);
         isInvincible = false;
     }
+
     public void SetInvincible(bool value)
     {
         isInvincible = value;
