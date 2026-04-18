@@ -6,7 +6,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 movementInput;
-    private PlayerDash dash; // reference to dash script
+    private PlayerDash dash;
+
+    private bool canMove = true;
 
     void Awake()
     {
@@ -16,12 +18,16 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // --- MOVEMENT INPUT ---
+        if (!canMove)
+        {
+            movementInput = Vector2.zero;
+            return;
+        }
+
         movementInput.x = Input.GetAxisRaw("Horizontal");
         movementInput.y = Input.GetAxisRaw("Vertical");
         movementInput = movementInput.normalized;
 
-        // --- ROTATION TOWARD MOUSE ---
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mousePos - transform.position);
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -30,11 +36,18 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Do NOT move if dashing
+        if (!canMove)
+            return;
+
         if (dash != null && dash.IsDashing())
             return;
 
         rb.MovePosition(rb.position + movementInput * movementSpeed * Time.fixedDeltaTime);
+    }
+
+    public void SetCanMove(bool value)
+    {
+        canMove = value;
     }
 
     public Vector2 GetMovementInput()

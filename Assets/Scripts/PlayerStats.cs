@@ -14,6 +14,13 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField] private int hitsPerMana = 3;
     private int hitCounter = 0;
+    public int HitsPerMana => hitsPerMana;
+    public int HitCounter => hitCounter;
+
+    [Header("Heal Settings")]
+    [SerializeField] private float healChargeTime = 1.2f;
+    private bool isHealing = false;
+    public bool IsHealing => isHealing;
 
     private bool isInvincible = false;
     [SerializeField] private float invincibilityDuration = 0.5f;
@@ -31,6 +38,9 @@ public class PlayerStats : MonoBehaviour
         if (isInvincible)
             return;
 
+        // Interrupt healing if charging
+        InterruptHeal();
+
         CurrentHealth -= amount;
 
         if (CurrentHealth <= 0)
@@ -43,10 +53,7 @@ public class PlayerStats : MonoBehaviour
             StartCoroutine(InvincibilityFrames());
         }
 
-        // Update HP UI
-        
         FindFirstObjectByType<UI_Health>().UpdateHearts();
-
     }
 
     public void Heal(int amount)
@@ -55,10 +62,7 @@ public class PlayerStats : MonoBehaviour
         if (CurrentHealth > maxHealth)
             CurrentHealth = maxHealth;
 
-        
-        // Update HP UI
         FindFirstObjectByType<UI_Health>().UpdateHearts();
-
     }
 
     private IEnumerator InvincibilityFrames()
@@ -76,7 +80,6 @@ public class PlayerStats : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player died");
-        // TODO: Respawn or death animation
     }
 
     // ---------------- MANA ----------------
@@ -90,6 +93,8 @@ public class PlayerStats : MonoBehaviour
             hitCounter = 0;
             AddMana(1);
         }
+
+        FindFirstObjectByType<UI_Mana>().UpdateMana();
     }
 
     public void AddMana(int amount)
@@ -98,7 +103,7 @@ public class PlayerStats : MonoBehaviour
         if (CurrentMana > maxMana)
             CurrentMana = maxMana;
 
-        // TODO: Update MP UI
+        FindFirstObjectByType<UI_Mana>().UpdateMana();
     }
 
     public bool SpendMana(int amount)
@@ -108,7 +113,61 @@ public class PlayerStats : MonoBehaviour
 
         CurrentMana -= amount;
 
-        // TODO: Update MP UI
+        FindFirstObjectByType<UI_Mana>().UpdateMana();
         return true;
+    }
+
+    // ---------------- HEAL ----------------
+
+    public IEnumerator HealRoutine()
+    {
+        if (isHealing)
+            yield break;
+
+        if (CurrentMana < 1)
+            yield break;
+
+        isHealing = true;
+
+        // Disable movement + attacks
+        FindFirstObjectByType<PlayerMovement>().SetCanMove(false);
+        FindFirstObjectByType<PlayerAttack>().SetCanAttack(false);
+
+        float timer = 0f;
+
+        while (timer < healChargeTime)
+        {
+            if (!isHealing)
+            {
+                // Restore control if interrupted
+                FindFirstObjectByType<PlayerMovement>().SetCanMove(true);
+                FindFirstObjectByType<PlayerAttack>().SetCanAttack(true);
+                yield break;
+            }
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        SpendMana(1);
+        Heal(1);
+
+        // Restore control
+        FindFirstObjectByType<PlayerMovement>().SetCanMove(true);
+        FindFirstObjectByType<PlayerAttack>().SetCanAttack(true);
+
+        isHealing = false;
+    }
+
+    public void InterruptHeal()
+    {
+        if (!isHealing)
+            return;
+
+        isHealing = false;
+
+        // Restore control
+        FindFirstObjectByType<PlayerMovement>().SetCanMove(true);
+        FindFirstObjectByType<PlayerAttack>().SetCanAttack(true);
     }
 }

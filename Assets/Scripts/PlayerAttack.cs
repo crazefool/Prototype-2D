@@ -32,29 +32,22 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        // Left-click = melee attack
         if (Input.GetMouseButtonDown(0) && canAttack)
         {
             StartCoroutine(PerformAttack());
         }
 
-        // "1" key = Blade Beam
         if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
             TryBladeBeam();
-        }
 
-        // "2" key = Mega Slash
         if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
             TryMegaSlash();
-        }
 
-        // "3" key = Slash Dash
         if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
             TrySlashDash();
-        }
+
+        if (Input.GetKey(KeyCode.Alpha4))
+            TryHeal();
     }
 
     private IEnumerator PerformAttack()
@@ -70,7 +63,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void TryBladeBeam()
     {
-        if (!bladeBeamUnlocked)
+        if (!bladeBeamUnlocked || !canAttack)
             return;
 
         if (!playerStats.SpendMana(1))
@@ -82,7 +75,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void TryMegaSlash()
     {
-        if (!megaSlashUnlocked)
+        if (!megaSlashUnlocked || !canAttack)
             return;
 
         if (!playerStats.SpendMana(1))
@@ -93,14 +86,29 @@ public class PlayerAttack : MonoBehaviour
 
     private void TrySlashDash()
     {
-        if (!slashDashUnlocked)
+        if (!slashDashUnlocked || !canAttack)
             return;
 
         if (!playerStats.SpendMana(1))
             return;
 
-        // IMPORTANT: parent to player so hitbox follows during dash
         Instantiate(slashDashPrefab, transform.position, transform.rotation, transform);
+    }
+
+    private void TryHeal()
+    {
+        if (!canAttack)
+            return;
+
+        if (playerStats.CurrentMana < 1)
+            return;
+
+        StartCoroutine(playerStats.HealRoutine());
+    }
+
+    public void SetCanAttack(bool value)
+    {
+        canAttack = value;
     }
 
     public IEnumerator HitStop(float duration)

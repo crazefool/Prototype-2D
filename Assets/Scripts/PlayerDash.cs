@@ -8,7 +8,7 @@ public class PlayerDash : MonoBehaviour
     [SerializeField] private float dashSpeed = 20f;
     [SerializeField] private float dashCooldown = 1f;
 
-    private bool canDash = true;
+    private bool canDash = true;   // REQUIRED for hookshot
     private bool isDashing = false;
 
     private Rigidbody2D rb;
@@ -20,7 +20,7 @@ public class PlayerDash : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         movement = GetComponent<PlayerMovement>();
-        ghostTrail = GetComponent<GhostTrail>(); // cache reference
+        ghostTrail = GetComponent<GhostTrail>();
     }
 
     void Update()
@@ -36,37 +36,29 @@ public class PlayerDash : MonoBehaviour
         canDash = false;
         isDashing = true;
 
-        // Start ghost trail
         if (ghostTrail != null)
             ghostTrail.StartTrail();
 
-        // 1. Try to dash in movement direction
         Vector2 moveInput = movement.GetMovementInput();
 
         if (moveInput != Vector2.zero)
-            dashDirection = moveInput;          // dash where you're moving
+            dashDirection = moveInput;
         else
-            dashDirection = transform.right;    // dash where you're facing
+            dashDirection = transform.right;
 
-        // Calculate dash duration
         float dashDuration = dashDistance / dashSpeed;
 
-        // Apply velocity
         rb.linearVelocity = dashDirection * dashSpeed;
 
-        // Wait for dash to finish
         yield return new WaitForSeconds(dashDuration);
 
-        // Stop movement
         rb.linearVelocity = Vector2.zero;
 
-        // Stop ghost trail
         if (ghostTrail != null)
             ghostTrail.StopTrail();
 
         isDashing = false;
 
-        // Cooldown
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
     }
@@ -76,7 +68,6 @@ public class PlayerDash : MonoBehaviour
         return isDashing;
     }
 
-    // -------- FOR SLASHDASH --------
     public void ForceDash(Vector2 direction, float distance, float speed)
     {
         StartCoroutine(ForceDashRoutine(direction, distance, speed));
@@ -94,5 +85,11 @@ public class PlayerDash : MonoBehaviour
 
         rb.linearVelocity = Vector2.zero;
         isDashing = false;
+    }
+
+    // ⭐ REQUIRED BY HOOKSHOT
+    public void SetCanDash(bool value)
+    {
+        canDash = value;
     }
 }
