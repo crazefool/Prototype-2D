@@ -8,7 +8,7 @@ public class PlayerDash : MonoBehaviour
     [SerializeField] private float dashSpeed = 20f;
     [SerializeField] private float dashCooldown = 1f;
 
-    private bool canDash = true;   // REQUIRED for hookshot
+    private bool canDash = true;
     private bool isDashing = false;
 
     private Rigidbody2D rb;
@@ -41,10 +41,7 @@ public class PlayerDash : MonoBehaviour
 
         Vector2 moveInput = movement.GetMovementInput();
 
-        if (moveInput != Vector2.zero)
-            dashDirection = moveInput;
-        else
-            dashDirection = transform.right;
+        dashDirection = moveInput != Vector2.zero ? moveInput : (Vector2)transform.right;
 
         float dashDuration = dashDistance / dashSpeed;
 
@@ -52,7 +49,12 @@ public class PlayerDash : MonoBehaviour
 
         yield return new WaitForSeconds(dashDuration);
 
+        // ⭐ FULL MOMENTUM RESET
         rb.linearVelocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        rb.Sleep();
+        rb.WakeUp();
 
         if (ghostTrail != null)
             ghostTrail.StopTrail();
@@ -83,11 +85,16 @@ public class PlayerDash : MonoBehaviour
 
         yield return new WaitForSeconds(dashDuration);
 
+        // ⭐ FULL MOMENTUM RESET
         rb.linearVelocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        rb.Sleep();
+        rb.WakeUp();
+
         isDashing = false;
     }
 
-    // ⭐ REQUIRED BY HOOKSHOT
     public void SetCanDash(bool value)
     {
         canDash = value;

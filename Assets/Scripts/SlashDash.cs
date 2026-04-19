@@ -14,12 +14,22 @@ public class SlashDash : MonoBehaviour
     private PlayerStats playerStats;
     private PlayerDash playerDash;
 
+    private int playerLayer;
+    private int enemyLayer;
+
     private void Start()
     {
         playerAttack = FindFirstObjectByType<PlayerAttack>();
         playerStats = FindFirstObjectByType<PlayerStats>();
         playerDash = FindFirstObjectByType<PlayerDash>();
 
+        playerLayer = LayerMask.NameToLayer("Player");
+        enemyLayer = LayerMask.NameToLayer("Enemies");
+
+        // ⭐ Disable collisions between player and enemies during dash
+        Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
+
+        // ⭐ Player is invincible during dash
         if (playerStats != null)
             playerStats.SetInvincible(true);
 
@@ -36,6 +46,9 @@ public class SlashDash : MonoBehaviour
 
     private void OnDestroy()
     {
+        // ⭐ Re-enable collisions after dash ends
+        Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, false);
+
         if (playerStats != null)
             playerStats.SetInvincible(false);
     }

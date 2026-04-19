@@ -11,19 +11,30 @@ public class HookshotController : MonoBehaviour
 
     private LineRenderer line;
     private HookshotProjectile activeHook;
-    private bool isPulling = false;
+    public bool IsPulling { get; private set; } = false;
 
     private PlayerMovement movement;
     private PlayerAttack attack;
     private PlayerDash dash;
+    private PlayerStats stats;
+
+    private int playerLayer;
+    private int enemyLayer;
+
+    private Enemy currentPulledEnemy = null;
+
+    private Coroutine pullRoutine = null;
 
     void Awake()
     {
         movement = GetComponent<PlayerMovement>();
         attack = GetComponent<PlayerAttack>();
         dash = GetComponent<PlayerDash>();
+        stats = GetComponent<PlayerStats>();
 
-        // Rope renderer
+        playerLayer = LayerMask.NameToLayer("Player");
+        enemyLayer = LayerMask.NameToLayer("Enemies");
+
         line = gameObject.AddComponent<LineRenderer>();
         line.positionCount = 2;
         line.enabled = false;
@@ -36,13 +47,9 @@ public class HookshotController : MonoBehaviour
 
     void Update()
     {
-        // Right mouse button = hookshot
-        if (Input.GetMouseButtonDown(1) && !isPulling && activeHook == null)
-        {
+        if (Input.GetMouseButtonDown(1) && !IsPulling && activeHook == null)
             FireHook();
-        }
 
-        // Update rope line
         if (activeHook != null)
         {
             line.SetPosition(0, transform.position);
@@ -52,20 +59,13 @@ public class HookshotController : MonoBehaviour
 
     private void FireHook()
     {
-        // ⭐ Spawn the hook IN FRONT of the player, not inside them
         Vector3 spawnPos = transform.position + transform.right * 0.5f;
-
-        // ⭐ Use the player's facing direction for rotation
         Quaternion rot = Quaternion.Euler(0, 0, transform.eulerAngles.z);
 
-        // Instantiate hook
         GameObject hookObj = Instantiate(hookProjectilePrefab, spawnPos, rot);
         activeHook = hookObj.GetComponent<HookshotProjectile>();
-
-        // Initialize hook projectile
         activeHook.Initialize(this, hookSpeed, maxHookDistance);
 
-        // Enable rope
         line.enabled = true;
     }
 
@@ -77,14 +77,16 @@ public class HookshotController : MonoBehaviour
             return;
         }
 
+        currentPulledEnemy = target.GetComponent<Enemy>();
+
         switch (target.hookType)
         {
             case HookshotTarget.HookType.PullPlayer:
-                StartCoroutine(PullPlayer(hitPoint));
+                pullRoutine = StartCoroutine(PullPlayer(hitPoint));
                 break;
 
             case HookshotTarget.HookType.PullObject:
-                StartCoroutine(PullObject(target, hitPoint));
+                pullRoutine = StartCoroutine(PullObject(target, hitPoint));
                 break;
 
             case HookshotTarget.HookType.BreakOff:
@@ -102,13 +104,18 @@ public class HookshotController : MonoBehaviour
 
     private IEnumerator PullPlayer(Vector3 point)
     {
-        isPulling = true;
+        IsPulling = true;
+
+        Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
+        stats.SetInvincible(true);
 
         movement.SetCanMove(false);
-        attack.SetCanAttack(false);
         dash.SetCanDash(false);
 
-        while (Vector2.Distance(transform.position, point) > 0.5f)
+        if (currentPulledEnemy != null)
+            currentPulledEnemy.Stun(1f);
+
+        while (IsPulling && Vector2.Distance(transform.position, point) > 0.7f)
         {
             transform.position = Vector2.MoveTowards(transform.position, point, pullSpeed * Time.deltaTime);
             yield return null;
@@ -119,16 +126,17 @@ public class HookshotController : MonoBehaviour
 
     private IEnumerator PullObject(HookshotTarget target, Vector3 point)
     {
-        isPulling = true;
+        IsPulling = true;
 
-        movement.SetCanMove(false);
-        attack.SetCanAttack(false);
-        dash.SetCanDash(false);
+        Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
+        stats.SetInvincible(true);
 
         Transform obj = target.transform;
 
-        // ⭐ FIX: Prevent errors if the object is destroyed mid-pull
-        while (obj != null && Vector2.Distance(obj.position, transform.position) > 0.5f)
+        if (currentPulledEnemy != null)
+            currentPulledEnemy.Stun(1f);
+
+        while (IsPulling && obj != null && Vector2.Distance(obj.position, transform.position) > 0.7f)
         {
             obj.position = Vector2.MoveTowards(obj.position, transform.position, pullSpeed * Time.deltaTime);
             yield return null;
@@ -137,18 +145,40 @@ public class HookshotController : MonoBehaviour
         ResetHook();
     }
 
+    public void CancelHookshot()
+    {
+        if (pullRoutine != null)
+        {
+            StopCoroutine(pullRoutine);
+            pullRoutine = null;
+        }
+
+        ResetHook();
+    }
+
     public void ResetHook()
     {
-        isPulling = false;
+        IsPulling = false;
+
+        Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, false);
+        stats.SetInvincible(false);
 
         movement.SetCanMove(true);
         attack.SetCanAttack(true);
         dash.SetCanDash(true);
 
+        if (currentPulledEnemy != null)
+        {
+            Rigidbody2D er = currentPulledEnemy.GetComponent<Rigidbody2D>();
+            if (er != null)
+                er.linearVelocity = Vector2.zero;
+        }
+
         if (activeHook != null)
             Destroy(activeHook.gameObject);
 
         activeHook = null;
+        currentPulledEnemy = null;
         line.enabled = false;
     }
 }

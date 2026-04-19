@@ -177,7 +177,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
-  knockbackForce: 100
+  contactDamage: 1
+  knockbackStrength: 1
+  knockbackDuration: 0.1
 --- !u!114 &4993848415007526262
 MonoBehaviour:
   m_ObjectHideFlags: 0

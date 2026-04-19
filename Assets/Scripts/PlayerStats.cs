@@ -22,8 +22,12 @@ public class PlayerStats : MonoBehaviour
     private bool isHealing = false;
     public bool IsHealing => isHealing;
 
-    private bool isInvincible = false;
+    [Header("Invincibility")]
     [SerializeField] private float invincibilityDuration = 0.5f;
+    private bool isInvincible = false;
+    private Coroutine invincibleRoutine;
+
+    public bool IsInvincible => isInvincible;
 
     void Awake()
     {
@@ -38,7 +42,6 @@ public class PlayerStats : MonoBehaviour
         if (isInvincible)
             return;
 
-        // Interrupt healing if charging
         InterruptHeal();
 
         CurrentHealth -= amount;
@@ -50,7 +53,10 @@ public class PlayerStats : MonoBehaviour
         }
         else
         {
-            StartCoroutine(InvincibilityFrames());
+            if (invincibleRoutine != null)
+                StopCoroutine(invincibleRoutine);
+
+            invincibleRoutine = StartCoroutine(InvincibilityFrames());
         }
 
         FindFirstObjectByType<UI_Health>().UpdateHearts();
@@ -75,6 +81,12 @@ public class PlayerStats : MonoBehaviour
     public void SetInvincible(bool value)
     {
         isInvincible = value;
+
+        if (!value && invincibleRoutine != null)
+        {
+            StopCoroutine(invincibleRoutine);
+            invincibleRoutine = null;
+        }
     }
 
     private void Die()
@@ -129,7 +141,6 @@ public class PlayerStats : MonoBehaviour
 
         isHealing = true;
 
-        // Disable movement + attacks
         FindFirstObjectByType<PlayerMovement>().SetCanMove(false);
         FindFirstObjectByType<PlayerAttack>().SetCanAttack(false);
 
@@ -139,7 +150,6 @@ public class PlayerStats : MonoBehaviour
         {
             if (!isHealing)
             {
-                // Restore control if interrupted
                 FindFirstObjectByType<PlayerMovement>().SetCanMove(true);
                 FindFirstObjectByType<PlayerAttack>().SetCanAttack(true);
                 yield break;
@@ -152,7 +162,6 @@ public class PlayerStats : MonoBehaviour
         SpendMana(1);
         Heal(1);
 
-        // Restore control
         FindFirstObjectByType<PlayerMovement>().SetCanMove(true);
         FindFirstObjectByType<PlayerAttack>().SetCanAttack(true);
 
@@ -166,7 +175,6 @@ public class PlayerStats : MonoBehaviour
 
         isHealing = false;
 
-        // Restore control
         FindFirstObjectByType<PlayerMovement>().SetCanMove(true);
         FindFirstObjectByType<PlayerAttack>().SetCanAttack(true);
     }

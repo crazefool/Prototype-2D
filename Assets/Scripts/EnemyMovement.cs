@@ -23,8 +23,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (player == null) return;
 
-        // Stop movement during knockback
-        if (enemy.IsKnockedBack())
+        if (enemy.IsStunned || enemy.IsKnockedBack())
         {
             rb.linearVelocity = Vector2.zero;
             return;

@@ -14,7 +14,11 @@ public class Enemy : MonoBehaviour
 
     private int currentHealth;
     private Rigidbody2D rb;
+
     private bool isKnockedBack = false;
+    private bool isStunned = false;
+
+    public bool IsStunned => isStunned;
 
     void Awake()
     {
@@ -24,6 +28,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int amount, Vector2 knockbackDirection)
     {
+        // ⭐ FIXED: Enemy can now take damage even while stunned
         currentHealth -= amount;
 
         StartCoroutine(Knockback(knockbackDirection));
@@ -32,11 +37,23 @@ public class Enemy : MonoBehaviour
             Die();
     }
 
+    public void Stun(float duration)
+    {
+        if (!gameObject.activeInHierarchy) return;
+        StartCoroutine(StunRoutine(duration));
+    }
+
+    private IEnumerator StunRoutine(float duration)
+    {
+        isStunned = true;
+        yield return new WaitForSeconds(duration);
+        isStunned = false;
+    }
+
     private IEnumerator Knockback(Vector2 direction)
     {
         isKnockedBack = true;
 
-        // Tiny positional twitch
         transform.position += (Vector3)(direction * knockbackStrength);
 
         yield return new WaitForSeconds(knockbackDuration);
@@ -51,16 +68,17 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // Enemy still cannot deal contact damage while stunned
+        if (isStunned) return;
+
         if (collision.collider.CompareTag("Player"))
         {
             PlayerStats stats = collision.collider.GetComponent<PlayerStats>();
 
             if (stats != null)
             {
-                // Deal damage
                 stats.TakeDamage(contactDamage);
 
-                // Knock the player back slightly
                 Vector2 direction = (collision.transform.position - transform.position).normalized;
                 collision.transform.position += (Vector3)(direction * knockbackStrength);
             }

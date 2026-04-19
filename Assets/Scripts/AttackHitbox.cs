@@ -6,13 +6,13 @@ public class AttackHitbox : MonoBehaviour
     [SerializeField] private int damage = 1;
     [SerializeField] private float hitStopDuration = 0.05f;
 
-    private PlayerAttack player; // cached reference
-    private PlayerStats playerStats; // NEW
+    private PlayerAttack player; 
+    private PlayerStats playerStats;
 
     void Awake()
     {
         player = FindFirstObjectByType<PlayerAttack>();
-        playerStats = FindFirstObjectByType<PlayerStats>(); // NEW
+        playerStats = FindFirstObjectByType<PlayerStats>();
     }
 
     void Start()
@@ -26,14 +26,16 @@ public class AttackHitbox : MonoBehaviour
 
         if (enemy != null)
         {
-            Vector2 knockbackDir = (collision.transform.position - transform.position).normalized;
-            enemy.TakeDamage(damage, knockbackDir);
+            Vector2 attackDir = player.GetLastAttackDirection();
 
-            // ⭐ Gain MP from hitting an enemy
+            enemy.TakeDamage(damage, attackDir);
+
             if (playerStats != null)
                 playerStats.GainManaFromHit();
 
-            // Hit stop
+            if (player != null)
+                player.ApplyHitPushback(attackDir);
+
             if (player != null)
                 player.StartCoroutine(player.HitStop(hitStopDuration));
         }
