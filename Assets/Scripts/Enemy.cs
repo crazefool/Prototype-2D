@@ -18,6 +18,9 @@ public class Enemy : MonoBehaviour
     private bool isKnockedBack = false;
     private bool isStunned = false;
 
+    // ⭐ NEW: Shell enemies use this
+    public bool isInvulnerable = false;
+
     public bool IsStunned => isStunned;
 
     void Awake()
@@ -28,7 +31,9 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int amount, Vector2 knockbackDirection)
     {
-        // ⭐ FIXED: Enemy can now take damage even while stunned
+        // ⭐ NEW: Shell enemies block damage until shell is removed
+        if (isInvulnerable) return;
+
         currentHealth -= amount;
 
         StartCoroutine(Knockback(knockbackDirection));

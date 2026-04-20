@@ -9,6 +9,12 @@ public class HookshotTarget : MonoBehaviour
 
     public void DetachPart()
     {
+        // ⭐ FIX: Notify the shell enemy BEFORE detaching the shell
+        ShellEnemyAI shellAI = GetComponentInParent<ShellEnemyAI>();
+        if (shellAI != null)
+            shellAI.BreakShell();
+
+        // Now detach the shell safely
         if (detachablePart != null)
         {
             detachablePart.transform.SetParent(null);
@@ -18,7 +24,6 @@ public class HookshotTarget : MonoBehaviour
 
     public void Trigger()
     {
-        // For switches, levers, puzzle elements
         Debug.Log("Hookshot triggered object: " + name);
     }
 }

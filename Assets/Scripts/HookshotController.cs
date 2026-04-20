@@ -91,8 +91,18 @@ public class HookshotController : MonoBehaviour
 
             case HookshotTarget.HookType.BreakOff:
                 if (target.detachablePart != null)
+                {
+                    // Detach the shell
                     target.DetachPart();
-                ResetHook();
+
+                    // Notify shell enemy
+                    ShellEnemyAI shellAI = target.GetComponentInParent<ShellEnemyAI>();
+                    if (shellAI != null)
+                        shellAI.BreakShell();
+
+                    // ⭐ NEW: Pull the detached shell toward the player
+                    pullRoutine = StartCoroutine(PullObject(target, hitPoint));
+                }
                 break;
 
             case HookshotTarget.HookType.Trigger:
