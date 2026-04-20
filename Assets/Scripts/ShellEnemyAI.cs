@@ -14,6 +14,7 @@ public class ShellEnemyAI : BaseEnemyAI
     {
         base.Awake();
 
+        // Enemy starts invulnerable until shell is removed
         enemy.isInvulnerable = true;
 
         if (shellObject != null)
@@ -50,7 +51,7 @@ public class ShellEnemyAI : BaseEnemyAI
         // Enemy becomes vulnerable
         enemy.isInvulnerable = false;
 
-        // Feedback
+        // Optional stun for feedback
         enemy.Stun(0.4f);
 
         // ⭐ SHELL DETACHED STATE
