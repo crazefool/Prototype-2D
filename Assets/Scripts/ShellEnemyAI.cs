@@ -7,19 +7,34 @@ public class ShellEnemyAI : BaseEnemyAI
 
     private bool hasShell = true;
 
+    private Rigidbody2D shellRB;
+    private Collider2D shellCol;
+
     protected override void Awake()
     {
         base.Awake();
 
-        // Enemy starts invulnerable until shell is removed
         enemy.isInvulnerable = true;
 
-        // Ensure shell collider is active and hookable
         if (shellObject != null)
         {
-            Collider2D col = shellObject.GetComponent<Collider2D>();
-            if (col != null)
-                col.enabled = true;
+            shellRB = shellObject.GetComponent<Rigidbody2D>();
+            shellCol = shellObject.GetComponent<Collider2D>();
+
+            // ⭐ SHELL ATTACHED STATE
+            // Shell should NOT collide with player or enemies
+            // Shell should NOT be pushed by physics
+            if (shellRB != null)
+            {
+                shellRB.bodyType = RigidbodyType2D.Kinematic;
+                shellRB.gravityScale = 0f;
+            }
+
+            if (shellCol != null)
+            {
+                shellCol.isTrigger = true; // hookshot can still detect it
+                shellCol.enabled = true;
+            }
         }
     }
 
@@ -35,30 +50,28 @@ public class ShellEnemyAI : BaseEnemyAI
         // Enemy becomes vulnerable
         enemy.isInvulnerable = false;
 
-        // Optional: small stun for feedback
+        // Feedback
         enemy.Stun(0.4f);
 
-        // Shell is already detached by HookshotTarget
-        // We just ensure it stays hookable and physical
-        if (shellObject != null)
+        // ⭐ SHELL DETACHED STATE
+        if (shellRB != null)
         {
-            Rigidbody2D rb = shellObject.GetComponent<Rigidbody2D>();
-            if (rb != null)
-            {
-                rb.bodyType = RigidbodyType2D.Dynamic;   // ⭐ FIXED
-                rb.gravityScale = 0f;
-            }
+            shellRB.bodyType = RigidbodyType2D.Dynamic;
+            shellRB.gravityScale = 0f;
+        }
 
-            Collider2D col = shellObject.GetComponent<Collider2D>();
-            if (col != null)
-                col.enabled = true;
+        if (shellCol != null)
+        {
+            shellCol.isTrigger = false; // now it becomes a real physics object
+            shellCol.enabled = true;
         }
     }
 
     void Update()
     {
-        // Enemy only moves after shell is removed
-        if (!hasShell && PlayerInRange())
-            MoveTowardsPlayer();
+        if (!PlayerInRange())
+            return;
+
+        MoveTowardsPlayer();
     }
 }

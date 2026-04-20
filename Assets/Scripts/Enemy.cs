@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     private bool isKnockedBack = false;
     private bool isStunned = false;
 
-    // ⭐ NEW: Shell enemies use this
+    // Shell enemies use this
     public bool isInvulnerable = false;
 
     public bool IsStunned => isStunned;
@@ -29,17 +29,22 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void TakeDamage(int amount, Vector2 knockbackDirection)
+    // Now returns bool so callers know if damage was applied
+    public bool TakeDamage(int amount, Vector2 knockbackDirection)
     {
-        // ⭐ NEW: Shell enemies block damage until shell is removed
-        if (isInvulnerable) return;
+        if (isInvulnerable)
+            return false;
 
         currentHealth -= amount;
 
         StartCoroutine(Knockback(knockbackDirection));
 
         if (currentHealth <= 0)
+        {
             Die();
+        }
+
+        return true;
     }
 
     public void Stun(float duration)
@@ -73,7 +78,7 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Enemy still cannot deal contact damage while stunned
+        // Enemy cannot deal contact damage while stunned
         if (isStunned) return;
 
         if (collision.collider.CompareTag("Player"))

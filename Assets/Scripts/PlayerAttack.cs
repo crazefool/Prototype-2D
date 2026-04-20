@@ -29,7 +29,7 @@ public class PlayerAttack : MonoBehaviour
     private PlayerMovement movement;
     private Rigidbody2D rb;
 
-    private HookshotController hookshot;   // ⭐ REQUIRED
+    private HookshotController hookshot;
 
     private bool isHitStopping = false;
     private bool canAttack = true;
@@ -43,7 +43,6 @@ public class PlayerAttack : MonoBehaviour
         movement = GetComponent<PlayerMovement>();
         rb = GetComponent<Rigidbody2D>();
 
-        // ⭐ FIXED: Always finds hookshot, even if on parent/child
         hookshot = FindFirstObjectByType<HookshotController>();
     }
 
@@ -76,7 +75,6 @@ public class PlayerAttack : MonoBehaviour
 
     private IEnumerator PerformAttack()
     {
-        // ⭐ PERFECT HOOKSHOT CANCEL
         if (hookshot != null && hookshot.IsPulling)
             hookshot.CancelHookshot();
 
@@ -94,6 +92,17 @@ public class PlayerAttack : MonoBehaviour
     public Vector2 GetLastAttackDirection()
     {
         return lastAttackDirection;
+    }
+
+    // Only grant mana if damage was actually applied
+    public void TryDealDamage(Enemy enemy, Vector2 attackDirection)
+    {
+        bool didDamage = enemy.TakeDamage(1, attackDirection);
+
+        if (didDamage)
+        {
+            playerStats.GainManaFromHit();
+        }
     }
 
     private void TryBladeBeam()
