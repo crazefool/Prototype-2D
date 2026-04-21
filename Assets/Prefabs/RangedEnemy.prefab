@@ -149,7 +149,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   contactDamage: 1
-  knockbackStrength: 0.2
+  knockbackStrength: 1
   knockbackDuration: 0.1
   isInvulnerable: 0
 --- !u!114 &4806026721412417508
@@ -186,9 +186,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  detectionRange: 5
-  shootRange: 5
-  retreatRange: 4
+  detectionRange: 10
+  shootRange: 6
+  retreatRange: 5
   fireCooldown: 2
   projectilePrefab: {fileID: 1197598480320707866, guid: 236ef6085005a0c4eba2edcfb1092169, type: 3}
   projectileSpeed: 6

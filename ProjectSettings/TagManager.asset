@@ -17,9 +17,9 @@ TagManager:
   - Enemies
   - Hookshot
   - Player
-  - 
-  - 
-  - 
+  - Pit
+  - PitTrigger
+  - PitSolid
   - 
   - 
   - 

@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class RangedEnemyAI : BaseEnemyAI
 {
+    private bool isAggro = false;
+
     [Header("Ranged Settings")]
     [SerializeField] private float shootRange = 5f;
     [SerializeField] private float retreatRange = 2f;
@@ -16,28 +18,46 @@ public class RangedEnemyAI : BaseEnemyAI
 
     void Update()
     {
-        if (enemy.IsStunned) 
+        if (enemy.IsStunned)
             return;
 
         float dist = Vector2.Distance(transform.position, player.position);
 
+        // DETECTION / DE-AGGRO USING BaseEnemyAI.detectionRange
+        if (!isAggro)
+        {
+            if (dist <= detectionRange)
+                isAggro = true;
+            else
+                return; // not aggroed yet
+        }
+        else
+        {
+            if (dist > detectionRange * 1.3f) // small buffer
+            {
+                isAggro = false;
+                return;
+            }
+        }
+
+        // NORMAL RANGED ENEMY LOGIC
         fireTimer -= Time.deltaTime;
 
-        // 1️⃣ TOO FAR → MOVE CLOSER
+        // Too far → move closer
         if (dist > shootRange)
         {
             MoveTowardsPlayer();
             return;
         }
 
-        // 2️⃣ TOO CLOSE → RETREAT
+        // Too close → retreat
         if (dist < retreatRange)
         {
             MoveAwayFromPlayer();
             return;
         }
 
-        // 3️⃣ IN RANGE → SHOOT
+        // In range → shoot
         ShootAtPlayer();
     }
 
@@ -49,7 +69,7 @@ public class RangedEnemyAI : BaseEnemyAI
 
     private void ShootAtPlayer()
     {
-        if (fireTimer > 0f) 
+        if (fireTimer > 0f)
             return;
 
         fireTimer = fireCooldown;

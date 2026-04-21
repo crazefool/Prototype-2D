@@ -6,7 +6,9 @@ public class EnemyProjectile : MonoBehaviour
     private float speed;
     private float lifetime;
 
-    // Called by the ranged enemy when spawning the projectile
+    [Header("Knockback Settings")]
+    [SerializeField] private float knockbackStrength = 0.2f;
+
     public void Initialize(Vector2 dir, float spd, float life)
     {
         direction = dir.normalized;
@@ -16,10 +18,8 @@ public class EnemyProjectile : MonoBehaviour
 
     void Update()
     {
-        // Move the projectile
         transform.position += (Vector3)(direction * speed * Time.deltaTime);
 
-        // Lifetime countdown
         lifetime -= Time.deltaTime;
         if (lifetime <= 0f)
             Destroy(gameObject);
@@ -27,11 +27,16 @@ public class EnemyProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Damage player if hit
         PlayerStats ps = other.GetComponent<PlayerStats>();
         if (ps != null)
         {
+            // Damage
             ps.TakeDamage(1);
+
+            // Knockback (same style as Enemy.OnCollisionEnter2D)
+            Vector2 dir = (other.transform.position - transform.position).normalized;
+            other.transform.position += (Vector3)(dir * knockbackStrength);
+
             Destroy(gameObject);
             return;
         }
