@@ -13,7 +13,7 @@ TagManager:
   - UI
   - EnemyProjectil
   - EnemyBody
-  - Hookable
+  - Shell
   - Enemies
   - Hookshot
   - Player

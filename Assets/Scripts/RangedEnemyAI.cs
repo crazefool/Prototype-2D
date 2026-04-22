@@ -23,48 +23,50 @@ public class RangedEnemyAI : BaseEnemyAI
 
         float dist = Vector2.Distance(transform.position, player.position);
 
-        // DETECTION / DE-AGGRO USING BaseEnemyAI.detectionRange
         if (!isAggro)
         {
             if (dist <= detectionRange)
                 isAggro = true;
             else
-                return; // not aggroed yet
+                return;
         }
         else
         {
-            if (dist > detectionRange * 1.3f) // small buffer
+            if (dist > detectionRange * 1.3f)
             {
                 isAggro = false;
                 return;
             }
         }
 
-        // NORMAL RANGED ENEMY LOGIC
         fireTimer -= Time.deltaTime;
 
-        // Too far → move closer
         if (dist > shootRange)
         {
             MoveTowardsPlayer();
             return;
         }
 
-        // Too close → retreat
         if (dist < retreatRange)
         {
             MoveAwayFromPlayer();
             return;
         }
 
-        // In range → shoot
         ShootAtPlayer();
     }
 
     private void MoveAwayFromPlayer()
     {
+        if (enemy.IsStunned) return;
+
         Vector2 dir = (transform.position - player.position).normalized;
-        transform.position += (Vector3)(dir * moveSpeed * Time.deltaTime);
+        Vector2 targetPos = (Vector2)transform.position + dir * moveSpeed * Time.deltaTime;
+
+        if (IsBlockedByPit(targetPos))
+            return;
+
+        transform.position = targetPos;
     }
 
     private void ShootAtPlayer()

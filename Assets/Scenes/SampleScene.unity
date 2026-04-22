@@ -267,7 +267,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 858303745}
@@ -915,8 +915,8 @@ Transform:
   m_GameObject: {fileID: 858303742}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.8407, y: 0.07, z: 0}
-  m_LocalScale: {x: 3.299, y: 15, z: 1}
+  m_LocalPosition: {x: -5.9282, y: -0.8197, z: 0}
+  m_LocalScale: {x: 9.124369, y: 13.221, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 300507153}
@@ -1601,8 +1601,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de4a603f74431fb41b24099c7adaeb73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallDelay: 0.15
-  respawnOffset: 0.6
+  fallDelay: 1
+  safeRadiusFromPit: 0.4
+  pitTriggerMask:
+    serializedVersion: 2
+    m_Bits: 8192
 --- !u!1 &1589950453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1725,7 +1728,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1762,8 +1765,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1728219155}
   - component: {fileID: 1728219154}
-  - component: {fileID: 1728219153}
   - component: {fileID: 1728219152}
+  - component: {fileID: 1728219153}
   m_Layer: 0
   m_Name: Square (4)
   m_TagString: Untagged
@@ -1874,7 +1877,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

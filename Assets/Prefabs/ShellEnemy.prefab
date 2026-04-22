@@ -137,7 +137,7 @@ CircleCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 1
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -187,6 +187,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   detectionRange: 10
+  pitSolidMask:
+    serializedVersion: 2
+    m_Bits: 16384
   shellObject: {fileID: 1480831769963396782}
 --- !u!114 &427814739228866617
 MonoBehaviour:

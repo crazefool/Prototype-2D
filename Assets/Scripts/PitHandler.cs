@@ -5,7 +5,12 @@ public class PitHandler : MonoBehaviour
 {
     [Header("Fall Settings")]
     [SerializeField] private float fallDelay = 0.15f;
-    [SerializeField] private float respawnOffset = 0.6f;
+
+    [Tooltip("How far away from any pit the player must be for a position to be considered safe.")]
+    [SerializeField] private float safeRadiusFromPit = 0.4f;
+
+    [Header("Environment")]
+    [SerializeField] private LayerMask pitTriggerMask; // assign PitTrigger layer here
 
     private PlayerStats stats;
     private PlayerMovement movement;
@@ -13,11 +18,10 @@ public class PitHandler : MonoBehaviour
     private PlayerDash dash;
     private HookshotController hookshot;
 
-    private bool isOverPit = false;
     private bool isFalling = false;
 
     private Vector3 lastSafePosition;
-    private Vector2 lastMoveDir = Vector2.up; // default up if standing still
+    private Collider2D currentPitTrigger; // pit we fell into (for future use if needed)
 
     void Awake()
     {
@@ -32,42 +36,54 @@ public class PitHandler : MonoBehaviour
 
     void Update()
     {
-        // Track last movement direction (for safe respawn offset)
-        Vector2 input = movement.GetMovementInput();
-        if (input.sqrMagnitude > 0.01f)
-            lastMoveDir = input.normalized;
-
-        // Update last safe ground position
-        if (!isOverPit && !isFalling)
-            lastSafePosition = transform.position;
-
-        // If over pit and not falling and not being pulled → fall
-        if (isOverPit && !isFalling && !hookshot.IsPulling)
-            StartCoroutine(FallRoutine());
+        // Only update lastSafePosition when:
+        // - Not falling
+        // - Not being pulled by hookshot
+        // - Clearly not near any pit trigger
+        if (!isFalling && (hookshot == null || !hookshot.IsPulling))
+        {
+            bool nearPit = Physics2D.OverlapCircle(transform.position, safeRadiusFromPit, pitTriggerMask) != null;
+            if (!nearPit)
+            {
+                lastSafePosition = transform.position;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("PitTrigger"))
-            isOverPit = true;
+        {
+            TryStartFall(other);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("PitTrigger"))
-            isOverPit = true;
+        {
+            TryStartFall(other);
+        }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void TryStartFall(Collider2D pit)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("PitTrigger"))
-            isOverPit = false;
+        // Don't fall while being pulled by hookshot
+        if (hookshot != null && hookshot.IsPulling)
+            return;
+
+        if (isFalling)
+            return;
+
+        currentPitTrigger = pit;
+        StartCoroutine(FallRoutine());
     }
 
     private IEnumerator FallRoutine()
     {
         isFalling = true;
 
+        // Lock controls
         movement.SetCanMove(false);
         attack.SetCanAttack(false);
         dash.SetCanDash(false);
@@ -77,14 +93,24 @@ public class PitHandler : MonoBehaviour
         // Damage player
         stats.TakeDamage(1);
 
-        // Respawn slightly away from the pit, opposite of approach direction
-        Vector3 offset = -(Vector3)(lastMoveDir * respawnOffset);
-        transform.position = lastSafePosition + offset;
+        // TELEPORT to last safe position (no offset, no normal, guaranteed safe)
+        transform.position = lastSafePosition;
 
+        // Clear pit reference (not strictly needed, but clean)
+        currentPitTrigger = null;
+
+        // Unlock controls
         movement.SetCanMove(true);
         attack.SetCanAttack(true);
         dash.SetCanDash(true);
 
         isFalling = false;
+    }
+
+    // Kept for compatibility if you ever want to trigger a fall from dash explicitly
+    public void ForceFallFromDash()
+    {
+        if (!isFalling)
+            StartCoroutine(FallRoutine());
     }
 }

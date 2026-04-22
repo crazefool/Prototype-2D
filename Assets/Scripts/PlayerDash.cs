@@ -13,7 +13,6 @@ public class PlayerDash : MonoBehaviour
 
     private Rigidbody2D rb;
     private PlayerMovement movement;
-    private Vector2 dashDirection;
     private GhostTrail ghostTrail;
 
     void Awake()
@@ -40,8 +39,7 @@ public class PlayerDash : MonoBehaviour
             ghostTrail.StartTrail();
 
         Vector2 moveInput = movement.GetMovementInput();
-
-        dashDirection = moveInput != Vector2.zero ? moveInput : (Vector2)transform.right;
+        Vector2 dashDirection = moveInput != Vector2.zero ? moveInput : (Vector2)transform.right;
 
         float dashDuration = dashDistance / dashSpeed;
 
@@ -49,8 +47,7 @@ public class PlayerDash : MonoBehaviour
 
         yield return new WaitForSeconds(dashDuration);
 
-        // ⭐ FULL MOMENTUM RESET
-        rb.linearVelocity = Vector2.zero;
+        // Full momentum reset
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
         rb.Sleep();
@@ -70,6 +67,12 @@ public class PlayerDash : MonoBehaviour
         return isDashing;
     }
 
+    public void SetCanDash(bool value)
+    {
+        canDash = value;
+    }
+
+    // For SlashDash.cs compatibility
     public void ForceDash(Vector2 direction, float distance, float speed)
     {
         StartCoroutine(ForceDashRoutine(direction, distance, speed));
@@ -85,18 +88,11 @@ public class PlayerDash : MonoBehaviour
 
         yield return new WaitForSeconds(dashDuration);
 
-        // ⭐ FULL MOMENTUM RESET
-        rb.linearVelocity = Vector2.zero;
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
         rb.Sleep();
         rb.WakeUp();
 
         isDashing = false;
-    }
-
-    public void SetCanDash(bool value)
-    {
-        canDash = value;
     }
 }
