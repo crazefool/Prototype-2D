@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6085453796591420965}
   - component: {fileID: 4492356246566380443}
   - component: {fileID: 2584535651676169291}
+  - component: {fileID: -620737993779159692}
+  - component: {fileID: -5742055591768616952}
   m_Layer: 8
   m_Name: Shell
   m_TagString: Untagged
@@ -167,3 +169,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hookType: 2
   detachablePart: {fileID: 5733579995198942083}
+--- !u!114 &-620737993779159692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5733579995198942083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cd6d08c2d1c7b649bf7b20312e9800d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFlying: 0
+  destroyInstantly: 1
+  destroyDelay: 0.1
+--- !u!114 &-5742055591768616952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5733579995198942083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78538d1ea8eecc44cb2e36c55061e241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

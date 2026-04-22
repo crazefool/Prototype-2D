@@ -18,8 +18,10 @@ public class Enemy : MonoBehaviour
     private bool isKnockedBack = false;
     private bool isStunned = false;
 
-    // Shell enemies use this
     public bool isInvulnerable = false;
+
+    // ⭐ Used by hookshot + pit logic
+    public bool IsBeingPulled { get; set; } = false;
 
     public bool IsStunned => isStunned;
 
@@ -29,7 +31,6 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Now returns bool so callers know if damage was applied
     public bool TakeDamage(int amount, Vector2 knockbackDirection)
     {
         if (isInvulnerable)
@@ -40,9 +41,7 @@ public class Enemy : MonoBehaviour
         StartCoroutine(Knockback(knockbackDirection));
 
         if (currentHealth <= 0)
-        {
             Die();
-        }
 
         return true;
     }
@@ -78,7 +77,6 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Enemy cannot deal contact damage while stunned
         if (isStunned) return;
 
         if (collision.collider.CompareTag("Player"))

@@ -22,6 +22,7 @@ public class HookshotController : MonoBehaviour
     private int enemyLayer;
 
     private Enemy currentPulledEnemy = null;
+    private PullableObject currentPulledObject = null;
 
     private Coroutine pullRoutine = null;
 
@@ -77,7 +78,9 @@ public class HookshotController : MonoBehaviour
             return;
         }
 
-        currentPulledEnemy = target.GetComponent<Enemy>();
+        // ⭐ FIX: Always get components from parent (shells, enemies, objects)
+        currentPulledEnemy = target.GetComponentInParent<Enemy>();
+        currentPulledObject = target.GetComponentInParent<PullableObject>();
 
         switch (target.hookType)
         {
@@ -92,15 +95,12 @@ public class HookshotController : MonoBehaviour
             case HookshotTarget.HookType.BreakOff:
                 if (target.detachablePart != null)
                 {
-                    // Detach the shell
                     target.DetachPart();
 
-                    // Notify shell enemy
                     ShellEnemyAI shellAI = target.GetComponentInParent<ShellEnemyAI>();
                     if (shellAI != null)
                         shellAI.BreakShell();
 
-                    // ⭐ NEW: Pull the detached shell toward the player
                     pullRoutine = StartCoroutine(PullObject(target, hitPoint));
                 }
                 break;
@@ -123,7 +123,13 @@ public class HookshotController : MonoBehaviour
         dash.SetCanDash(false);
 
         if (currentPulledEnemy != null)
+        {
             currentPulledEnemy.Stun(1f);
+            currentPulledEnemy.IsBeingPulled = true;
+        }
+
+        if (currentPulledObject != null)
+            currentPulledObject.IsBeingPulled = true;
 
         while (IsPulling && Vector2.Distance(transform.position, point) > 0.7f)
         {
@@ -144,7 +150,13 @@ public class HookshotController : MonoBehaviour
         Transform obj = target.transform;
 
         if (currentPulledEnemy != null)
+        {
             currentPulledEnemy.Stun(1f);
+            currentPulledEnemy.IsBeingPulled = true;
+        }
+
+        if (currentPulledObject != null)
+            currentPulledObject.IsBeingPulled = true;
 
         while (IsPulling && obj != null && Vector2.Distance(obj.position, transform.position) > 0.7f)
         {
@@ -179,16 +191,22 @@ public class HookshotController : MonoBehaviour
 
         if (currentPulledEnemy != null)
         {
+            currentPulledEnemy.IsBeingPulled = false;
+
             Rigidbody2D er = currentPulledEnemy.GetComponent<Rigidbody2D>();
             if (er != null)
                 er.linearVelocity = Vector2.zero;
         }
+
+        if (currentPulledObject != null)
+            currentPulledObject.IsBeingPulled = false;
 
         if (activeHook != null)
             Destroy(activeHook.gameObject);
 
         activeHook = null;
         currentPulledEnemy = null;
+        currentPulledObject = null;
         line.enabled = false;
     }
 }

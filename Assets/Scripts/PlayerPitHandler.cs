@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PitHandler : MonoBehaviour
+public class PlayerPitHandler : MonoBehaviour
 {
     [Header("Fall Settings")]
     [SerializeField] private float fallDelay = 0.15f;
@@ -21,7 +21,7 @@ public class PitHandler : MonoBehaviour
     private bool isFalling = false;
 
     private Vector3 lastSafePosition;
-    private Collider2D currentPitTrigger; // pit we fell into (for future use if needed)
+    private Collider2D currentPitTrigger;
 
     void Awake()
     {
@@ -68,7 +68,6 @@ public class PitHandler : MonoBehaviour
 
     private void TryStartFall(Collider2D pit)
     {
-        // Don't fall while being pulled by hookshot
         if (hookshot != null && hookshot.IsPulling)
             return;
 
@@ -83,23 +82,19 @@ public class PitHandler : MonoBehaviour
     {
         isFalling = true;
 
-        // Lock controls
         movement.SetCanMove(false);
         attack.SetCanAttack(false);
         dash.SetCanDash(false);
 
         yield return new WaitForSeconds(fallDelay);
 
-        // Damage player
         stats.TakeDamage(1);
 
-        // TELEPORT to last safe position (no offset, no normal, guaranteed safe)
+        // TELEPORT to last safe position
         transform.position = lastSafePosition;
 
-        // Clear pit reference (not strictly needed, but clean)
         currentPitTrigger = null;
 
-        // Unlock controls
         movement.SetCanMove(true);
         attack.SetCanAttack(true);
         dash.SetCanDash(true);
@@ -107,7 +102,6 @@ public class PitHandler : MonoBehaviour
         isFalling = false;
     }
 
-    // Kept for compatibility if you ever want to trigger a fall from dash explicitly
     public void ForceFallFromDash()
     {
         if (!isFalling)

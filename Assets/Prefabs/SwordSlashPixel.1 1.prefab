@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2748921905680416872}
   - component: {fileID: 8753752458147822486}
   - component: {fileID: 2352064195264458192}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: SwordSlashPixel.1 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,5 +164,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 0.15
-  damage: 1
   hitStopDuration: 0.01

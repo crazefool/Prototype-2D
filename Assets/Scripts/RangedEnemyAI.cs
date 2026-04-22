@@ -58,12 +58,14 @@ public class RangedEnemyAI : BaseEnemyAI
 
     private void MoveAwayFromPlayer()
     {
-        if (enemy.IsStunned) return;
+        if (enemy.IsStunned) 
+            return;
 
         Vector2 dir = (transform.position - player.position).normalized;
         Vector2 targetPos = (Vector2)transform.position + dir * moveSpeed * Time.deltaTime;
 
-        if (IsBlockedByPit(targetPos))
+        // Use the new pit avoidance check from BaseEnemyAI
+        if (IsNearPit(targetPos))
             return;
 
         transform.position = targetPos;

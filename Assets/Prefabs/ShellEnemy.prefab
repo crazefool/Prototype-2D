@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7914295711539209596}
   - component: {fileID: 1282289281467867142}
   - component: {fileID: 427814739228866617}
+  - component: {fileID: 8187080543506323032}
   m_Layer: 9
   m_Name: ShellEnemy
   m_TagString: Untagged
@@ -187,9 +188,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   detectionRange: 10
-  pitSolidMask:
+  pitTriggerMask:
     serializedVersion: 2
-    m_Bits: 16384
+    m_Bits: 8192
+  pitAvoidRadius: 1
   shellObject: {fileID: 1480831769963396782}
 --- !u!114 &427814739228866617
 MonoBehaviour:
@@ -203,8 +205,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc8f0dfb7e936d4fb7647bada3a6ba4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hookType: 0
+  hookType: 1
   detachablePart: {fileID: 0}
+--- !u!114 &8187080543506323032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7277454820184256913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cd6d08c2d1c7b649bf7b20312e9800d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFlying: 0
+  destroyInstantly: 1
+  destroyDelay: 0.1
 --- !u!1001 &6565469830891803949
 PrefabInstance:
   m_ObjectHideFlags: 0
