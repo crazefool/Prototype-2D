@@ -19,15 +19,21 @@ public class AttackHitbox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Enemy enemy = collision.GetComponent<Enemy>();
+        Vector2 attackDir = player.GetLastAttackDirection();
 
-        if (enemy != null && player != null)
+        // ⭐ 1. Punchable objects
+        PunchableObject punchable = collision.GetComponent<PunchableObject>();
+        if (punchable != null)
         {
-            Vector2 attackDir = player.GetLastAttackDirection();
+            punchable.Punch(attackDir);
+            return;
+        }
 
-            // Only grants mana if damage was actually applied
+        // ⭐ 2. Enemies
+        Enemy enemy = collision.GetComponent<Enemy>();
+        if (enemy != null)
+        {
             player.TryDealDamage(enemy, attackDir);
-
             player.ApplyHitPushback(attackDir);
             player.StartCoroutine(player.HitStop(hitStopDuration));
         }

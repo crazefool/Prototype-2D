@@ -94,15 +94,12 @@ public class PlayerAttack : MonoBehaviour
         return lastAttackDirection;
     }
 
-    // Only grant mana if damage was actually applied
     public void TryDealDamage(Enemy enemy, Vector2 attackDirection)
     {
         bool didDamage = enemy.TakeDamage(1, attackDirection);
 
         if (didDamage)
-        {
             playerStats.GainManaFromHit();
-        }
     }
 
     private void TryBladeBeam()

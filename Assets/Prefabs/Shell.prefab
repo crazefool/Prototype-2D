@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2584535651676169291}
   - component: {fileID: -620737993779159692}
   - component: {fileID: -5742055591768616952}
+  - component: {fileID: 6337864775238427823}
   m_Layer: 8
   m_Name: Shell
   m_TagString: Untagged
@@ -153,8 +154,8 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!114 &2584535651676169291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,3 +197,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78538d1ea8eecc44cb2e36c55061e241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6337864775238427823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5733579995198942083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ecdd392e40c72c4eb07482ca2163ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  punchSpeed: 30
+  maxTravelDistance: 10
+  damageOnHit: 1

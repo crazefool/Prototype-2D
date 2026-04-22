@@ -12,12 +12,12 @@ TagManager:
   - Water
   - UI
   - EnemyProjectil
-  - EnemyBody
-  - Shell
-  - Enemies
+  - 
+  - Object
+  - Enemy
   - Hookshot
   - Player
-  - Pit
+  - 
   - PitTrigger
   - PitSolid
   - Sword

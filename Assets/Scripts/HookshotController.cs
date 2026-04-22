@@ -34,7 +34,13 @@ public class HookshotController : MonoBehaviour
         stats = GetComponent<PlayerStats>();
 
         playerLayer = LayerMask.NameToLayer("Player");
-        enemyLayer = LayerMask.NameToLayer("Enemies");
+        enemyLayer = LayerMask.NameToLayer("Enemy");   // ⭐ FIXED
+
+        // ⭐ SAFETY CHECK
+        if (playerLayer == -1 || enemyLayer == -1)
+        {
+            Debug.LogError("ERROR: Missing 'Player' or 'Enemy' layer in Project Settings → Tags and Layers.");
+        }
 
         line = gameObject.AddComponent<LineRenderer>();
         line.positionCount = 2;
@@ -78,7 +84,6 @@ public class HookshotController : MonoBehaviour
             return;
         }
 
-        // ⭐ FIX: Always get components from parent (shells, enemies, objects)
         currentPulledEnemy = target.GetComponentInParent<Enemy>();
         currentPulledObject = target.GetComponentInParent<PullableObject>();
 
@@ -116,7 +121,9 @@ public class HookshotController : MonoBehaviour
     {
         IsPulling = true;
 
-        Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
+        if (playerLayer >= 0 && enemyLayer >= 0)
+            Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
+
         stats.SetInvincible(true);
 
         movement.SetCanMove(false);
@@ -144,7 +151,9 @@ public class HookshotController : MonoBehaviour
     {
         IsPulling = true;
 
-        Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
+        if (playerLayer >= 0 && enemyLayer >= 0)
+            Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
+
         stats.SetInvincible(true);
 
         Transform obj = target.transform;
@@ -182,7 +191,9 @@ public class HookshotController : MonoBehaviour
     {
         IsPulling = false;
 
-        Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, false);
+        if (playerLayer >= 0 && enemyLayer >= 0)
+            Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, false);
+
         stats.SetInvincible(false);
 
         movement.SetCanMove(true);
