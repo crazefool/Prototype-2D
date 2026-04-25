@@ -34,13 +34,10 @@ public class HookshotController : MonoBehaviour
         stats = GetComponent<PlayerStats>();
 
         playerLayer = LayerMask.NameToLayer("Player");
-        enemyLayer = LayerMask.NameToLayer("Enemy");   // ⭐ FIXED
+        enemyLayer = LayerMask.NameToLayer("Enemy");
 
-        // ⭐ SAFETY CHECK
         if (playerLayer == -1 || enemyLayer == -1)
-        {
             Debug.LogError("ERROR: Missing 'Player' or 'Enemy' layer in Project Settings → Tags and Layers.");
-        }
 
         line = gameObject.AddComponent<LineRenderer>();
         line.positionCount = 2;
@@ -57,9 +54,43 @@ public class HookshotController : MonoBehaviour
         if (Input.GetMouseButtonDown(1) && !IsPulling && activeHook == null)
             FireHook();
 
-        if (activeHook != null)
+        UpdateRopePositions();
+    }
+
+    private void UpdateRopePositions()
+    {
+        if (!line.enabled)
+            return;
+
+        // Rope start = player
+        line.SetPosition(0, transform.position);
+
+        // Rope end depends on state
+        if (IsPulling)
         {
-            line.SetPosition(0, transform.position);
+            if (currentPulledEnemy != null)
+            {
+                HookshotTarget ht = currentPulledEnemy.GetComponent<HookshotTarget>();
+                if (ht != null && ht.attachPoint != null)
+                    line.SetPosition(1, ht.attachPoint.position);
+                else
+                    line.SetPosition(1, currentPulledEnemy.transform.position);
+            }
+            else if (currentPulledObject != null)
+            {
+                HookshotTarget ht = currentPulledObject.GetComponent<HookshotTarget>();
+                if (ht != null && ht.attachPoint != null)
+                    line.SetPosition(1, ht.attachPoint.position);
+                else
+                    line.SetPosition(1, currentPulledObject.transform.position);
+            }
+            else
+            {
+                line.SetPosition(1, transform.position);
+            }
+        }
+        else if (activeHook != null)
+        {
             line.SetPosition(1, activeHook.transform.position);
         }
     }
@@ -106,6 +137,7 @@ public class HookshotController : MonoBehaviour
                     if (shellAI != null)
                         shellAI.BreakShell();
 
+                    // still use PullObject, but it will now prefer detachablePart
                     pullRoutine = StartCoroutine(PullObject(target, hitPoint));
                 }
                 break;
@@ -156,7 +188,18 @@ public class HookshotController : MonoBehaviour
 
         stats.SetInvincible(true);
 
-        Transform obj = target.transform;
+        // ⭐ NEW: if this target has a detachablePart (like the shell), pull THAT instead of the enemy
+        Transform obj;
+
+        if (target.hookType == HookshotTarget.HookType.BreakOff && target.detachablePart != null)
+        {
+            obj = target.detachablePart.transform;
+        }
+        else
+        {
+            // keep existing behavior for normal PullObject targets
+            obj = target.attachPoint != null ? target.attachPoint : target.transform;
+        }
 
         if (currentPulledEnemy != null)
         {

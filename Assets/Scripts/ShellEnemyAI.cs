@@ -9,6 +9,7 @@ public class ShellEnemyAI : BaseEnemyAI
 
     private Rigidbody2D shellRB;
     private Collider2D shellCol;
+    private PunchableObject punchable;
 
     protected override void Awake()
     {
@@ -21,10 +22,9 @@ public class ShellEnemyAI : BaseEnemyAI
         {
             shellRB = shellObject.GetComponent<Rigidbody2D>();
             shellCol = shellObject.GetComponent<Collider2D>();
+            punchable = shellObject.GetComponent<PunchableObject>();
 
             // ⭐ SHELL ATTACHED STATE
-            // Shell should NOT collide with player or enemies
-            // Shell should NOT be pushed by physics
             if (shellRB != null)
             {
                 shellRB.bodyType = RigidbodyType2D.Kinematic;
@@ -33,9 +33,13 @@ public class ShellEnemyAI : BaseEnemyAI
 
             if (shellCol != null)
             {
-                shellCol.isTrigger = true; // hookshot can still detect it
+                shellCol.isTrigger = true;
                 shellCol.enabled = true;
             }
+
+            // ⭐ NEW: Mark shell as attached so it cannot be punched
+            if (punchable != null)
+                punchable.IsAttached = true;
         }
     }
 
@@ -63,9 +67,13 @@ public class ShellEnemyAI : BaseEnemyAI
 
         if (shellCol != null)
         {
-            shellCol.isTrigger = false; // now it becomes a real physics object
+            shellCol.isTrigger = false;
             shellCol.enabled = true;
         }
+
+        // ⭐ NEW: Shell is now punchable
+        if (punchable != null)
+            punchable.IsAttached = false;
     }
 
     void Update()

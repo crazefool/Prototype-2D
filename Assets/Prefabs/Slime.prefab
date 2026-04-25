@@ -61,7 +61,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,8 +82,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.19707787, g: 0.7798742, b: 0.1741228, a: 1}
+  m_Sprite: {fileID: -3782058945996672413, guid: 2279ee704bbc558488c1426e22305848, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -154,8 +154,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Offset: {x: 0, y: 0.8}
+  m_Radius: 0.8
 --- !u!114 &1386605827379663389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,6 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   detectionRange: 10
+  isFlying: 0
   pitTriggerMask:
     serializedVersion: 2
     m_Bits: 8192
@@ -188,7 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   contactDamage: 1
-  knockbackStrength: 1
+  knockbackStrength: 2
   knockbackDuration: 0.1
   isInvulnerable: 0
 --- !u!114 &2029713347232844815

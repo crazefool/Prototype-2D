@@ -82,8 +82,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.97684145, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: 1628878267869530483, guid: 028029d664d5f364e9227a4c6a5f4460, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -154,8 +154,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: 0, y: 1.55}
+  m_Size: {x: 1.85, y: 2.6}
   m_Direction: 0
 --- !u!114 &2994506229981221246
 MonoBehaviour:
@@ -188,15 +188,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   detectionRange: 10
+  isFlying: 0
   pitTriggerMask:
     serializedVersion: 2
     m_Bits: 8192
   pitAvoidRadius: 1
   shootRange: 6
   retreatRange: 5
-  fireCooldown: 2
+  fireCooldown: 1
   projectilePrefab: {fileID: 1197598480320707866, guid: 236ef6085005a0c4eba2edcfb1092169, type: 3}
-  projectileSpeed: 6
+  projectileSpeed: 5
   projectileLifetime: 3
 --- !u!114 &3133683237007671869
 MonoBehaviour:

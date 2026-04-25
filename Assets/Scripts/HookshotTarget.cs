@@ -7,18 +7,18 @@ public class HookshotTarget : MonoBehaviour
 
     public GameObject detachablePart;
 
+    // ⭐ NEW: Visual rope attach point
+    public Transform attachPoint;
+
     public void DetachPart()
     {
-        // ⭐ FIX: Notify the shell enemy BEFORE detaching the shell
         ShellEnemyAI shellAI = GetComponentInParent<ShellEnemyAI>();
         if (shellAI != null)
             shellAI.BreakShell();
 
-        // Now detach the shell safely
         if (detachablePart != null)
         {
             detachablePart.transform.SetParent(null);
-            // Optional: add force or animation
         }
     }
 

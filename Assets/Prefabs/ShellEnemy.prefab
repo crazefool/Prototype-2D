@@ -82,8 +82,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: -8704034665231773670, guid: 40910713460d4d74c95d5d9db274ce91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -188,6 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   detectionRange: 10
+  isFlying: 0
   pitTriggerMask:
     serializedVersion: 2
     m_Bits: 8192
@@ -207,6 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hookType: 1
   detachablePart: {fileID: 0}
+  attachPoint: {fileID: 0}
 --- !u!114 &8187080543506323032
 MonoBehaviour:
   m_ObjectHideFlags: 0

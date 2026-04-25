@@ -24,7 +24,7 @@ public class SlashDash : MonoBehaviour
         playerDash = FindFirstObjectByType<PlayerDash>();
 
         playerLayer = LayerMask.NameToLayer("Player");
-        enemyLayer = LayerMask.NameToLayer("Enemies");
+        enemyLayer = LayerMask.NameToLayer("Enemy");
 
         // ⭐ Disable collisions between player and enemies during dash
         Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);

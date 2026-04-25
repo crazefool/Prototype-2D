@@ -9,9 +9,15 @@ public class BaseEnemyAI : MonoBehaviour
     [SerializeField] protected float moveSpeed = 2f;
     [SerializeField] protected float detectionRange = 5f;
 
+    [Header("Movement Type")]
+    [SerializeField] protected bool isFlying = false;   // Flying toggle
+
+    // ⭐ NEW: Safe public read-only access for other scripts
+    public bool IsFlying => isFlying;
+
     [Header("Environment")]
-    [SerializeField] private LayerMask pitTriggerMask;   // Assign PitTrigger layer
-    [SerializeField] private float pitAvoidRadius = 0.45f; // ⭐ NEW: safer radius
+    [SerializeField] private LayerMask pitTriggerMask;
+    [SerializeField] private float pitAvoidRadius = 0.45f;
 
     protected virtual void Awake()
     {
@@ -26,20 +32,19 @@ public class BaseEnemyAI : MonoBehaviour
 
     protected void MoveTowardsPlayer()
     {
-        if (enemy.IsStunned) 
+        if (enemy.IsStunned)
             return;
 
         Vector2 dir = (player.position - transform.position).normalized;
         Vector2 targetPos = (Vector2)transform.position + dir * moveSpeed * Time.deltaTime;
 
-        // ⭐ NEW: Avoid pits BEFORE stepping into the trigger
-        if (IsNearPit(targetPos))
+        // ⭐ Ground enemies avoid pits, flying enemies ignore them
+        if (!isFlying && IsNearPit(targetPos))
             return;
 
         transform.position = targetPos;
     }
 
-    // ⭐ NEW: Enemy avoids pits using a larger radius
     protected bool IsNearPit(Vector2 targetPos)
     {
         return Physics2D.OverlapCircle(targetPos, pitAvoidRadius, pitTriggerMask) != null;

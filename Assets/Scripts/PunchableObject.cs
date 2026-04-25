@@ -13,6 +13,9 @@ public class PunchableObject : MonoBehaviour
     private Vector2 startPosition;
     private bool isMoving = false;
 
+    // ⭐ NEW: Prevent punching while attached to an enemy
+    public bool IsAttached = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -25,6 +28,10 @@ public class PunchableObject : MonoBehaviour
     /// </summary>
     public void Punch(Vector2 direction)
     {
+        // ⭐ Ignore punches while attached to an enemy
+        if (IsAttached)
+            return;
+
         if (isMoving)
             return;
 

@@ -3,17 +3,19 @@ using UnityEngine;
 public class PitFallHandler : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private bool isFlying = false;
+    [SerializeField] private bool isFlying = false; // manual override if needed
     [SerializeField] private bool destroyInstantly = true;
     [SerializeField] private float destroyDelay = 0.1f;
 
     private Enemy enemy;
     private PullableObject pullable;
+    private BaseEnemyAI ai;
 
     void Awake()
     {
         enemy = GetComponent<Enemy>();
         pullable = GetComponent<PullableObject>();
+        ai = GetComponent<BaseEnemyAI>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -34,6 +36,11 @@ public class PitFallHandler : MonoBehaviour
 
     private void TryFallIntoPit()
     {
+        // ⭐ NEW: Flying enemies ignore pits
+        if (ai != null && ai.IsFlying)
+            return;
+
+        // ⭐ OLD: manual override still works
         if (isFlying)
             return;
 

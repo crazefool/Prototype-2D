@@ -40,15 +40,15 @@ public class HookshotProjectile : MonoBehaviour
 
         hasHit = true;
 
-        // ⭐ If controller was destroyed or missing, just destroy projectile
         if (controller == null)
         {
             Destroy(gameObject);
             return;
         }
 
-        // ⭐ Try to get a hookshot target
-        HookshotTarget target = col.GetComponent<HookshotTarget>();
+        // ⭐ Always go to the root of what we hit, then search all children
+        Transform root = col.transform.root;
+        HookshotTarget target = root.GetComponentInChildren<HookshotTarget>();
 
         if (target != null)
         {
@@ -56,7 +56,6 @@ public class HookshotProjectile : MonoBehaviour
         }
         else
         {
-            // ⭐ Hit something that is NOT hookable → reset hook
             controller.ResetHook();
         }
 
