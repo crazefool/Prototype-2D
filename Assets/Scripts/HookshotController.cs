@@ -62,10 +62,8 @@ public class HookshotController : MonoBehaviour
         if (!line.enabled)
             return;
 
-        // Rope start = player
         line.SetPosition(0, transform.position);
 
-        // Rope end depends on state
         if (IsPulling)
         {
             if (currentPulledEnemy != null)
@@ -137,7 +135,6 @@ public class HookshotController : MonoBehaviour
                     if (shellAI != null)
                         shellAI.BreakShell();
 
-                    // still use PullObject, but it will now prefer detachablePart
                     pullRoutine = StartCoroutine(PullObject(target, hitPoint));
                 }
                 break;
@@ -188,17 +185,23 @@ public class HookshotController : MonoBehaviour
 
         stats.SetInvincible(true);
 
-        // ⭐ NEW: if this target has a detachablePart (like the shell), pull THAT instead of the enemy
         Transform obj;
 
-        if (target.hookType == HookshotTarget.HookType.BreakOff && target.detachablePart != null)
+        // ⭐ NEW LOGIC:
+        // Pull the shell ONLY while the enemy is invulnerable (shell still attached)
+        ShellEnemyAI shellAI = target.GetComponentInParent<ShellEnemyAI>();
+        Enemy enemy = target.GetComponentInParent<Enemy>();
+
+        if (target.hookType == HookshotTarget.HookType.BreakOff &&
+            target.detachablePart != null &&
+            enemy != null &&
+            enemy.isInvulnerable)
         {
-            obj = target.detachablePart.transform;
+            obj = target.detachablePart.transform;   // pull shell
         }
         else
         {
-            // keep existing behavior for normal PullObject targets
-            obj = target.attachPoint != null ? target.attachPoint : target.transform;
+            obj = target.attachPoint != null ? target.attachPoint : target.transform; // pull enemy or object
         }
 
         if (currentPulledEnemy != null)

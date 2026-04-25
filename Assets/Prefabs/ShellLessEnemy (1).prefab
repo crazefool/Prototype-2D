@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b923de824419b0047b4727b2c48cf393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 3
   detectionRange: 10
   isFlying: 0
   pitTriggerMask:
