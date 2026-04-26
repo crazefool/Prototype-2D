@@ -46,9 +46,12 @@ public class HookshotProjectile : MonoBehaviour
             return;
         }
 
-        // ⭐ Always go to the root of what we hit, then search all children
-        Transform root = col.transform.root;
-        HookshotTarget target = root.GetComponentInChildren<HookshotTarget>();
+        // ⭐ NEW: Try to get the HookshotTarget on the collider we actually hit
+        HookshotTarget target = col.GetComponent<HookshotTarget>();
+
+        // ⭐ If not on the collider, check its parents (enemy root, shell root, etc.)
+        if (target == null)
+            target = col.GetComponentInParent<HookshotTarget>();
 
         if (target != null)
         {
