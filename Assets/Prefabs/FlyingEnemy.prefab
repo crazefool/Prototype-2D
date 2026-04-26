@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2103657847698731886}
   - component: {fileID: 2029713347232844815}
   - component: {fileID: 392453425403401337}
+  - component: {fileID: -1301977862853509500}
   m_Layer: 9
   m_Name: FlyingEnemy
   m_TagString: Untagged
@@ -63,7 +64,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 5a54367b635f25346a032ba385221471, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -280,6 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hookType: 1
   detachablePart: {fileID: 0}
+  attachPoint: {fileID: 0}
 --- !u!114 &392453425403401337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,3 +297,17 @@ MonoBehaviour:
   isFlying: 0
   destroyInstantly: 1
   destroyDelay: 0.1
+--- !u!114 &-1301977862853509500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4303327838990949414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2029108f2a9d6e47b6d941a2139561d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashDuration: 0.1
+  flashMaterial: {fileID: 0}

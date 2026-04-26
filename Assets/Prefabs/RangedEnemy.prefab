@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4806026721412417508}
   - component: {fileID: 3133683237007671869}
   - component: {fileID: 279267120568674153}
+  - component: {fileID: 2061614405168287967}
   m_Layer: 9
   m_Name: RangedEnemy
   m_TagString: Untagged
@@ -61,7 +62,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 5a54367b635f25346a032ba385221471, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,7 +82,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 1628878267869530483, guid: 028029d664d5f364e9227a4c6a5f4460, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -197,8 +198,10 @@ MonoBehaviour:
   retreatRange: 5
   fireCooldown: 1
   projectilePrefab: {fileID: 1197598480320707866, guid: 236ef6085005a0c4eba2edcfb1092169, type: 3}
-  projectileSpeed: 5
+  projectileSpeed: 7
   projectileLifetime: 3
+  anticipationTime: 0.25
+  anticipationColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &3133683237007671869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,6 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hookType: 0
   detachablePart: {fileID: 0}
+  attachPoint: {fileID: 0}
 --- !u!114 &279267120568674153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,3 +232,17 @@ MonoBehaviour:
   isFlying: 0
   destroyInstantly: 1
   destroyDelay: 0.1
+--- !u!114 &2061614405168287967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2935766869046868258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2029108f2a9d6e47b6d941a2139561d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashDuration: 0.1
+  flashIntensity: 4

@@ -29,10 +29,16 @@ public class PlayerStats : MonoBehaviour
 
     public bool IsInvincible => isInvincible;
 
+    // ⭐ NEW: Hit flash
+    private HitFlash hitFlash;
+
     void Awake()
     {
         CurrentHealth = maxHealth;
         CurrentMana = 0;
+
+        // ⭐ Get HitFlash if present
+        hitFlash = GetComponent<HitFlash>();
     }
 
     // ---------------- HEALTH ----------------
@@ -41,6 +47,10 @@ public class PlayerStats : MonoBehaviour
     {
         if (isInvincible)
             return;
+
+        // ⭐ HIT FLASH
+        if (hitFlash != null)
+            hitFlash.Flash();
 
         InterruptHeal();
 

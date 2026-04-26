@@ -1,8 +1,10 @@
 using UnityEngine;
+using System.Collections;
 
 public class RangedEnemyAI : BaseEnemyAI
 {
     private bool isAggro = false;
+    private bool isShooting = false;
 
     [Header("Ranged Settings")]
     [SerializeField] private float shootRange = 5f;
@@ -14,7 +16,20 @@ public class RangedEnemyAI : BaseEnemyAI
     [SerializeField] private float projectileSpeed = 6f;
     [SerializeField] private float projectileLifetime = 2f;
 
+    [Header("Anticipation Settings")]
+    [SerializeField] private float anticipationTime = 0.25f;
+    [SerializeField] private Color anticipationColor = Color.red;
+
     private float fireTimer = 0f;
+    private SpriteRenderer sr;
+    private Color originalColor;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        sr = GetComponent<SpriteRenderer>();
+        originalColor = sr.color;
+    }
 
     void Update()
     {
@@ -23,6 +38,7 @@ public class RangedEnemyAI : BaseEnemyAI
 
         float dist = Vector2.Distance(transform.position, player.position);
 
+        // --- AGGRO LOGIC ---
         if (!isAggro)
         {
             if (dist <= detectionRange)
@@ -39,8 +55,13 @@ public class RangedEnemyAI : BaseEnemyAI
             }
         }
 
+        // --- SHOOTING STATE ---
+        if (isShooting)
+            return; // Enemy is locked in place during anticipation + shooting
+
         fireTimer -= Time.deltaTime;
 
+        // --- MOVEMENT LOGIC ---
         if (dist > shootRange)
         {
             MoveTowardsPlayer();
@@ -53,36 +74,43 @@ public class RangedEnemyAI : BaseEnemyAI
             return;
         }
 
-        ShootAtPlayer();
+        // --- READY TO SHOOT ---
+        if (fireTimer <= 0f)
+            StartCoroutine(ShootRoutine());
+    }
+
+    private IEnumerator ShootRoutine()
+    {
+        isShooting = true;
+        fireTimer = fireCooldown;
+
+        // --- ANTICIPATION FLASH ---
+        sr.color = anticipationColor;
+        yield return new WaitForSeconds(anticipationTime);
+        sr.color = originalColor;
+
+        // --- SHOOT ---
+        Vector2 dir = (player.position - transform.position).normalized;
+
+        GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        EnemyProjectile p = proj.GetComponent<EnemyProjectile>();
+        p.Initialize(dir, projectileSpeed, projectileLifetime);
+
+        // --- RESUME KITING ---
+        isShooting = false;
     }
 
     private void MoveAwayFromPlayer()
     {
-        if (enemy.IsStunned) 
+        if (enemy.IsStunned)
             return;
 
         Vector2 dir = (transform.position - player.position).normalized;
         Vector2 targetPos = (Vector2)transform.position + dir * moveSpeed * Time.deltaTime;
 
-        // Use the new pit avoidance check from BaseEnemyAI
         if (IsNearPit(targetPos))
             return;
 
         transform.position = targetPos;
-    }
-
-    private void ShootAtPlayer()
-    {
-        if (fireTimer > 0f)
-            return;
-
-        fireTimer = fireCooldown;
-
-        Vector2 dir = (player.position - transform.position).normalized;
-
-        GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-
-        EnemyProjectile p = proj.GetComponent<EnemyProjectile>();
-        p.Initialize(dir, projectileSpeed, projectileLifetime);
     }
 }

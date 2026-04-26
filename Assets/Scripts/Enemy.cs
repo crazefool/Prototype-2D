@@ -25,16 +25,26 @@ public class Enemy : MonoBehaviour
 
     public bool IsStunned => isStunned;
 
+    // ⭐ NEW: Hit flash
+    private HitFlash hitFlash;
+
     void Awake()
     {
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody2D>();
+
+        // ⭐ Get HitFlash if present
+        hitFlash = GetComponent<HitFlash>();
     }
 
     public bool TakeDamage(int amount, Vector2 knockbackDirection)
     {
         if (isInvulnerable)
             return false;
+
+        // ⭐ HIT FLASH
+        if (hitFlash != null)
+            hitFlash.Flash();
 
         currentHealth -= amount;
 
