@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: -1740051990799555616, guid: f357671c65761554aabf0403e4204d35, type: 3}
     - target: {fileID: 3626916397498700004, guid: 40910713460d4d74c95d5d9db274ce91, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 40910713460d4d74c95d5d9db274ce91, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -30,11 +30,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5a54367b635f25346a032ba385221471, type: 2}
     - target: {fileID: 7878350319992209165, guid: 40910713460d4d74c95d5d9db274ce91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.832354
+      value: 12.837997
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 40910713460d4d74c95d5d9db274ce91, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.630872
+      value: 14.27709
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 40910713460d4d74c95d5d9db274ce91, type: 3}
       propertyPath: m_LocalPosition.z
@@ -163,8 +163,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.08, y: 1.3}
-  m_Radius: 0.65
+  m_Offset: {x: -0.49, y: 1.46}
+  m_Radius: 1
 --- !u!114 &8027754170190825714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashDuration: 0.1
-  flashIntensity: 10
+  flashIntensity: 4
 --- !u!4 &811264745361802308 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 40910713460d4d74c95d5d9db274ce91, type: 3}

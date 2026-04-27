@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 2351835332531478152}
   - component: {fileID: 7796453581989539712}
   - component: {fileID: 970562940731329251}
+  - component: {fileID: 4441138688145742269}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -86,8 +87,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -2413806693520163455, guid: 0778a51fdddb236498b4e0014e812169, type: 3}
+  m_Color: {r: 0.7101841, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -277,6 +278,20 @@ MonoBehaviour:
   pitTriggerMask:
     serializedVersion: 2
     m_Bits: 8192
+--- !u!114 &4441138688145742269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142610176031782833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2029108f2a9d6e47b6d941a2139561d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashDuration: 0.1
+  flashIntensity: 4
 --- !u!1 &5346035322121824996
 GameObject:
   m_ObjectHideFlags: 0

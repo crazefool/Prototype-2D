@@ -45,6 +45,22 @@ public class BaseEnemyAI : MonoBehaviour
         transform.position = targetPos;
     }
 
+    // ⭐ NEW: Shared retreat logic for ranged + dasher enemies
+    protected void MoveAwayFromPlayer()
+    {
+        if (enemy.IsStunned)
+            return;
+
+        Vector2 dir = (transform.position - player.position).normalized;
+        Vector2 targetPos = (Vector2)transform.position + dir * moveSpeed * Time.deltaTime;
+
+        // ⭐ Ground enemies avoid pits, flying enemies ignore them
+        if (!isFlying && IsNearPit(targetPos))
+            return;
+
+        transform.position = targetPos;
+    }
+
     protected bool IsNearPit(Vector2 targetPos)
     {
         return Physics2D.OverlapCircle(targetPos, pitAvoidRadius, pitTriggerMask) != null;
