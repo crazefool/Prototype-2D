@@ -5,30 +5,23 @@ public class HitFlash : MonoBehaviour
 {
     [Header("Flash Settings")]
     [SerializeField] private float flashDuration = 0.1f;
-    [SerializeField] private float flashIntensity = 4f;
+    [SerializeField] private float flashIntensity = 4f; // Higher = whiter silhouette
 
-    private SpriteRenderer[] renderers;
-    private MaterialPropertyBlock[] blocks;
-    private Color[] originalColors;
+    private SpriteRenderer sr;
+    private MaterialPropertyBlock block;
+    private Color originalColor;
     private Coroutine flashRoutine;
 
     void Awake()
     {
-        renderers = GetComponentsInChildren<SpriteRenderer>();
+        sr = GetComponent<SpriteRenderer>();
+        if (sr == null)
+            sr = GetComponentInChildren<SpriteRenderer>();
 
-        blocks = new MaterialPropertyBlock[renderers.Length];
-        originalColors = new Color[renderers.Length];
+        block = new MaterialPropertyBlock();
+        sr.GetPropertyBlock(block);
 
-        for (int i = 0; i < renderers.Length; i++)
-        {
-            blocks[i] = new MaterialPropertyBlock();
-            renderers[i].GetPropertyBlock(blocks[i]);
-
-            // Force unique material instance
-            renderers[i].material = new Material(renderers[i].material);
-
-            originalColors[i] = renderers[i].color;
-        }
+        originalColor = sr.color;
     }
 
     public void Flash()
@@ -41,18 +34,14 @@ public class HitFlash : MonoBehaviour
 
     private IEnumerator FlashRoutine()
     {
-        for (int i = 0; i < renderers.Length; i++)
-        {
-            blocks[i].SetColor("_Color", originalColors[i] * flashIntensity);
-            renderers[i].SetPropertyBlock(blocks[i]);
-        }
+        // Overbrighten the sprite to force a white silhouette
+        block.SetColor("_Color", originalColor * flashIntensity);
+        sr.SetPropertyBlock(block);
 
         yield return new WaitForSeconds(flashDuration);
 
-        for (int i = 0; i < renderers.Length; i++)
-        {
-            blocks[i].SetColor("_Color", originalColors[i]);
-            renderers[i].SetPropertyBlock(blocks[i]);
-        }
+        // Restore original color
+        block.SetColor("_Color", originalColor);
+        sr.SetPropertyBlock(block);
     }
 }

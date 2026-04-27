@@ -169,8 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eea2a58c3436af4fae19e1e3907673a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  detectionRange: 15
+  moveSpeed: 7
+  detectionRange: 10
   isFlying: 0
   pitTriggerMask:
     serializedVersion: 2
@@ -236,4 +236,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashDuration: 0.1
-  flashIntensity: 4
+  whiteTexture: {fileID: 2800000, guid: 2a95f6c8fbd272f4a8d164db323db2c2, type: 3}
