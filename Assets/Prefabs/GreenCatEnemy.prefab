@@ -188,7 +188,7 @@ MonoBehaviour:
     m_Bits: 0
   anticipationTime: 0.25
   anticipationColor: {r: 1, g: 0, b: 0, a: 1}
-  projectilePrefab: {fileID: 1197598480320707866, guid: 236ef6085005a0c4eba2edcfb1092169, type: 3}
+  projectilePrefab: {fileID: 6574137444323378264, guid: 6f69db4c98d4c434fab56ed0aa7c81aa, type: 3}
   projectileSpeed: 6
   projectileLifetime: 3
 --- !u!114 &3602502815853272979

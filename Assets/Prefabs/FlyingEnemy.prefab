@@ -264,7 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   contactDamage: 1
-  knockbackStrength: 2
+  knockbackStrength: 1.5
   knockbackDuration: 0.1
   isInvulnerable: 0
 --- !u!114 &2029713347232844815
@@ -310,4 +310,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashDuration: 0.1
-  flashMaterial: {fileID: 0}
+  flashIntensity: 4
