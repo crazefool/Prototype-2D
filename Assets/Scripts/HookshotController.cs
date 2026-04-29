@@ -167,12 +167,28 @@ public class HookshotController : MonoBehaviour
         if (currentPulledObject != null)
             currentPulledObject.IsBeingPulled = true;
 
-        while (IsPulling && Vector2.Distance(transform.position, point) > 0.7f)
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+        while (IsPulling && currentPulledEnemy != null)
         {
-            transform.position = Vector2.MoveTowards(transform.position, point, pullSpeed * Time.deltaTime);
+            Vector3 targetPos;
+
+            HookshotTarget ht = currentPulledEnemy.GetComponent<HookshotTarget>();
+            if (ht != null && ht.attachPoint != null)
+                targetPos = ht.attachPoint.position;
+            else
+                targetPos = currentPulledEnemy.transform.position;
+
+            Vector2 direction = (targetPos - transform.position).normalized;
+            rb.linearVelocity = direction * pullSpeed;
+
+            if (Vector2.Distance(transform.position, targetPos) < 0.7f)
+                break;
+
             yield return null;
         }
 
+        rb.linearVelocity = Vector2.zero;
         ResetHook();
     }
 
@@ -187,8 +203,6 @@ public class HookshotController : MonoBehaviour
 
         Transform obj;
 
-        // ⭐ NEW LOGIC:
-        // Pull the shell ONLY while the enemy is invulnerable (shell still attached)
         ShellEnemyAI shellAI = target.GetComponentInParent<ShellEnemyAI>();
         Enemy enemy = target.GetComponentInParent<Enemy>();
 
@@ -197,11 +211,11 @@ public class HookshotController : MonoBehaviour
             enemy != null &&
             enemy.isInvulnerable)
         {
-            obj = target.detachablePart.transform;   // pull shell
+            obj = target.detachablePart.transform;
         }
         else
         {
-            obj = target.attachPoint != null ? target.attachPoint : target.transform; // pull enemy or object
+            obj = target.attachPoint != null ? target.attachPoint : target.transform;
         }
 
         if (currentPulledEnemy != null)

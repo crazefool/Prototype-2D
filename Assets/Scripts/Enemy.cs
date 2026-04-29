@@ -28,6 +28,10 @@ public class Enemy : MonoBehaviour
     // ⭐ NEW: Hit flash
     private HitFlash hitFlash;
 
+    // ⭐ Public getters for boss scripts
+    public int CurrentHealth => currentHealth;
+    public int MaxHealth => maxHealth;
+
     void Awake()
     {
         currentHealth = maxHealth;
