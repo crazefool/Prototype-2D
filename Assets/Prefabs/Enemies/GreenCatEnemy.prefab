@@ -185,7 +185,7 @@ MonoBehaviour:
   teleportCheckRadius: 0.4
   blockedMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   anticipationTime: 0.25
   anticipationColor: {r: 1, g: 0, b: 0, a: 1}
   projectilePrefab: {fileID: 6574137444323378264, guid: 6f69db4c98d4c434fab56ed0aa7c81aa, type: 3}

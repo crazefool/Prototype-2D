@@ -82,9 +82,9 @@ public class HookshotController : MonoBehaviour
                 else
                     line.SetPosition(1, currentPulledObject.transform.position);
             }
-            else
+            else if (activeHook != null)
             {
-                line.SetPosition(1, transform.position);
+                line.SetPosition(1, activeHook.transform.position);
             }
         }
         else if (activeHook != null)
@@ -119,7 +119,7 @@ public class HookshotController : MonoBehaviour
         switch (target.hookType)
         {
             case HookshotTarget.HookType.PullPlayer:
-                pullRoutine = StartCoroutine(PullPlayer(hitPoint));
+                pullRoutine = StartCoroutine(PullPlayer(target, hitPoint));
                 break;
 
             case HookshotTarget.HookType.PullObject:
@@ -146,7 +146,7 @@ public class HookshotController : MonoBehaviour
         }
     }
 
-    private IEnumerator PullPlayer(Vector3 point)
+    private IEnumerator PullPlayer(HookshotTarget target, Vector3 point)
     {
         IsPulling = true;
 
@@ -158,26 +158,20 @@ public class HookshotController : MonoBehaviour
         movement.SetCanMove(false);
         dash.SetCanDash(false);
 
-        if (currentPulledEnemy != null)
-        {
-            currentPulledEnemy.Stun(1f);
-            currentPulledEnemy.IsBeingPulled = true;
-        }
-
-        if (currentPulledObject != null)
-            currentPulledObject.IsBeingPulled = true;
-
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
-        while (IsPulling && currentPulledEnemy != null)
+        while (IsPulling)
         {
-            Vector3 targetPos;
+            Vector3 targetPos = point;
 
-            HookshotTarget ht = currentPulledEnemy.GetComponent<HookshotTarget>();
-            if (ht != null && ht.attachPoint != null)
-                targetPos = ht.attachPoint.position;
-            else
-                targetPos = currentPulledEnemy.transform.position;
+            if (currentPulledEnemy != null)
+            {
+                HookshotTarget ht = currentPulledEnemy.GetComponent<HookshotTarget>();
+                if (ht != null && ht.attachPoint != null)
+                    targetPos = ht.attachPoint.position;
+                else
+                    targetPos = currentPulledEnemy.transform.position;
+            }
 
             Vector2 direction = (targetPos - transform.position).normalized;
             rb.linearVelocity = direction * pullSpeed;

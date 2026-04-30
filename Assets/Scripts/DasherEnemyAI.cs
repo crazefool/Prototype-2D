@@ -105,21 +105,53 @@ public class DasherEnemyAI : BaseEnemyAI
 
         float elapsed = 0f;
 
+        // Prepare contact filter for walls
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.SetLayerMask(wallMask);
+        filter.useLayerMask = true;
+        filter.useTriggers = false;
+
+        RaycastHit2D[] hits = new RaycastHit2D[1];
+
         while (elapsed < dashDuration)
         {
-            float stepDistance = dashSpeed * Time.deltaTime;
+            rb.linearVelocity = dashDirection * dashSpeed;
 
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, dashDirection, stepDistance, wallMask);
-            if (hit.collider != null)
+            int hitCount = rb.Cast(dashDirection, filter, hits, dashSpeed * Time.deltaTime);
+
+            if (hitCount > 0)
             {
-                transform.position = hit.point;
+                Vector2 normal = hits[0].normal;
+
+                // Reflect direction
+                dashDirection = Vector2.Reflect(dashDirection, normal).normalized;
+
+                // Bounce for a short moment
+                float bounceTime = 0.12f;
+                float bounceElapsed = 0f;
+
+                while (bounceElapsed < bounceTime)
+                {
+                    rb.linearVelocity = dashDirection * (dashSpeed * 0.7f);
+                    bounceElapsed += Time.deltaTime;
+                    yield return null;
+                }
+
                 break;
             }
 
-            transform.position += (Vector3)(dashDirection * stepDistance);
-
             elapsed += Time.deltaTime;
             yield return null;
+        }
+
+        rb.linearVelocity = Vector2.zero;
+
+        // --- POST-DASH CORRECTION ---
+        Collider2D overlap = Physics2D.OverlapCircle(transform.position, 0.2f, wallMask);
+        if (overlap != null)
+        {
+            Vector2 away = -dashDirection * 0.1f;
+            rb.position += away;
         }
 
         enemy.isInvulnerable = false;

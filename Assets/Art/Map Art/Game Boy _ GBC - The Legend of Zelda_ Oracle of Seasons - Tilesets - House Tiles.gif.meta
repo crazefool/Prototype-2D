@@ -1,0 +1,2661 @@
+fileFormatVersion: 2
+guid: f521a99801a67c64596fd2252f1be439
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6407677235166524539
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_0
+  - first:
+      213: -2321637482488632450
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_1
+  - first:
+      213: -2829928221886746068
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_2
+  - first:
+      213: 8673645945844319671
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_3
+  - first:
+      213: 4562292633532768003
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_4
+  - first:
+      213: 9082339991695004472
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_5
+  - first:
+      213: 4010690502298088136
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_6
+  - first:
+      213: -7365347225132961206
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_7
+  - first:
+      213: -4367216045311300302
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_8
+  - first:
+      213: -3247874632365720281
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_9
+  - first:
+      213: 395680538330291500
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_10
+  - first:
+      213: -2356919960749597664
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_11
+  - first:
+      213: 4674818427928091801
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_12
+  - first:
+      213: -4054679735389620646
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_13
+  - first:
+      213: 3806707154347858753
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_14
+  - first:
+      213: -4943050957662471454
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_15
+  - first:
+      213: 5379227640560849231
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_16
+  - first:
+      213: -6638072873724948386
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_17
+  - first:
+      213: 7677080589588824198
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_18
+  - first:
+      213: -7844426666961801024
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_19
+  - first:
+      213: 6157351876514718522
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_20
+  - first:
+      213: -6625474744400823415
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_21
+  - first:
+      213: -2679102090082895018
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_22
+  - first:
+      213: 2783726258456353480
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_23
+  - first:
+      213: -5648904228340692711
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_24
+  - first:
+      213: 8982962997016383455
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_25
+  - first:
+      213: -2595846089137213567
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_26
+  - first:
+      213: -4475411452607247065
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_27
+  - first:
+      213: 411517248354105920
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_28
+  - first:
+      213: -6477141507634725515
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_29
+  - first:
+      213: -8176245403286102824
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_30
+  - first:
+      213: 4894057970207336742
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_31
+  - first:
+      213: -7384103024613013060
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_32
+  - first:
+      213: 7031353795247040772
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_33
+  - first:
+      213: 5088424918186921026
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_34
+  - first:
+      213: 8896695696808496702
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_35
+  - first:
+      213: -1378716528376141216
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_36
+  - first:
+      213: -8230050063822377597
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_37
+  - first:
+      213: 8637925076702159189
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_38
+  - first:
+      213: -5674241988081465333
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_39
+  - first:
+      213: 2308384298905605356
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_40
+  - first:
+      213: 483734392606053866
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_41
+  - first:
+      213: -6169399084134957578
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_42
+  - first:
+      213: 3873226084283876032
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_43
+  - first:
+      213: -961001649119602188
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_44
+  - first:
+      213: -6204553597416816563
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_45
+  - first:
+      213: -1014037207653552783
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_46
+  - first:
+      213: -528306474230528268
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_47
+  - first:
+      213: -7542671014441465536
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_48
+  - first:
+      213: -4035656046610999192
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_49
+  - first:
+      213: -5981197040057636065
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_50
+  - first:
+      213: 5574870885138555301
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_51
+  - first:
+      213: -4565505297458371407
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_52
+  - first:
+      213: 2024380091450865572
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_53
+  - first:
+      213: 910852219179409688
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_54
+  - first:
+      213: -8685027352422747924
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_55
+  - first:
+      213: 5584505315913009609
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_56
+  - first:
+      213: -7035534823617542214
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_57
+  - first:
+      213: -8493322574258118738
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_58
+  - first:
+      213: 3931769117436493694
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_59
+  - first:
+      213: -2266450829738823985
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_60
+  - first:
+      213: 7191538153676474209
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_61
+  - first:
+      213: -7233372638768434534
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_62
+  - first:
+      213: 6012857812060226624
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_63
+  - first:
+      213: -4848043861221153267
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_64
+  - first:
+      213: 1247526913800650593
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_65
+  - first:
+      213: -1891030337412932109
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_66
+  - first:
+      213: 2994854650366726611
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_67
+  - first:
+      213: 1019448892428425904
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_68
+  - first:
+      213: -2216774598647502239
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_69
+  - first:
+      213: -6956226893658979926
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_70
+  - first:
+      213: -6302173453786675058
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_71
+  - first:
+      213: 8441872736285523029
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_72
+  - first:
+      213: 7383204831735535753
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_73
+  - first:
+      213: -4542256168466055723
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_74
+  - first:
+      213: -7506484448768404508
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_75
+  - first:
+      213: 3726777928739657947
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_76
+  - first:
+      213: -3197736466303334174
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_77
+  - first:
+      213: -6098719664688930143
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_78
+  - first:
+      213: 8974429304029347892
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_79
+  - first:
+      213: -4907557604085830508
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_80
+  - first:
+      213: -4673611533336766067
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_81
+  - first:
+      213: 6659363847118224985
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_82
+  - first:
+      213: 192553274198231013
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_83
+  - first:
+      213: -1406429040441657019
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_84
+  - first:
+      213: 3831577218572554270
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_85
+  - first:
+      213: -2687916663012503952
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_86
+  - first:
+      213: 1395243673259988858
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_87
+  - first:
+      213: 8802595814528448334
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_88
+  - first:
+      213: -6505810530165856824
+    second: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+      House Tiles_89
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b74357dfe74ace850800000000000000
+      internalID: 6407677235166524539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_1
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7b680f9203e7cfd0800000000000000
+      internalID: -2321637482488632450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_2
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c22769a96431ab8d0800000000000000
+      internalID: -2829928221886746068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_3
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b5ce85680bfe5870800000000000000
+      internalID: 8673645945844319671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_4
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30f1a176af4805f30800000000000000
+      internalID: 4562292633532768003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_5
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8331e462a14fa0e70800000000000000
+      internalID: 9082339991695004472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_6
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c2b28523c5d8a730800000000000000
+      internalID: 4010690502298088136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_7
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a427a86d8b709c990800000000000000
+      internalID: -7365347225132961206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_8
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23d65d135288463c0800000000000000
+      internalID: -4367216045311300302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_9
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72db6d6da3b3de2d0800000000000000
+      internalID: -3247874632365720281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_10
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2d56bb6a5dbd7500800000000000000
+      internalID: 395680538330291500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_11
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 132
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02c1e7f78c98a4fd0800000000000000
+      internalID: -2356919960749597664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_12
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 132
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99c9a1a879a40e040800000000000000
+      internalID: 4674818427928091801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_13
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 132
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5670266342eab7c0800000000000000
+      internalID: -4054679735389620646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_14
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 132
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14b97d2fcf324d430800000000000000
+      internalID: 3806707154347858753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_15
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 132
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eabfd9e751c66bb0800000000000000
+      internalID: -4943050957662471454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_16
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 132
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f419799e90bd6aa40800000000000000
+      internalID: 5379227640560849231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_17
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 132
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e50d77034e3d0e3a0800000000000000
+      internalID: -6638072873724948386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_18
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 132
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6800d7e0f187a8a60800000000000000
+      internalID: 7677080589588824198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_19
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 132
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c0f329028ff22390800000000000000
+      internalID: -7844426666961801024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_20
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 132
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a33aebc98ee437550800000000000000
+      internalID: 6157351876514718522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_21
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 132
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98bbaafb2d59d04a0800000000000000
+      internalID: -6625474744400823415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_22
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 115
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65b3a93f7dae1dad0800000000000000
+      internalID: -2679102090082895018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_23
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 115
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cad7338848c1a620800000000000000
+      internalID: 2783726258456353480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_24
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 115
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9190d83988f0b91b0800000000000000
+      internalID: -5648904228340692711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_25
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 115
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdfc3a38045e9ac70800000000000000
+      internalID: 8982962997016383455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_26
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 115
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18fa36d3cb3b9fbd0800000000000000
+      internalID: -2595846089137213567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_27
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 115
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72d41afdef424e1c0800000000000000
+      internalID: -4475411452607247065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_28
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 115
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04ab71fc1c006b500800000000000000
+      internalID: 411517248354105920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_29
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 115
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57d7e7dbd129c16a0800000000000000
+      internalID: -6477141507634725515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_30
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 115
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dc16b41024288e80800000000000000
+      internalID: -8176245403286102824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_31
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 115
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 629a0684bcf2be340800000000000000
+      internalID: 4894057970207336742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_32
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 115
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb9cd09fb65668990800000000000000
+      internalID: -7384103024613013060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_33
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 98
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4096bc7e503649160800000000000000
+      internalID: 7031353795247040772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_34
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 98
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24c07c2e087bd9640800000000000000
+      internalID: 5088424918186921026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_35
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 98
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3e440b7999677b70800000000000000
+      internalID: 8896695696808496702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_36
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 98
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06a2e284f90dddce0800000000000000
+      internalID: -1378716528376141216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_37
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 98
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38daf26521df8cd80800000000000000
+      internalID: -8230050063822377597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_38
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 98
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5516541771310e770800000000000000
+      internalID: 8637925076702159189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_39
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 98
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b084ccaa9fa0141b0800000000000000
+      internalID: -5674241988081465333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_40
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 98
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce49b5d1a47090020800000000000000
+      internalID: 2308384298905605356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_41
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 98
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae55cecfdd196b600800000000000000
+      internalID: 483734392606053866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_42
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 98
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fdf3884834e16aa0800000000000000
+      internalID: -6169399084134957578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_43
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 81
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c284883a9670c530800000000000000
+      internalID: 3873226084283876032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_44
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 81
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f959ab7716d9a2f0800000000000000
+      internalID: -961001649119602188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_45
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 81
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d404914506ff4e9a0800000000000000
+      internalID: -6204553597416816563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_46
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 81
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17de7c0488a6de1f0800000000000000
+      internalID: -1014037207653552783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_47
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 81
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f643fe8f041ba8f0800000000000000
+      internalID: -528306474230528268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_48
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 81
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 049c496dcac035790800000000000000
+      internalID: -7542671014441465536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_49
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 81
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 868181a15387ef7c0800000000000000
+      internalID: -4035656046610999192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_50
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 81
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1b2fb75bf48efca0800000000000000
+      internalID: -5981197040057636065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_51
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 81
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a1e959788bed5d40800000000000000
+      internalID: 5574870885138555301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_52
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 81
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b464dcfe1114a0c0800000000000000
+      internalID: -4565505297458371407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_53
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a73d41b7fa081c10800000000000000
+      internalID: 2024380091450865572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_54
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 811a017744ff3ac00800000000000000
+      internalID: 910852219179409688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_55
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce07a4263a5987780800000000000000
+      internalID: -8685027352422747924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_56
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c986413ff5208d40800000000000000
+      internalID: 5584505315913009609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_57
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab7c2619a52cc5e90800000000000000
+      internalID: -7035534823617542214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_58
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eafd9864e18a12a80800000000000000
+      internalID: -8493322574258118738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_59
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7f37af4e23709630800000000000000
+      internalID: 3931769117436493694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_60
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fce27808af2fb80e0800000000000000
+      internalID: -2266450829738823985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_61
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1670e8e29d97dc360800000000000000
+      internalID: 7191538153676474209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_62
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 47
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a927d2ab8e5ed9b90800000000000000
+      internalID: -7233372638768434534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_63
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 47
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04448c49256f17350800000000000000
+      internalID: 6012857812060226624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_64
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 47
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0666645bc948bcb0800000000000000
+      internalID: -4848043861221153267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_65
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 47
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16fb3d05e1b105110800000000000000
+      internalID: 1247526913800650593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_66
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 47
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fdd30f5de5b1c5e0800000000000000
+      internalID: -1891030337412932109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_67
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 47
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d11905ef6cdf8920800000000000000
+      internalID: 2994854650366726611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_68
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 47
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ba9cdbcd5fc52e00800000000000000
+      internalID: 1019448892428425904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_69
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 47
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16aa18c5f3f6c31e0800000000000000
+      internalID: -2216774598647502239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_70
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 47
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa10072fe74867f90800000000000000
+      internalID: -6956226893658979926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_71
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 30
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e88062652ae2a88a0800000000000000
+      internalID: -6302173453786675058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_72
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 30
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55c7a55d68e872570800000000000000
+      internalID: 8441872736285523029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_73
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 30
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9885b833da9667660800000000000000
+      internalID: 7383204831735535753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_74
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 30
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ddf0c7a41aa6f0c0800000000000000
+      internalID: -4542256168466055723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_75
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 30
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e35a273a2c93d790800000000000000
+      internalID: -7506484448768404508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_76
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 30
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd81b47e7cc28b330800000000000000
+      internalID: 3726777928739657947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_77
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 30
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e84da050ab5f93d0800000000000000
+      internalID: -3197736466303334174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_78
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 30
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a2e68107cefc5ba0800000000000000
+      internalID: -6098719664688930143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_79
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 30
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 430868847e39b8c70800000000000000
+      internalID: 8974429304029347892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_80
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 30
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49c62b54c5ad4ebb0800000000000000
+      internalID: -4907557604085830508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_81
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 30
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d891b41821ff32fb0800000000000000
+      internalID: -4673611533336766067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_82
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 13
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95e7f89d220da6c50800000000000000
+      internalID: 6659363847118224985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_83
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 13
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e78ce4ce261ca200800000000000000
+      internalID: 192553274198231013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_84
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 13
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5497ea24d3c5b7ce0800000000000000
+      internalID: -1406429040441657019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_85
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 13
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e101f720e2f7c2530800000000000000
+      internalID: 3831577218572554270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_86
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 13
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07e4943490a92bad0800000000000000
+      internalID: -2687916663012503952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_87
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 13
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a77d5cf7ab6ec5310800000000000000
+      internalID: 1395243673259988858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_88
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 13
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e47fe42514a192a70800000000000000
+      internalID: 8802595814528448334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_89
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 13
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c5e775cac7b6b5a0800000000000000
+      internalID: -6505810530165856824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets -
+        House Tiles_90
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 13
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 325daae56f9b2b749b9d91b874fe7a9d
+      internalID: -1541147725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2f224fce63c50c541b5c4053d4279c6c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_0: 6407677235166524539
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_1: -2321637482488632450
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_10: 395680538330291500
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_11: -2356919960749597664
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_12: 4674818427928091801
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_13: -4054679735389620646
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_14: 3806707154347858753
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_15: -4943050957662471454
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_16: 5379227640560849231
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_17: -6638072873724948386
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_18: 7677080589588824198
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_19: -7844426666961801024
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_2: -2829928221886746068
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_20: 6157351876514718522
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_21: -6625474744400823415
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_22: -2679102090082895018
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_23: 2783726258456353480
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_24: -5648904228340692711
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_25: 8982962997016383455
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_26: -2595846089137213567
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_27: -4475411452607247065
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_28: 411517248354105920
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_29: -6477141507634725515
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_3: 8673645945844319671
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_30: -8176245403286102824
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_31: 4894057970207336742
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_32: -7384103024613013060
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_33: 7031353795247040772
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_34: 5088424918186921026
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_35: 8896695696808496702
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_36: -1378716528376141216
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_37: -8230050063822377597
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_38: 8637925076702159189
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_39: -5674241988081465333
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_4: 4562292633532768003
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_40: 2308384298905605356
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_41: 483734392606053866
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_42: -6169399084134957578
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_43: 3873226084283876032
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_44: -961001649119602188
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_45: -6204553597416816563
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_46: -1014037207653552783
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_47: -528306474230528268
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_48: -7542671014441465536
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_49: -4035656046610999192
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_5: 9082339991695004472
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_50: -5981197040057636065
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_51: 5574870885138555301
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_52: -4565505297458371407
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_53: 2024380091450865572
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_54: 910852219179409688
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_55: -8685027352422747924
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_56: 5584505315913009609
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_57: -7035534823617542214
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_58: -8493322574258118738
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_59: 3931769117436493694
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_6: 4010690502298088136
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_60: -2266450829738823985
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_61: 7191538153676474209
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_62: -7233372638768434534
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_63: 6012857812060226624
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_64: -4848043861221153267
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_65: 1247526913800650593
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_66: -1891030337412932109
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_67: 2994854650366726611
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_68: 1019448892428425904
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_69: -2216774598647502239
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_7: -7365347225132961206
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_70: -6956226893658979926
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_71: -6302173453786675058
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_72: 8441872736285523029
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_73: 7383204831735535753
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_74: -4542256168466055723
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_75: -7506484448768404508
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_76: 3726777928739657947
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_77: -3197736466303334174
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_78: -6098719664688930143
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_79: 8974429304029347892
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_8: -4367216045311300302
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_80: -4907557604085830508
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_81: -4673611533336766067
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_82: 6659363847118224985
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_83: 192553274198231013
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_84: -1406429040441657019
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_85: 3831577218572554270
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_86: -2687916663012503952
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_87: 1395243673259988858
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_88: 8802595814528448334
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_89: -6505810530165856824
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_9: -3247874632365720281
+      Game Boy _ GBC - The Legend of Zelda_ Oracle of Seasons - Tilesets - House Tiles_90: -1541147725
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

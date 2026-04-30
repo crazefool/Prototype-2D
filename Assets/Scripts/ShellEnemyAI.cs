@@ -37,7 +37,7 @@ public class ShellEnemyAI : BaseEnemyAI
                 shellCol.enabled = true;
             }
 
-            // ⭐ NEW: Mark shell as attached so it cannot be punched
+            // ⭐ Shell is attached so it cannot be punched
             if (punchable != null)
                 punchable.IsAttached = true;
         }
@@ -61,7 +61,8 @@ public class ShellEnemyAI : BaseEnemyAI
         // ⭐ SHELL DETACHED STATE
         if (shellRB != null)
         {
-            shellRB.bodyType = RigidbodyType2D.Dynamic;
+            // ❗ Removed: forcing Dynamic here caused shells to be pushable by enemies
+            // shellRB.bodyType = RigidbodyType2D.Dynamic;
             shellRB.gravityScale = 0f;
         }
 
@@ -71,7 +72,7 @@ public class ShellEnemyAI : BaseEnemyAI
             shellCol.enabled = true;
         }
 
-        // ⭐ NEW: Shell is now punchable
+        // ⭐ Shell is now punchable
         if (punchable != null)
             punchable.IsAttached = false;
     }

@@ -13,7 +13,7 @@ public class PunchableObject : MonoBehaviour
     private Vector2 startPosition;
     private bool isMoving = false;
 
-    // ⭐ NEW: Prevent punching while attached to an enemy
+    // Prevent punching while attached to an enemy
     public bool IsAttached = false;
 
     private void Awake()
@@ -21,14 +21,13 @@ public class PunchableObject : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f;
         rb.freezeRotation = true;
+
+        // Idle: cannot be pushed by enemies
+        rb.bodyType = RigidbodyType2D.Kinematic;
     }
 
-    /// <summary>
-    /// Called by the sword when the object is hit.
-    /// </summary>
     public void Punch(Vector2 direction)
     {
-        // ⭐ Ignore punches while attached to an enemy
         if (IsAttached)
             return;
 
@@ -39,6 +38,7 @@ public class PunchableObject : MonoBehaviour
         punchDirection = direction.normalized;
         startPosition = transform.position;
 
+        rb.bodyType = RigidbodyType2D.Dynamic;
         rb.linearVelocity = punchDirection * punchSpeed;
     }
 
@@ -47,7 +47,6 @@ public class PunchableObject : MonoBehaviour
         if (!isMoving)
             return;
 
-        // Stop after traveling max distance
         if (Vector2.Distance(startPosition, transform.position) >= maxTravelDistance)
         {
             StopMovement();
@@ -59,7 +58,6 @@ public class PunchableObject : MonoBehaviour
         if (!isMoving)
             return;
 
-        // Hit an enemy
         Enemy enemy = collision.collider.GetComponent<Enemy>();
         if (enemy != null)
         {
@@ -68,7 +66,6 @@ public class PunchableObject : MonoBehaviour
             return;
         }
 
-        // Hit a wall or anything else
         StopMovement();
     }
 
@@ -76,5 +73,8 @@ public class PunchableObject : MonoBehaviour
     {
         isMoving = false;
         rb.linearVelocity = Vector2.zero;
+
+        // Back to idle: no enemy pushing
+        rb.bodyType = RigidbodyType2D.Kinematic;
     }
 }

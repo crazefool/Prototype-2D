@@ -195,7 +195,7 @@ MonoBehaviour:
   anticipationColor: {r: 1, g: 0, b: 0, a: 1}
   wallMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 8
 --- !u!114 &1471523452115743424
 MonoBehaviour:
   m_ObjectHideFlags: 0
