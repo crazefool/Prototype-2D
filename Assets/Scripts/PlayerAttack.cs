@@ -28,12 +28,10 @@ public class PlayerAttack : MonoBehaviour
     private PlayerStats playerStats;
     private PlayerMovement movement;
     private Rigidbody2D rb;
-
     private HookshotController hookshot;
 
     private bool isHitStopping = false;
     private bool canAttack = true;
-
     private bool pendingAttack = false;
     private Vector2 lastAttackDirection;
 
@@ -42,7 +40,6 @@ public class PlayerAttack : MonoBehaviour
         playerStats = FindFirstObjectByType<PlayerStats>();
         movement = GetComponent<PlayerMovement>();
         rb = GetComponent<Rigidbody2D>();
-
         hookshot = FindFirstObjectByType<HookshotController>();
     }
 
@@ -60,8 +57,12 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3))
             TrySlashDash();
 
-        if (Input.GetKey(KeyCode.Alpha4))
-            TryHeal();
+        // ⭐ NEW HEAL INPUT (Hold E)
+        if (Input.GetKeyDown(KeyCode.E))
+            playerStats.BeginHealCharge();
+
+        if (Input.GetKeyUp(KeyCode.E))
+            playerStats.CancelHealCharge();
     }
 
     void LateUpdate()
@@ -89,26 +90,19 @@ public class PlayerAttack : MonoBehaviour
         canAttack = true;
     }
 
-    public Vector2 GetLastAttackDirection()
-    {
-        return lastAttackDirection;
-    }
+    public Vector2 GetLastAttackDirection() => lastAttackDirection;
 
     public void TryDealDamage(Enemy enemy, Vector2 attackDirection)
     {
         bool didDamage = enemy.TakeDamage(1, attackDirection);
-
         if (didDamage)
             playerStats.GainManaFromHit();
     }
 
     private void TryBladeBeam()
     {
-        if (!bladeBeamUnlocked || !canAttack)
-            return;
-
-        if (!playerStats.SpendMana(1))
-            return;
+        if (!bladeBeamUnlocked || !canAttack) return;
+        if (!playerStats.SpendMana(1)) return;
 
         Vector3 spawnPos = transform.position + transform.right * bladeBeamOffset;
         Instantiate(bladeBeamPrefab, spawnPos, transform.rotation);
@@ -116,41 +110,21 @@ public class PlayerAttack : MonoBehaviour
 
     private void TryMegaSlash()
     {
-        if (!megaSlashUnlocked || !canAttack)
-            return;
-
-        if (!playerStats.SpendMana(1))
-            return;
+        if (!megaSlashUnlocked || !canAttack) return;
+        if (!playerStats.SpendMana(1)) return;
 
         Instantiate(megaSlashPrefab, transform.position, transform.rotation);
     }
 
     private void TrySlashDash()
     {
-        if (!slashDashUnlocked || !canAttack)
-            return;
-
-        if (!playerStats.SpendMana(1))
-            return;
+        if (!slashDashUnlocked || !canAttack) return;
+        if (!playerStats.SpendMana(1)) return;
 
         Instantiate(slashDashPrefab, transform.position, transform.rotation, transform);
     }
 
-    private void TryHeal()
-    {
-        if (!canAttack)
-            return;
-
-        if (playerStats.CurrentMana < 1)
-            return;
-
-        StartCoroutine(playerStats.HealRoutine());
-    }
-
-    public void SetCanAttack(bool value)
-    {
-        canAttack = value;
-    }
+    public void SetCanAttack(bool value) => canAttack = value;
 
     public void ApplyHitPushback(Vector2 attackDirection)
     {
@@ -173,11 +147,9 @@ public class PlayerAttack : MonoBehaviour
 
     public IEnumerator HitStop(float duration)
     {
-        if (isHitStopping)
-            yield break;
+        if (isHitStopping) yield break;
 
         isHitStopping = true;
-
         float originalTimeScale = Time.timeScale;
         Time.timeScale = 0f;
 

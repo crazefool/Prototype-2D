@@ -14,11 +14,17 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField] private int hitsPerMana = 3;
     private int hitCounter = 0;
+
+    // ⭐ RESTORED PUBLIC GETTERS (UI_Mana needs these)
     public int HitsPerMana => hitsPerMana;
     public int HitCounter => hitCounter;
 
     [Header("Heal Settings")]
     [SerializeField] private float healChargeTime = 1.2f;
+    [SerializeField] private GameObject healChargeEffectPrefab;
+    [SerializeField] private GameObject healBurstEffectPrefab;
+
+    private GameObject activeChargeEffect;
     private bool isHealing = false;
     public bool IsHealing => isHealing;
 
@@ -29,15 +35,12 @@ public class PlayerStats : MonoBehaviour
 
     public bool IsInvincible => isInvincible;
 
-    // ⭐ NEW: Hit flash
     private HitFlash hitFlash;
 
     void Awake()
     {
         CurrentHealth = maxHealth;
         CurrentMana = 0;
-
-        // ⭐ Get HitFlash if present
         hitFlash = GetComponent<HitFlash>();
     }
 
@@ -48,7 +51,6 @@ public class PlayerStats : MonoBehaviour
         if (isInvincible)
             return;
 
-        // ⭐ HIT FLASH
         if (hitFlash != null)
             hitFlash.Flash();
 
@@ -88,6 +90,7 @@ public class PlayerStats : MonoBehaviour
         isInvincible = false;
     }
 
+    // ⭐ RESTORED FOR HOOKSHOT + SLASHDASH
     public void SetInvincible(bool value)
     {
         isInvincible = value;
@@ -134,25 +137,40 @@ public class PlayerStats : MonoBehaviour
             return false;
 
         CurrentMana -= amount;
-
         FindFirstObjectByType<UI_Mana>().UpdateMana();
         return true;
     }
 
-    // ---------------- HEAL ----------------
+    // ---------------- NEW HEAL SYSTEM ----------------
 
-    public IEnumerator HealRoutine()
+    public void BeginHealCharge()
     {
-        if (isHealing)
-            yield break;
+        if (isHealing || CurrentMana < 1)
+            return;
 
-        if (CurrentMana < 1)
-            yield break;
+        StartCoroutine(HealChargeRoutine());
+    }
 
+    public void CancelHealCharge()
+    {
+        isHealing = false;
+    }
+
+    private IEnumerator HealChargeRoutine()
+    {
         isHealing = true;
 
-        FindFirstObjectByType<PlayerMovement>().SetCanMove(false);
-        FindFirstObjectByType<PlayerAttack>().SetCanAttack(false);
+        var movement = FindFirstObjectByType<PlayerMovement>();
+        var attack = FindFirstObjectByType<PlayerAttack>();
+
+        movement.SetCanMove(false);
+        attack.SetCanAttack(false);
+
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+            rb.linearVelocity = Vector2.zero;
+
+        activeChargeEffect = Instantiate(healChargeEffectPrefab, transform.position, Quaternion.identity, transform);
 
         float timer = 0f;
 
@@ -160,20 +178,40 @@ public class PlayerStats : MonoBehaviour
         {
             if (!isHealing)
             {
-                FindFirstObjectByType<PlayerMovement>().SetCanMove(true);
-                FindFirstObjectByType<PlayerAttack>().SetCanAttack(true);
+                CleanupChargeEffects();
                 yield break;
             }
 
             timer += Time.deltaTime;
+
+            float progress = timer / healChargeTime;
+            float scale = Mathf.Lerp(0.5f, 1.3f, progress);
+
+            if (activeChargeEffect != null)
+                activeChargeEffect.transform.localScale = Vector3.one * scale;
+
             yield return null;
         }
 
         SpendMana(1);
         Heal(1);
 
-        FindFirstObjectByType<PlayerMovement>().SetCanMove(true);
-        FindFirstObjectByType<PlayerAttack>().SetCanAttack(true);
+        if (healBurstEffectPrefab != null)
+            Instantiate(healBurstEffectPrefab, transform.position, Quaternion.identity);
+
+        CleanupChargeEffects();
+    }
+
+    private void CleanupChargeEffects()
+    {
+        if (activeChargeEffect != null)
+            Destroy(activeChargeEffect);
+
+        var movement = FindFirstObjectByType<PlayerMovement>();
+        var attack = FindFirstObjectByType<PlayerAttack>();
+
+        movement.SetCanMove(true);
+        attack.SetCanAttack(true);
 
         isHealing = false;
     }
@@ -184,8 +222,6 @@ public class PlayerStats : MonoBehaviour
             return;
 
         isHealing = false;
-
-        FindFirstObjectByType<PlayerMovement>().SetCanMove(true);
-        FindFirstObjectByType<PlayerAttack>().SetCanAttack(true);
+        CleanupChargeEffects();
     }
 }
