@@ -20,15 +20,17 @@ public class Enemy : MonoBehaviour
 
     public bool isInvulnerable = false;
 
-    // ⭐ Used by hookshot + pit logic
+    // ⭐ NEW: Is this enemy a boss?
+    // If true → Enemy.cs will NOT destroy it on death.
+    // Boss script handles destruction instead.
+    public bool isBoss = false;
+
     public bool IsBeingPulled { get; set; } = false;
 
     public bool IsStunned => isStunned;
 
-    // ⭐ NEW: Hit flash
     private HitFlash hitFlash;
 
-    // ⭐ Public getters for boss scripts
     public int CurrentHealth => currentHealth;
     public int MaxHealth => maxHealth;
 
@@ -36,8 +38,6 @@ public class Enemy : MonoBehaviour
     {
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody2D>();
-
-        // ⭐ Get HitFlash if present
         hitFlash = GetComponent<HitFlash>();
     }
 
@@ -46,7 +46,6 @@ public class Enemy : MonoBehaviour
         if (isInvulnerable)
             return false;
 
-        // ⭐ HIT FLASH
         if (hitFlash != null)
             hitFlash.Flash();
 
@@ -55,7 +54,14 @@ public class Enemy : MonoBehaviour
         StartCoroutine(Knockback(knockbackDirection));
 
         if (currentHealth <= 0)
-            Die();
+        {
+            // ⭐ Normal enemies die here
+            if (!isBoss)
+                Destroy(gameObject);
+
+            // ⭐ Bosses do NOT get destroyed here
+            return true;
+        }
 
         return true;
     }
@@ -105,10 +111,5 @@ public class Enemy : MonoBehaviour
                 collision.transform.position += (Vector3)(direction * knockbackStrength);
             }
         }
-    }
-
-    private void Die()
-    {
-        Destroy(gameObject);
     }
 }

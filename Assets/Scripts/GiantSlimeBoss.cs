@@ -1,12 +1,12 @@
 using UnityEngine;
 using System.Collections;
 
-public class GiantSlimeBoss : MonoBehaviour
+public class GiantSlimeBoss : MonoBehaviour, IBossHealth
 {
     [Header("Movement Settings")]
     [SerializeField] private float dashSpeed = 12f;
     [SerializeField] private float dashDuration = 1.2f;
-    [SerializeField] private float enemySpeed = 2f;        // renamed from cooldownSpeed
+    [SerializeField] private float enemySpeed = 2f;
     [SerializeField] private float cooldownDuration = 1.0f;
 
     [Header("Anticipation")]
@@ -33,13 +33,19 @@ public class GiantSlimeBoss : MonoBehaviour
 
     private bool summonedNormal = false;
     private bool summonedFast = false;
-
     private bool isDashing = false;
     private Vector2 dashDirection;
+
+    public int CurrentHealth => enemy.CurrentHealth;
+    public int MaxHealth => enemy.MaxHealth;
 
     private void Awake()
     {
         enemy = GetComponent<Enemy>();
+
+        // ⭐ Boss controls its own death (Enemy.cs will NOT destroy it)
+        enemy.isBoss = true;
+
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<CapsuleCollider2D>();
@@ -51,6 +57,9 @@ public class GiantSlimeBoss : MonoBehaviour
 
         if (!isDashing)
             StartCoroutine(DashRoutine());
+
+        if (enemy.CurrentHealth <= 0)
+            Die();
     }
 
     private void HandleHPTriggers()
@@ -89,19 +98,16 @@ public class GiantSlimeBoss : MonoBehaviour
     {
         isDashing = true;
 
-        // Anticipation flash
         Color originalColor = sr.color;
         sr.color = anticipationColor;
         yield return new WaitForSeconds(anticipationTime);
         sr.color = originalColor;
 
-        // Pick dash direction
         Vector2 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
         dashDirection = (playerPos - (Vector2)transform.position).normalized;
 
         float dashTimer = 0f;
 
-        // Prepare contact filter for walls
         ContactFilter2D filter = new ContactFilter2D();
         filter.SetLayerMask(wallMask);
         filter.useLayerMask = true;
@@ -113,17 +119,12 @@ public class GiantSlimeBoss : MonoBehaviour
         {
             rb.linearVelocity = dashDirection * dashSpeed;
 
-            // Cast using Rigidbody2D.Cast with filter
             int hitCount = rb.Cast(dashDirection, filter, hits, dashSpeed * Time.deltaTime);
 
             if (hitCount > 0)
             {
                 Vector2 normal = hits[0].normal;
-
-                // Reflect direction
                 dashDirection = Vector2.Reflect(dashDirection, normal).normalized;
-
-                // Apply new reflected velocity
                 rb.linearVelocity = dashDirection * dashSpeed;
             }
 
@@ -133,7 +134,6 @@ public class GiantSlimeBoss : MonoBehaviour
 
         rb.linearVelocity = Vector2.zero;
 
-        // Cooldown walk (now using enemySpeed)
         float cooldownTimer = 0f;
         while (cooldownTimer < cooldownDuration)
         {
@@ -147,5 +147,21 @@ public class GiantSlimeBoss : MonoBehaviour
 
         rb.linearVelocity = Vector2.zero;
         isDashing = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        PlayerAttack pa = other.GetComponent<PlayerAttack>();
+        if (pa != null)
+        {
+            Vector2 knockbackDir = (transform.position - other.transform.position).normalized;
+            enemy.TakeDamage(1, knockbackDir);
+        }
+    }
+
+    private void Die()
+    {
+        FindFirstObjectByType<BossManager>()?.OnBossDefeated();
+        Destroy(gameObject, 0.2f);
     }
 }
