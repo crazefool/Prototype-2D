@@ -30,11 +30,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5a54367b635f25346a032ba385221471, type: 2}
     - target: {fileID: 7878350319992209165, guid: 40910713460d4d74c95d5d9db274ce91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.837997
+      value: -67.069305
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 40910713460d4d74c95d5d9db274ce91, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.27709
+      value: -75.56855
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 40910713460d4d74c95d5d9db274ce91, type: 3}
       propertyPath: m_LocalPosition.z
@@ -163,7 +163,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.41, y: 1.39}
+  m_Offset: {x: -0.11, y: 0.21}
   m_Radius: 1
 --- !u!114 &8027754170190825714
 MonoBehaviour:
@@ -182,6 +182,7 @@ MonoBehaviour:
   knockbackStrength: 1.5
   knockbackDuration: 0.1
   isInvulnerable: 0
+  isBoss: 0
 --- !u!114 &8252957547529875180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,11 +274,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 2f4ed5c3ea7399442aa599b38db43349, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 2f4ed5c3ea7399442aa599b38db43349, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 2f4ed5c3ea7399442aa599b38db43349, type: 3}
       propertyPath: m_LocalPosition.z
@@ -405,7 +406,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.36, y: 1.5}
+  m_Offset: {x: -0.36, y: 0.06}
   m_Radius: 1.27
 --- !u!114 &4746652491331164756
 MonoBehaviour:
@@ -434,6 +435,8 @@ MonoBehaviour:
   punchSpeed: 20
   maxTravelDistance: 8
   damageOnHit: 1
+  bossLayerName: Boss
+  objectLayerName: Object
   IsAttached: 0
 --- !u!114 &3275380870550275212
 MonoBehaviour:

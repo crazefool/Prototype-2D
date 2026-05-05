@@ -198,6 +198,8 @@ MonoBehaviour:
   punchSpeed: 20
   maxTravelDistance: 10
   damageOnHit: 1
+  bossLayerName: Boss
+  objectLayerName: Object
   IsAttached: 0
 --- !u!114 &-620737993779159692
 MonoBehaviour:

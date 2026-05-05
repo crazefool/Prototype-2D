@@ -155,7 +155,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 1.81}
+  m_Offset: {x: 0, y: 0}
   m_Radius: 0.82
 --- !u!114 &1386605827379663389
 MonoBehaviour:
@@ -193,6 +193,7 @@ MonoBehaviour:
   knockbackStrength: 2
   knockbackDuration: 0.1
   isInvulnerable: 0
+  isBoss: 0
 --- !u!114 &2029713347232844815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,4 +237,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashDuration: 0.1
-  whiteTexture: {fileID: 2800000, guid: 2a95f6c8fbd272f4a8d164db323db2c2, type: 3}
+  flashIntensity: 4

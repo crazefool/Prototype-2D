@@ -8,7 +8,7 @@ public class TeleportShooterEnemyAI : BaseEnemyAI
     [SerializeField] private float maxTeleportDistance = 5f;
     [SerializeField] private float teleportCooldown = 2f;
     [SerializeField] private float teleportCheckRadius = 0.4f;
-    [SerializeField] private LayerMask blockedMask; // walls + pits
+    [SerializeField] private LayerMask blockedMask;
 
     [Header("Anticipation Settings")]
     [SerializeField] private float anticipationTime = 0.25f;
@@ -48,9 +48,8 @@ public class TeleportShooterEnemyAI : BaseEnemyAI
         if (isTeleporting || isAnticipating || isShooting)
             return;
 
-        float dist = Vector2.Distance(transform.position, player.position);
+        float dist = Vector2.Distance(transform.position, GetPlayerCenter());
 
-        // AGGRO
         if (!isAggro)
         {
             if (dist <= detectionRange)
@@ -67,7 +66,6 @@ public class TeleportShooterEnemyAI : BaseEnemyAI
             }
         }
 
-        // TELEPORT + SHOOT LOOP
         if (cooldownTimer <= 0f)
             StartCoroutine(TeleportAndShootRoutine());
     }
@@ -76,12 +74,10 @@ public class TeleportShooterEnemyAI : BaseEnemyAI
     {
         cooldownTimer = teleportCooldown;
 
-        // TELEPORT
         isTeleporting = true;
         yield return StartCoroutine(SquashTeleport());
         isTeleporting = false;
 
-        // ANTICIPATION
         isAnticipating = true;
         if (sr != null)
             sr.color = anticipationColor;
@@ -93,7 +89,6 @@ public class TeleportShooterEnemyAI : BaseEnemyAI
 
         isAnticipating = false;
 
-        // SHOOT
         isShooting = true;
         ShootProjectile();
         isShooting = false;
@@ -103,7 +98,6 @@ public class TeleportShooterEnemyAI : BaseEnemyAI
     {
         Vector3 originalScale = transform.localScale;
 
-        // SQUASH
         float t = 0f;
         while (t < 0.1f)
         {
@@ -112,11 +106,9 @@ public class TeleportShooterEnemyAI : BaseEnemyAI
             yield return null;
         }
 
-        // TELEPORT
         Vector2 newPos = FindValidTeleportPosition();
         transform.position = newPos;
 
-        // UNSQUASH
         t = 0f;
         while (t < 0.1f)
         {
@@ -130,7 +122,7 @@ public class TeleportShooterEnemyAI : BaseEnemyAI
 
     private Vector2 FindValidTeleportPosition()
     {
-        Vector2 playerPos = player.position;
+        Vector2 playerPos = GetPlayerCenter();
         Vector2 chosen = transform.position;
 
         for (int i = 0; i < 20; i++)
@@ -140,11 +132,9 @@ public class TeleportShooterEnemyAI : BaseEnemyAI
 
             Vector2 candidate = playerPos + new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * dist;
 
-            // Avoid teleporting on top of player
             if (Vector2.Distance(candidate, playerPos) < minTeleportDistance)
                 continue;
 
-            // Check walls + pits
             if (Physics2D.OverlapCircle(candidate, teleportCheckRadius, blockedMask))
                 continue;
 
@@ -157,7 +147,7 @@ public class TeleportShooterEnemyAI : BaseEnemyAI
 
     private void ShootProjectile()
     {
-        Vector2 dir = (player.position - transform.position).normalized;
+        Vector2 dir = (GetPlayerCenter() - (Vector2)transform.position).normalized;
 
         GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         EnemyProjectile p = proj.GetComponent<EnemyProjectile>();

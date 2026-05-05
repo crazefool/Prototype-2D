@@ -14,23 +14,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2253911629886400664, guid: da97b3b3f9936ff498917475718e3470, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: da97b3b3f9936ff498917475718e3470, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: da97b3b3f9936ff498917475718e3470, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -7703724317035624873, guid: 75648ad98859ad549a2de4037c8ea8e1, type: 3}
+    - target: {fileID: 3626916397498700004, guid: da97b3b3f9936ff498917475718e3470, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: da97b3b3f9936ff498917475718e3470, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.73512554
+      value: -1.6253859
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: da97b3b3f9936ff498917475718e3470, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.4783
+      value: 15.359052
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: da97b3b3f9936ff498917475718e3470, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -4.697388
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: da97b3b3f9936ff498917475718e3470, type: 3}
       propertyPath: m_LocalRotation.w
@@ -38,15 +46,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: da97b3b3f9936ff498917475718e3470, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: da97b3b3f9936ff498917475718e3470, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: da97b3b3f9936ff498917475718e3470, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: da97b3b3f9936ff498917475718e3470, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -169,6 +177,7 @@ MonoBehaviour:
   knockbackStrength: 1
   knockbackDuration: 0.1
   isInvulnerable: 0
+  isBoss: 0
 --- !u!114 &8869167858742584821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +211,7 @@ MonoBehaviour:
   wallMask:
     serializedVersion: 2
     m_Bits: 8
+  bossManager: {fileID: 0}
 --- !u!114 &1393896423488610540
 MonoBehaviour:
   m_ObjectHideFlags: 0

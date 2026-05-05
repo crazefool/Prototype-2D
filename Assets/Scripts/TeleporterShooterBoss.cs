@@ -63,7 +63,7 @@ public class TeleportShooterBoss : BaseEnemyAI, IBossHealth
     {
         if (!fightActive) return;
 
-        HandleHPTriggers(); // ⭐ same pattern as GiantSlimeBoss
+        HandleHPTriggers();
 
         if (enemy.CurrentHealth <= 0 && !isDead)
         {
@@ -117,6 +117,11 @@ public class TeleportShooterBoss : BaseEnemyAI, IBossHealth
     {
         isTeleporting = true;
 
+        // Cancel hookshot before teleport
+        HookshotController hook = FindFirstObjectByType<HookshotController>();
+        if (hook != null && hook.IsPulling)
+            hook.CancelHookshot();
+
         sr.color = teleportFlashColor;
         yield return new WaitForSeconds(teleportFlashDuration);
         sr.color = originalColor;
@@ -150,9 +155,13 @@ public class TeleportShooterBoss : BaseEnemyAI, IBossHealth
         PlayerAttack pa = other.GetComponent<PlayerAttack>();
         if (pa != null)
         {
+            // Prevent damage if player is currently being pulled by hookshot
+            HookshotController hook = FindFirstObjectByType<HookshotController>();
+            if (hook != null && hook.IsPulling)
+                return;
+
             Vector2 knockbackDir = (transform.position - other.transform.position).normalized;
             enemy.TakeDamage(1, knockbackDir);
-            // ⭐ no phase logic here anymore
         }
     }
 

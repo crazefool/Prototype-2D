@@ -36,9 +36,8 @@ public class RangedEnemyAI : BaseEnemyAI
         if (enemy.IsStunned)
             return;
 
-        float dist = Vector2.Distance(transform.position, player.position);
+        float dist = Vector2.Distance(transform.position, GetPlayerCenter());
 
-        // --- AGGRO LOGIC ---
         if (!isAggro)
         {
             if (dist <= detectionRange)
@@ -55,13 +54,11 @@ public class RangedEnemyAI : BaseEnemyAI
             }
         }
 
-        // --- SHOOTING STATE ---
         if (isShooting)
-            return; // Enemy is locked in place during anticipation + shooting
+            return;
 
         fireTimer -= Time.deltaTime;
 
-        // --- MOVEMENT LOGIC ---
         if (dist > shootRange)
         {
             MoveTowardsPlayer();
@@ -74,7 +71,6 @@ public class RangedEnemyAI : BaseEnemyAI
             return;
         }
 
-        // --- READY TO SHOOT ---
         if (fireTimer <= 0f)
             StartCoroutine(ShootRoutine());
     }
@@ -84,19 +80,16 @@ public class RangedEnemyAI : BaseEnemyAI
         isShooting = true;
         fireTimer = fireCooldown;
 
-        // --- ANTICIPATION FLASH ---
         sr.color = anticipationColor;
         yield return new WaitForSeconds(anticipationTime);
         sr.color = originalColor;
 
-        // --- SHOOT ---
-        Vector2 dir = (player.position - transform.position).normalized;
+        Vector2 dir = (GetPlayerCenter() - (Vector2)transform.position).normalized;
 
         GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         EnemyProjectile p = proj.GetComponent<EnemyProjectile>();
         p.Initialize(dir, projectileSpeed, projectileLifetime);
 
-        // --- RESUME KITING ---
         isShooting = false;
     }
 
@@ -105,7 +98,7 @@ public class RangedEnemyAI : BaseEnemyAI
         if (enemy.IsStunned)
             return;
 
-        Vector2 dir = (transform.position - player.position).normalized;
+        Vector2 dir = ((Vector2)transform.position - GetPlayerCenter()).normalized;
         Vector2 targetPos = (Vector2)transform.position + dir * moveSpeed * Time.deltaTime;
 
         if (IsNearPit(targetPos))

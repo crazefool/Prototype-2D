@@ -30,10 +30,8 @@ public class DasherEnemyAI : BaseEnemyAI
     protected override void Awake()
     {
         base.Awake();
-
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-
         if (sr != null)
             originalColor = sr.color;
     }
@@ -49,9 +47,8 @@ public class DasherEnemyAI : BaseEnemyAI
         if (isAnticipating || isDashing)
             return;
 
-        float dist = Vector2.Distance(transform.position, player.position);
+        float dist = Vector2.Distance(transform.position, GetPlayerCenter());
 
-        // --- AGGRO LOGIC ---
         if (!isAggro)
         {
             if (dist <= detectionRange)
@@ -68,26 +65,22 @@ public class DasherEnemyAI : BaseEnemyAI
             }
         }
 
-        // --- DASH TRIGGER ---
         if (dist <= dashRange && cooldownTimer <= 0f)
         {
             StartCoroutine(DashRoutine());
             return;
         }
 
-        // --- STOP CHASING WHEN INSIDE DASH RANGE ---
         if (dist <= dashRange)
             return;
 
-        // --- DEFAULT: CHASE ---
         MoveTowardsPlayer();
     }
 
     private IEnumerator DashRoutine()
     {
         isAnticipating = true;
-
-        dashDirection = (player.position - transform.position).normalized;
+        dashDirection = (GetPlayerCenter() - (Vector2)transform.position).normalized;
 
         if (sr != null)
             sr.color = anticipationColor;
@@ -98,14 +91,11 @@ public class DasherEnemyAI : BaseEnemyAI
             sr.color = originalColor;
 
         isAnticipating = false;
-
         isDashing = true;
         cooldownTimer = dashCooldown;
         enemy.isInvulnerable = true;
 
         float elapsed = 0f;
-
-        // Prepare contact filter for walls
         ContactFilter2D filter = new ContactFilter2D();
         filter.SetLayerMask(wallMask);
         filter.useLayerMask = true;
@@ -118,25 +108,11 @@ public class DasherEnemyAI : BaseEnemyAI
             rb.linearVelocity = dashDirection * dashSpeed;
 
             int hitCount = rb.Cast(dashDirection, filter, hits, dashSpeed * Time.deltaTime);
-
             if (hitCount > 0)
             {
                 Vector2 normal = hits[0].normal;
-
-                // Reflect direction
                 dashDirection = Vector2.Reflect(dashDirection, normal).normalized;
-
-                // Bounce for a short moment
-                float bounceTime = 0.12f;
-                float bounceElapsed = 0f;
-
-                while (bounceElapsed < bounceTime)
-                {
-                    rb.linearVelocity = dashDirection * (dashSpeed * 0.7f);
-                    bounceElapsed += Time.deltaTime;
-                    yield return null;
-                }
-
+                rb.linearVelocity = dashDirection * (dashSpeed * 0.7f);
                 break;
             }
 
@@ -145,15 +121,6 @@ public class DasherEnemyAI : BaseEnemyAI
         }
 
         rb.linearVelocity = Vector2.zero;
-
-        // --- POST-DASH CORRECTION ---
-        Collider2D overlap = Physics2D.OverlapCircle(transform.position, 0.2f, wallMask);
-        if (overlap != null)
-        {
-            Vector2 away = -dashDirection * 0.1f;
-            rb.position += away;
-        }
-
         enemy.isInvulnerable = false;
         isDashing = false;
     }

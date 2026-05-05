@@ -12,7 +12,6 @@ public class BaseEnemyAI : MonoBehaviour
     [Header("Movement Type")]
     [SerializeField] protected bool isFlying = false;   // Flying toggle
 
-    // ⭐ NEW: Safe public read-only access for other scripts
     public bool IsFlying => isFlying;
 
     [Header("Environment")]
@@ -27,7 +26,7 @@ public class BaseEnemyAI : MonoBehaviour
 
     protected bool PlayerInRange()
     {
-        return Vector2.Distance(transform.position, player.position) < detectionRange;
+        return Vector2.Distance(transform.position, GetPlayerCenter()) < detectionRange;
     }
 
     protected void MoveTowardsPlayer()
@@ -35,10 +34,10 @@ public class BaseEnemyAI : MonoBehaviour
         if (enemy.IsStunned)
             return;
 
-        Vector2 dir = (player.position - transform.position).normalized;
+        Vector2 playerCenter = GetPlayerCenter();
+        Vector2 dir = (playerCenter - (Vector2)transform.position).normalized;
         Vector2 targetPos = (Vector2)transform.position + dir * moveSpeed * Time.deltaTime;
 
-        // ⭐ Ground enemies avoid pits, flying enemies ignore them
         if (!isFlying && IsNearPit(targetPos))
             return;
 
@@ -48,5 +47,12 @@ public class BaseEnemyAI : MonoBehaviour
     protected bool IsNearPit(Vector2 targetPos)
     {
         return Physics2D.OverlapCircle(targetPos, pitAvoidRadius, pitTriggerMask) != null;
+    }
+
+    // ⭐ Accurate player center based on collider bounds
+    protected Vector2 GetPlayerCenter()
+    {
+        Collider2D playerCol = player.GetComponent<Collider2D>();
+        return playerCol != null ? playerCol.bounds.center : player.position;
     }
 }
