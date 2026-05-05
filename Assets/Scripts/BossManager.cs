@@ -18,11 +18,10 @@ public class BossManager : MonoBehaviour
     [SerializeField] private AudioSource normalMusic;
 
     [Header("Door Control")]
-    [SerializeField] private BossDoor door; // ✅ Added field for door reopening
+    [SerializeField] private BossDoor door;
 
     private bool fightStarted = false;
 
-    // Called by BossRoomTrigger
     public void SetBoss(IBossHealth bossRef)
     {
         boss = bossRef;
@@ -33,7 +32,7 @@ public class BossManager : MonoBehaviour
         if (fightStarted) return;
         if (boss == null)
         {
-            Debug.LogError("BossManager: No boss assigned before StartBossFight was called.");
+            Debug.LogError($"{name}: No boss assigned before StartBossFight was called.");
             return;
         }
 
@@ -45,6 +44,12 @@ public class BossManager : MonoBehaviour
     {
         if (normalMusic != null)
             normalMusic.Stop();
+
+        if (introText == null || introCanvas == null)
+        {
+            Debug.LogError($"{name}: Missing intro UI references.");
+            yield break;
+        }
 
         introText.text = bossName;
         introCanvas.alpha = 0;
@@ -86,8 +91,15 @@ public class BossManager : MonoBehaviour
         if (normalMusic != null)
             normalMusic.Play();
 
-        // ✅ Reopen the door when boss is defeated
         if (door != null)
-            door.OpenDoor();
+            StartCoroutine(OpenDoorDelayed());
+    }
+
+    private IEnumerator OpenDoorDelayed()
+    {
+        // Wait a short moment to ensure boss destruction doesn’t interrupt
+        yield return new WaitForSeconds(0.3f);
+
+        door.OpenDoor();
     }
 }

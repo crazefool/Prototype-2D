@@ -14,18 +14,35 @@ public class BossDoor : MonoBehaviour
 
     public void CloseDoor()
     {
+        // Door becomes visible and solid
         gameObject.SetActive(true);
-        if (col != null) col.enabled = true;
-        if (sr != null) sr.enabled = true;
+
+        if (sr != null)
+        {
+            sr.enabled = true;
+            Color c = sr.color;
+            c.a = 1f;
+            sr.color = c;
+        }
+
+        if (col != null)
+            col.enabled = true;
     }
 
     public void OpenDoor()
     {
-        if (col != null) col.enabled = false;
-        StartCoroutine(FadeOut());
+        // Door stops blocking, fades out visually
+        if (col != null)
+            col.enabled = false;
+
+        if (sr != null)
+        {
+            sr.enabled = true;
+            StartCoroutine(FadeOutAndDisable());
+        }
     }
 
-    private IEnumerator FadeOut()
+    private IEnumerator FadeOutAndDisable()
     {
         if (sr == null) yield break;
 
@@ -38,5 +55,10 @@ public class BossDoor : MonoBehaviour
         }
 
         sr.enabled = false;
+        c.a = 1f;
+        sr.color = c;
+
+        // Disable the door object completely after fade
+        gameObject.SetActive(false);
     }
 }

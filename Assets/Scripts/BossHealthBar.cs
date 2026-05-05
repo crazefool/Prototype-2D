@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class BossHealthBar : MonoBehaviour
 {
     [SerializeField] private Slider slider;
-
     private IBossHealth boss;
 
     public void Initialize(IBossHealth bossRef)

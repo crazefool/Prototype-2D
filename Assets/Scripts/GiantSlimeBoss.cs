@@ -26,6 +26,9 @@ public class GiantSlimeBoss : MonoBehaviour, IBossHealth
     [Header("Environment")]
     [SerializeField] private LayerMask wallMask;
 
+    [Header("Boss Manager Reference")]
+    [SerializeField] private BossManager bossManager;   // 🔹 assign DG_BossManager here in Inspector
+
     private Enemy enemy;
     private SpriteRenderer sr;
     private Rigidbody2D rb;
@@ -42,13 +45,15 @@ public class GiantSlimeBoss : MonoBehaviour, IBossHealth
     private void Awake()
     {
         enemy = GetComponent<Enemy>();
-
-        // ⭐ Boss controls its own death (Enemy.cs will NOT destroy it)
         enemy.isBoss = true;
 
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<CapsuleCollider2D>();
+
+        // Safety: if not assigned, try to find a BossManager in the same arena
+        if (bossManager == null)
+            bossManager = GetComponentInParent<BossManager>();
     }
 
     private void Update()
@@ -161,7 +166,12 @@ public class GiantSlimeBoss : MonoBehaviour, IBossHealth
 
     private void Die()
     {
-        FindFirstObjectByType<BossManager>()?.OnBossDefeated();
+        // 🔹 Explicitly notify the correct BossManager
+        if (bossManager != null)
+            bossManager.OnBossDefeated();
+        else
+            Debug.LogWarning($"{name}: No BossManager assigned, cannot notify OnBossDefeated.");
+
         Destroy(gameObject, 0.2f);
     }
 }

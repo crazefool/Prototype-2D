@@ -39,21 +39,22 @@ public class TeleportShooterBoss : BaseEnemyAI, IBossHealth
     private bool fightActive = false;
     private BossManager manager;
 
-    // IBossHealth interface
     public int CurrentHealth => currentHealth;
     public int MaxHealth => bossMaxHealth;
 
     protected override void Awake()
     {
         base.Awake();
+
         sr = GetComponent<SpriteRenderer>();
         originalColor = sr.color;
 
         currentHealth = bossMaxHealth;
-        manager = FindFirstObjectByType<BossManager>();
+
+        // IMPORTANT: Only talk to the BossManager in THIS arena
+        manager = GetComponentInParent<BossManager>();
     }
 
-    // Called by BossManager when intro finishes
     public void BeginFight()
     {
         if (fightActive) return;
@@ -82,12 +83,10 @@ public class TeleportShooterBoss : BaseEnemyAI, IBossHealth
     {
         isTeleporting = true;
 
-        // Flash before teleport
         sr.color = teleportFlashColor;
         yield return new WaitForSeconds(teleportFlashDuration);
         sr.color = originalColor;
 
-        // Choose random teleport point
         if (teleportPoints.Count > 0)
         {
             Transform target = teleportPoints[Random.Range(0, teleportPoints.Count)];
@@ -160,8 +159,8 @@ public class TeleportShooterBoss : BaseEnemyAI, IBossHealth
         StopAllCoroutines();
         sr.color = Color.gray;
 
-        if (manager != null)
-            manager.OnBossDefeated();
+        // IMPORTANT: Only notify THIS arena's BossManager
+        manager?.OnBossDefeated();
 
         Destroy(gameObject, 1.5f);
     }
@@ -171,7 +170,6 @@ public class TeleportShooterBoss : BaseEnemyAI, IBossHealth
         PlayerAttack pa = other.GetComponent<PlayerAttack>();
         if (pa != null)
         {
-            Vector2 dir = (transform.position - other.transform.position).normalized;
             TakeDamage(1);
         }
     }

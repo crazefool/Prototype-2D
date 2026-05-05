@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e3b99b9227172214d9f50eea7f0e4e6a
+guid: 55771fb3fd8b0fa45ba545ad0996d597
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5123234205329615630
-    second: Bat_enemy_0
+      213: -531444439210952415
+    second: Bat_enemy.1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,24 +96,11 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bat_enemy_0
+      name: Bat_enemy.1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e0b6dcd9d52691740800000000000000
-      internalID: 5123234205329615630
+      spriteID: 12979f6291eef98f0800000000000000
+      internalID: -531444439210952415
       vertices: []
       indices: 
       edges: []
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Bat_enemy_0: 5123234205329615630
+      Bat_enemy.1_0: -531444439210952415
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

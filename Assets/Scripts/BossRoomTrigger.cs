@@ -5,7 +5,7 @@ public class BossRoomTrigger : MonoBehaviour
     [Header("References")]
     [SerializeField] private BossManager bossManager;
     [SerializeField] private GameObject bossObject;
-    [SerializeField] private BossDoor door; // Optional door that closes when fight starts
+    [SerializeField] private BossDoor door;
 
     private bool triggered = false;
 
@@ -16,20 +16,19 @@ public class BossRoomTrigger : MonoBehaviour
 
         triggered = true;
 
-        // Close the door if assigned
-        if (door != null)
-            door.CloseDoor();
+        // Activate the door object if it’s disabled
+        if (door != null && !door.gameObject.activeSelf)
+            door.gameObject.SetActive(true);
 
-        // Activate boss object
+        door?.CloseDoor();
+
         if (bossObject != null)
             bossObject.SetActive(true);
 
-        // Assign boss to manager
         IBossHealth boss = bossObject.GetComponent<IBossHealth>();
         if (boss != null)
             bossManager.SetBoss(boss);
 
-        // Start intro + music + UI
         bossManager.StartBossFight();
     }
 }
