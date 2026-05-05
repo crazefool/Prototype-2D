@@ -256,7 +256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &39848530
 Transform:
   m_ObjectHideFlags: 0
@@ -1569,6 +1569,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1831758221}
     m_Modifications:
+    - target: {fileID: 3987833733489617585, guid: eb2b62cbf18af1144a3d63721b8edb1f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7330377818758131005, guid: eb2b62cbf18af1144a3d63721b8edb1f, type: 3}
       propertyPath: m_Name
       value: Giant Slime 1
@@ -4868,7 +4872,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1831758221
 Transform:
   m_ObjectHideFlags: 0
@@ -5148,7 +5152,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -857.8, y: 384.20004}
+  m_AnchoredPosition: {x: -857.1, y: 384.20004}
   m_SizeDelta: {x: 350, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1933164731
@@ -5452,8 +5456,8 @@ Transform:
   m_GameObject: {fileID: 1979764069}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -101.98236, y: -19.70453, z: 0.20916599}
-  m_LocalScale: {x: 10.800616, y: 31.314398, z: 1}
+  m_LocalPosition: {x: -101.9863, y: -19.6257, z: 0.20916599}
+  m_LocalScale: {x: 10.695077, y: 31.47097, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 39848530}
@@ -5714,7 +5718,7 @@ MonoBehaviour:
   bossName: Demented Trickster
   healthBar: {fileID: 1261424441}
   introCanvas: {fileID: 1931689021}
-  introText: {fileID: 0}
+  introText: {fileID: 307986448}
   bossMusic: {fileID: 0}
   normalMusic: {fileID: 0}
   door: {fileID: 2034732232}
@@ -5779,7 +5783,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -6149,6 +6153,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 39848530}
     m_Modifications:
+    - target: {fileID: 524840521935243927, guid: 02d8dd908adeeed4886755ff707be6c2, type: 3}
+      propertyPath: bossManager
+      value: 
+      objectReference: {fileID: 2017454856}
+    - target: {fileID: 524840521935243927, guid: 02d8dd908adeeed4886755ff707be6c2, type: 3}
+      propertyPath: 'teleportPoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 534863499}
+    - target: {fileID: 524840521935243927, guid: 02d8dd908adeeed4886755ff707be6c2, type: 3}
+      propertyPath: 'teleportPoints.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1231603055}
+    - target: {fileID: 524840521935243927, guid: 02d8dd908adeeed4886755ff707be6c2, type: 3}
+      propertyPath: 'teleportPoints.Array.data[2]'
+      value: 
+      objectReference: {fileID: 111099868}
+    - target: {fileID: 524840521935243927, guid: 02d8dd908adeeed4886755ff707be6c2, type: 3}
+      propertyPath: 'teleportPoints.Array.data[3]'
+      value: 
+      objectReference: {fileID: 734757891}
+    - target: {fileID: 524840521935243927, guid: 02d8dd908adeeed4886755ff707be6c2, type: 3}
+      propertyPath: 'teleportPoints.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1840741653}
     - target: {fileID: 1638323248473226047, guid: 02d8dd908adeeed4886755ff707be6c2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -84.22516
@@ -6193,30 +6221,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TeleportBoss
       objectReference: {fileID: 0}
-    - target: {fileID: 1968500609254757210, guid: 02d8dd908adeeed4886755ff707be6c2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5953380871781213355, guid: 02d8dd908adeeed4886755ff707be6c2, type: 3}
-      propertyPath: 'teleportPoints.Array.data[0]'
-      value: 
-      objectReference: {fileID: 534863499}
-    - target: {fileID: 5953380871781213355, guid: 02d8dd908adeeed4886755ff707be6c2, type: 3}
-      propertyPath: 'teleportPoints.Array.data[1]'
-      value: 
-      objectReference: {fileID: 1231603055}
-    - target: {fileID: 5953380871781213355, guid: 02d8dd908adeeed4886755ff707be6c2, type: 3}
-      propertyPath: 'teleportPoints.Array.data[2]'
-      value: 
-      objectReference: {fileID: 111099868}
-    - target: {fileID: 5953380871781213355, guid: 02d8dd908adeeed4886755ff707be6c2, type: 3}
-      propertyPath: 'teleportPoints.Array.data[3]'
-      value: 
-      objectReference: {fileID: 734757891}
-    - target: {fileID: 5953380871781213355, guid: 02d8dd908adeeed4886755ff707be6c2, type: 3}
-      propertyPath: 'teleportPoints.Array.data[4]'
-      value: 
-      objectReference: {fileID: 1840741653}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6268,11 +6272,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 8249806955899868626, guid: c13843f7c34b36d4391038076387b268, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.1
+      value: -68.2
       objectReference: {fileID: 0}
     - target: {fileID: 8249806955899868626, guid: c13843f7c34b36d4391038076387b268, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.6
+      value: -44.7
       objectReference: {fileID: 0}
     - target: {fileID: 8249806955899868626, guid: c13843f7c34b36d4391038076387b268, type: 3}
       propertyPath: m_LocalPosition.z

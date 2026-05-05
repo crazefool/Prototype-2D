@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 56678
+  controlID: 65724
   draggingID: 0
 --- !u!114 &2
 MonoBehaviour:
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 56679
+  controlID: 65725
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 56607
+  controlID: 65654
   draggingID: 0
 --- !u!114 &5
 MonoBehaviour:
@@ -243,10 +243,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 3a2cfdff3c2cfdff422cfdff442cfdff482cfdff2a2efdffe696feffdadcffffaee0ffff08fbffff
+      scrollPos: {x: 0, y: 64}
+      m_SelectedIDs: 36bb0000
+      m_LastClickedID: 47926
+      m_ExpandedIDs: 3a2cfdff3c2cfdff422cfdff442cfdff482cfdff2a2efdff9cc7fdffdadcffffaee0ffff08fbffff88bb0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -878,9 +878,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 3.4880865, y: -1.7228224, z: -0.22228543}
+    m_Target: {x: 364.31207, y: 416.29358, z: -1.2973942}
     speed: 2
-    m_Value: {x: 3.4880865, y: -1.7228224, z: -0.22228543}
+    m_Value: {x: 364.31207, y: 416.29358, z: -1.2973942}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -930,9 +930,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 22.942669
+    m_Target: 757.90344
     speed: 2
-    m_Value: 22.942669
+    m_Value: 757.90344
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1026,7 +1026,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 56680
+  controlID: 65726
   draggingID: 0
 --- !u!114 &11
 MonoBehaviour:
@@ -1038,7 +1038,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -1047,14 +1047,14 @@ MonoBehaviour:
     y: 0
     width: 838
     height: 231.33331
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 13}
+  m_MinSize: {x: 231, y: 276}
+  m_MaxSize: {x: 10001, y: 10026}
+  m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
   - {fileID: 13}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1092,7 +1092,7 @@ MonoBehaviour:
     m_ContainerData: []
     m_OverlaysVisible: 1
   m_SearchFilter:
-    m_NameFilter: boss
+    m_NameFilter: 
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -1102,17 +1102,17 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 3
     m_Folders:
-    - Assets/Scripts
+    - Assets/Prefabs/Enemies
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
-    m_OriginalText: boss
+    m_OriginalText: 
     m_ImportLogFlags: 0
     m_FilterByTypeIntersection: 0
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Prefabs/Enemies
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\OleOl\Unity Projects\Prototype 2D
   m_LockTracker:
@@ -1120,8 +1120,8 @@ MonoBehaviour:
   m_LastLocalAssetsSearchArea: 3
   m_FolderTreeState:
     scrollPos: {x: 0, y: 26.666687}
-    m_SelectedIDs: 02c20000
-    m_LastClickedID: 49666
+    m_SelectedIDs: fcc10000
+    m_LastClickedID: 49660
     m_ExpandedIDs: 000000005cbe00005ebe000060be000062be000064be000066be000068be00006abe00006cbe0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1177,8 +1177,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 36bb0000
+    m_LastClickedInstanceID: 47926
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000000000009ab2000072b8000010ba0000bcc3000076700100
     m_RenameOverlay:

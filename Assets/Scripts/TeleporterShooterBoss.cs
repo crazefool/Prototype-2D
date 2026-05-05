@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class TeleportShooterBoss : BaseEnemyAI, IBossHealth
 {
     [Header("Boss Settings")]
-    [SerializeField] private int bossMaxHealth = 12;
     [SerializeField] private float teleportCooldown = 2.5f;
     [SerializeField] private float waitDuration = 1.2f;
     [SerializeField] private float attackCooldown = 1.0f;
@@ -23,24 +22,29 @@ public class TeleportShooterBoss : BaseEnemyAI, IBossHealth
     [SerializeField] private int batsPerSummon = 3;
     [SerializeField] private float summonRadius = 2f;
 
+    [Header("HP Thresholds")]
+    [SerializeField] private float summonPhase2Threshold = 0.66f;
+    [SerializeField] private float summonPhase3Threshold = 0.33f;
+
     [Header("Visuals")]
     [SerializeField] private float teleportFlashDuration = 0.2f;
     [SerializeField] private Color teleportFlashColor = Color.cyan;
 
+    [Header("Boss Manager Reference")]
+    [SerializeField] private BossManager bossManager;
+
     private SpriteRenderer sr;
     private Color originalColor;
 
-    private int currentHealth;
     private bool isTeleporting = false;
     private bool isAttacking = false;
     private bool phase2Triggered = false;
     private bool phase3Triggered = false;
-
     private bool fightActive = false;
-    private BossManager manager;
+    private bool isDead = false;
 
-    public int CurrentHealth => currentHealth;
-    public int MaxHealth => bossMaxHealth;
+    public int CurrentHealth => enemy.CurrentHealth;
+    public int MaxHealth => enemy.MaxHealth;
 
     protected override void Awake()
     {
@@ -49,10 +53,40 @@ public class TeleportShooterBoss : BaseEnemyAI, IBossHealth
         sr = GetComponent<SpriteRenderer>();
         originalColor = sr.color;
 
-        currentHealth = bossMaxHealth;
+        enemy.isBoss = true;
 
-        // IMPORTANT: Only talk to the BossManager in THIS arena
-        manager = GetComponentInParent<BossManager>();
+        if (bossManager == null)
+            bossManager = FindFirstObjectByType<BossManager>();
+    }
+
+    private void Update()
+    {
+        if (!fightActive) return;
+
+        HandleHPTriggers(); // ⭐ same pattern as GiantSlimeBoss
+
+        if (enemy.CurrentHealth <= 0 && !isDead)
+        {
+            Die();
+            return;
+        }
+    }
+
+    private void HandleHPTriggers()
+    {
+        float hpPercent = (float)enemy.CurrentHealth / enemy.MaxHealth;
+
+        if (!phase2Triggered && hpPercent <= summonPhase2Threshold)
+        {
+            phase2Triggered = true;
+            SummonBats();
+        }
+
+        if (!phase3Triggered && hpPercent <= summonPhase3Threshold)
+        {
+            phase3Triggered = true;
+            SummonBats();
+        }
     }
 
     public void BeginFight()
@@ -65,7 +99,7 @@ public class TeleportShooterBoss : BaseEnemyAI, IBossHealth
 
     private IEnumerator BossLoop()
     {
-        while (fightActive && currentHealth > 0)
+        while (fightActive && !isDead)
         {
             if (isTeleporting || isAttacking)
             {
@@ -111,36 +145,14 @@ public class TeleportShooterBoss : BaseEnemyAI, IBossHealth
         isAttacking = false;
     }
 
-    public void TakeDamage(int amount)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!fightActive) return;
-
-        currentHealth -= amount;
-
-        if (currentHealth <= 0)
+        PlayerAttack pa = other.GetComponent<PlayerAttack>();
+        if (pa != null)
         {
-            currentHealth = 0;
-            Die();
-            return;
-        }
-
-        CheckPhaseTriggers();
-    }
-
-    private void CheckPhaseTriggers()
-    {
-        float hpRatio = (float)currentHealth / bossMaxHealth;
-
-        if (!phase2Triggered && hpRatio <= 0.66f)
-        {
-            phase2Triggered = true;
-            SummonBats();
-        }
-
-        if (!phase3Triggered && hpRatio <= 0.33f)
-        {
-            phase3Triggered = true;
-            SummonBats();
+            Vector2 knockbackDir = (transform.position - other.transform.position).normalized;
+            enemy.TakeDamage(1, knockbackDir);
+            // ⭐ no phase logic here anymore
         }
     }
 
@@ -156,21 +168,15 @@ public class TeleportShooterBoss : BaseEnemyAI, IBossHealth
 
     private void Die()
     {
+        if (isDead) return;
+        isDead = true;
+
         StopAllCoroutines();
         sr.color = Color.gray;
 
-        // IMPORTANT: Only notify THIS arena's BossManager
-        manager?.OnBossDefeated();
+        if (bossManager != null)
+            bossManager.OnBossDefeated();
 
         Destroy(gameObject, 1.5f);
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        PlayerAttack pa = other.GetComponent<PlayerAttack>();
-        if (pa != null)
-        {
-            TakeDamage(1);
-        }
     }
 }
