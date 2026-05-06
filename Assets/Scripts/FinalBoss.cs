@@ -9,6 +9,7 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
     [Header("Pattern Settings")]
     [SerializeField] private int dashesPerCycle = 3;
     [SerializeField] private float waitAfterDash = 0.25f;
+    [SerializeField] private float waitAfterHazard = 0.4f;
     [SerializeField] private float waitAfterAOE = 0.5f;
 
     [Header("Teleport Settings")]
@@ -24,6 +25,22 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
     [SerializeField] private float dashAnticipationTime = 0.25f;
     [SerializeField] private Color dashAnticipationColor = Color.red;
     [SerializeField] private LayerMask wallMask;
+
+    [Header("Hazard Projectile Settings")]
+    [SerializeField] private GameObject hazardProjectilePrefab;
+    [SerializeField] private float hazardProjectileSpeed = 7f;
+    [SerializeField] private float hazardAnticipationTime = 0.35f;
+    [SerializeField] private Color hazardAnticipationColor = Color.yellow;
+
+    [Header("Phase Summon Settings")]
+    [SerializeField] private GameObject[] phase2Summons;
+    [SerializeField] private GameObject[] phase3Summons;
+    [SerializeField] private float summonRadius = 2.5f;
+    [SerializeField] private float summonAnticipationTime = 0.5f;
+    [SerializeField] private Color summonAnticipationColor = new Color(1f, 0f, 1f); // Purple
+
+    private bool phase2Triggered = false;
+    private bool phase3Triggered = false;
 
     [Header("AOE Settings")]
     [SerializeField] private GameObject aoePrefab;
@@ -63,7 +80,6 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
     {
         if (!fightActive && Input.GetKeyDown(KeyCode.T))
         {
-            Debug.Log("DEBUG: T pressed — starting boss fight.");
             BeginFight();
         }
 
@@ -83,19 +99,18 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
             return;
 
         fightActive = true;
-        Debug.Log("DEBUG: Boss fight started.");
         StartCoroutine(BossLoop());
     }
 
     private IEnumerator BossLoop()
     {
-        Debug.Log("DEBUG: Boss loop entered.");
-
         while (fightActive && !isDead)
         {
+            CheckPhaseTransitions();
+
+            // --- DASH / TELEPORT PHASE ---
             for (int i = 0; i < dashesPerCycle; i++)
             {
-                Debug.Log($"DEBUG: Starting teleport + dash {i + 1}/{dashesPerCycle}");
                 yield return TeleportRoutine();
                 if (isDead) yield break;
 
@@ -105,23 +120,71 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
                 yield return new WaitForSeconds(waitAfterDash);
             }
 
-            Debug.Log("DEBUG: Starting AOE charge.");
+            // --- HAZARD PROJECTILE ---
+            yield return ShootHazardProjectileRoutine();
+            if (isDead) yield break;
+
+            yield return new WaitForSeconds(waitAfterHazard);
+
+            // --- AOE CHARGE ---
             yield return AOEChargeRoutine();
             if (isDead) yield break;
 
-            Debug.Log("DEBUG: Starting AOE explosion.");
+            // --- AOE EXPLOSION ---
             yield return AOEExplosionRoutine();
             if (isDead) yield break;
 
-            Debug.Log("DEBUG: AOE finished, waiting before next cycle.");
             yield return new WaitForSeconds(waitAfterAOE);
         }
+    }
 
-        Debug.Log("DEBUG: Boss loop exited.");
+    // ---------- PHASE CHECK ----------
+    private void CheckPhaseTransitions()
+    {
+        float hpPercent = (float)enemy.CurrentHealth / enemy.MaxHealth;
+
+        if (!phase2Triggered && hpPercent <= 0.66f)
+        {
+            phase2Triggered = true;
+            StartCoroutine(SummonPhaseEnemies(phase2Summons));
+        }
+
+        if (!phase3Triggered && hpPercent <= 0.33f)
+        {
+            phase3Triggered = true;
+            StartCoroutine(SummonPhaseEnemies(phase3Summons));
+        }
+    }
+
+    // ---------- SUMMON ROUTINE ----------
+    private IEnumerator SummonPhaseEnemies(GameObject[] list)
+    {
+        if (list == null || list.Length == 0)
+            yield break;
+
+        // Anticipation flash
+        if (sr != null)
+            sr.color = summonAnticipationColor;
+
+        yield return new WaitForSeconds(summonAnticipationTime);
+
+        if (sr != null)
+            sr.color = originalColor;
+
+        // Spawn in circle
+        float angleStep = 360f / list.Length;
+
+        for (int i = 0; i < list.Length; i++)
+        {
+            float angle = angleStep * i * Mathf.Deg2Rad;
+            Vector2 offset = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * summonRadius;
+            Vector2 spawnPos = (Vector2)transform.position + offset;
+
+            Instantiate(list[i], spawnPos, Quaternion.identity);
+        }
     }
 
     // ---------- TELEPORT ----------
-
     private IEnumerator TeleportRoutine()
     {
         Vector3 originalScale = transform.localScale;
@@ -130,20 +193,17 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
         while (t < squashDuration)
         {
             t += Time.deltaTime;
-            float lerp = t / squashDuration;
-            transform.localScale = Vector3.Lerp(originalScale, originalScale * 0.2f, lerp);
+            transform.localScale = Vector3.Lerp(originalScale, originalScale * 0.2f, t / squashDuration);
             yield return null;
         }
 
-        Vector2 newPos = FindValidTeleportPosition();
-        transform.position = newPos;
+        transform.position = FindValidTeleportPosition();
 
         t = 0f;
         while (t < squashDuration)
         {
             t += Time.deltaTime;
-            float lerp = t / squashDuration;
-            transform.localScale = Vector3.Lerp(originalScale * 0.2f, originalScale, lerp);
+            transform.localScale = Vector3.Lerp(originalScale * 0.2f, originalScale, t / squashDuration);
             yield return null;
         }
 
@@ -176,7 +236,6 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
     }
 
     // ---------- DASH ----------
-
     private IEnumerator DashRoutine()
     {
         if (enemy.IsStunned)
@@ -208,8 +267,7 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
             int hitCount = rb.Cast(dashDirection, filter, hits, dashSpeed * Time.deltaTime);
             if (hitCount > 0)
             {
-                Vector2 normal = hits[0].normal;
-                dashDirection = Vector2.Reflect(dashDirection, normal).normalized;
+                dashDirection = Vector2.Reflect(dashDirection, hits[0].normal).normalized;
                 rb.linearVelocity = dashDirection * (dashSpeed * 0.7f);
                 break;
             }
@@ -221,12 +279,32 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
         rb.linearVelocity = Vector2.zero;
     }
 
-    // ---------- AOE (Prefab radius only) ----------
+    // ---------- HAZARD PROJECTILE ----------
+    private IEnumerator ShootHazardProjectileRoutine()
+    {
+        if (sr != null)
+            sr.color = hazardAnticipationColor;
 
+        yield return new WaitForSeconds(hazardAnticipationTime);
+
+        if (sr != null)
+            sr.color = originalColor;
+
+        if (hazardProjectilePrefab != null)
+        {
+            Vector2 target = GetPlayerCenter();
+
+            GameObject proj = Instantiate(hazardProjectilePrefab, transform.position, Quaternion.identity);
+            BossHazardProjectile p = proj.GetComponent<BossHazardProjectile>();
+
+            if (p != null)
+                p.Initialize(target, hazardProjectileSpeed);
+        }
+    }
+
+    // ---------- AOE ----------
     private IEnumerator AOEChargeRoutine()
     {
-        Debug.Log("DEBUG: AOE charge started.");
-
         float elapsed = 0f;
         bool toggle = false;
 
@@ -238,35 +316,22 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
             if (sr != null)
                 sr.color = toggle ? aoeChargeColor : originalColor;
 
-            float wait = aoeFlashInterval > 0f ? aoeFlashInterval : 0.05f;
-            yield return new WaitForSecondsRealtime(wait);
+            yield return new WaitForSecondsRealtime(aoeFlashInterval);
         }
 
         if (sr != null)
             sr.color = originalColor;
-
-        Debug.Log("DEBUG: AOE charge finished.");
     }
 
     private IEnumerator AOEExplosionRoutine()
     {
-        Debug.Log("DEBUG: AOE explosion triggered.");
-
         if (aoePrefab != null)
-        {
             Instantiate(aoePrefab, transform.position, Quaternion.identity);
-        }
-        else
-        {
-            Debug.LogWarning("DEBUG: AOE prefab is null!");
-        }
 
         yield return new WaitForSecondsRealtime(0.2f);
-        Debug.Log("DEBUG: AOE explosion finished.");
     }
 
     // ---------- DAMAGE / DEATH ----------
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         PlayerAttack pa = other.GetComponent<PlayerAttack>();
@@ -276,8 +341,7 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
             if (hook != null && hook.IsPulling)
                 return;
 
-            Vector2 knockbackDir = (transform.position - other.transform.position).normalized;
-            enemy.TakeDamage(1, knockbackDir);
+            enemy.TakeDamage(1, (transform.position - other.transform.position).normalized);
         }
     }
 
@@ -295,7 +359,6 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
         if (bossManager != null)
             bossManager.OnBossDefeated();
 
-        Debug.Log("DEBUG: Boss died.");
         Destroy(gameObject, 1.5f);
     }
 }

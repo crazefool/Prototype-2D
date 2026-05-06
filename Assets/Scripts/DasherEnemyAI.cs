@@ -93,7 +93,8 @@ public class DasherEnemyAI : BaseEnemyAI
         isAnticipating = false;
         isDashing = true;
         cooldownTimer = dashCooldown;
-        enemy.isInvulnerable = true;
+
+        // ⭐ REMOVED: enemy.isInvulnerable = true;
 
         float elapsed = 0f;
         ContactFilter2D filter = new ContactFilter2D();
@@ -121,7 +122,9 @@ public class DasherEnemyAI : BaseEnemyAI
         }
 
         rb.linearVelocity = Vector2.zero;
-        enemy.isInvulnerable = false;
+
+        // ⭐ REMOVED: enemy.isInvulnerable = false;
+
         isDashing = false;
     }
 }

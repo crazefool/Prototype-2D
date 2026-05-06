@@ -4474,6 +4474,7 @@ MonoBehaviour:
   bossManager: {fileID: 0}
   dashesPerCycle: 3
   waitAfterDash: 0.3
+  waitAfterHazard: 0.4
   waitAfterAOE: 1
   minTeleportDistance: 3
   maxTeleportDistance: 5
@@ -4489,6 +4490,17 @@ MonoBehaviour:
   wallMask:
     serializedVersion: 2
     m_Bits: 8
+  hazardProjectilePrefab: {fileID: 1197598480320707866, guid: 0723228808a3b9649bcb925bb58bf01d, type: 3}
+  hazardProjectileSpeed: 7
+  hazardAnticipationTime: 0.35
+  hazardAnticipationColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  phase2Summons:
+  - {fileID: 1778833536581040618, guid: a7ac86125eff64e4aa36599eac57575d, type: 3}
+  phase3Summons:
+  - {fileID: 7299249750735052843, guid: 445a70cd808c8284bb56ca1665a13084, type: 3}
+  summonRadius: 2.5
+  summonAnticipationTime: 0.5
+  summonAnticipationColor: {r: 1, g: 0, b: 1, a: 1}
   aoePrefab: {fileID: 5993508973531613498, guid: 41595b95e0bb81a458de0e2da4504042, type: 3}
   aoeChargeTime: 0.025
   aoeFlashInterval: 0.15
