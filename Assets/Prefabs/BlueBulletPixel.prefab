@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueBulletPixel
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: f3ce6caebb18d3748b112ceeb7d4c24b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: f3ce6caebb18d3748b112ceeb7d4c24b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -73.05541

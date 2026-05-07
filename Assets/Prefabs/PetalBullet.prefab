@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PetalBullet
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 6770ed85cd7ee8541854c39b3dfe0b8d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 6770ed85cd7ee8541854c39b3dfe0b8d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.9968295

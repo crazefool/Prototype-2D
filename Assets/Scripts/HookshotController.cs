@@ -45,8 +45,12 @@ public class HookshotController : MonoBehaviour
         line.startWidth = 0.05f;
         line.endWidth = 0.05f;
         line.material = new Material(Shader.Find("Sprites/Default"));
-        line.startColor = Color.white;
-        line.endColor = Color.white;
+
+        // ⭐ NEW: Red rope color and render above platforms
+        line.startColor = new Color(1f, 0.3f, 0.3f);
+        line.endColor = new Color(1f, 0.3f, 0.3f);
+        line.sortingLayerName = "Characters";
+        line.sortingOrder = 5;
     }
 
     void Update()

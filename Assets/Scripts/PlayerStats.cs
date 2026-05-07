@@ -15,7 +15,6 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private int hitsPerMana = 3;
     private int hitCounter = 0;
 
-    // ⭐ RESTORED PUBLIC GETTERS (UI_Mana needs these)
     public int HitsPerMana => hitsPerMana;
     public int HitCounter => hitCounter;
 
@@ -90,7 +89,6 @@ public class PlayerStats : MonoBehaviour
         isInvincible = false;
     }
 
-    // ⭐ RESTORED FOR HOOKSHOT + SLASHDASH
     public void SetInvincible(bool value)
     {
         isInvincible = value;
@@ -141,7 +139,7 @@ public class PlayerStats : MonoBehaviour
         return true;
     }
 
-    // ---------------- NEW HEAL SYSTEM ----------------
+    // ---------------- HEAL SYSTEM ----------------
 
     public void BeginHealCharge()
     {
@@ -170,7 +168,23 @@ public class PlayerStats : MonoBehaviour
         if (rb != null)
             rb.linearVelocity = Vector2.zero;
 
+        // ⭐ Spawn heal charge effect
         activeChargeEffect = Instantiate(healChargeEffectPrefab, transform.position, Quaternion.identity, transform);
+
+        // ⭐ NEW: Make heal charge particles green + visible above platforms
+        var chargeRenderer = activeChargeEffect.GetComponent<ParticleSystemRenderer>();
+        if (chargeRenderer != null)
+        {
+            chargeRenderer.sortingLayerName = "Effects";
+            chargeRenderer.sortingOrder = 10;
+        }
+
+        var chargeSystem = activeChargeEffect.GetComponent<ParticleSystem>();
+        if (chargeSystem != null)
+        {
+            var main = chargeSystem.main;
+            main.startColor = Color.green;
+        }
 
         float timer = 0f;
 
@@ -196,8 +210,26 @@ public class PlayerStats : MonoBehaviour
         SpendMana(1);
         Heal(1);
 
+        // ⭐ Spawn heal burst effect
         if (healBurstEffectPrefab != null)
-            Instantiate(healBurstEffectPrefab, transform.position, Quaternion.identity);
+        {
+            GameObject burst = Instantiate(healBurstEffectPrefab, transform.position, Quaternion.identity);
+
+            // ⭐ NEW: Make burst particles green + visible above platforms
+            var burstRenderer = burst.GetComponent<ParticleSystemRenderer>();
+            if (burstRenderer != null)
+            {
+                burstRenderer.sortingLayerName = "Effects";
+                burstRenderer.sortingOrder = 10;
+            }
+
+            var burstSystem = burst.GetComponent<ParticleSystem>();
+            if (burstSystem != null)
+            {
+                var main = burstSystem.main;
+                main.startColor = Color.green;
+            }
+        }
 
         CleanupChargeEffects();
     }

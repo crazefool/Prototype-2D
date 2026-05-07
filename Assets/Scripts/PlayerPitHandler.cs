@@ -10,7 +10,8 @@ public class PlayerPitHandler : MonoBehaviour
     [SerializeField] private float safeRadiusFromPit = 0.4f;
 
     [Header("Environment")]
-    [SerializeField] private LayerMask pitTriggerMask; // assign PitTrigger layer here
+    [SerializeField] private LayerMask pitTriggerMask;   // PitTrigger layer
+    [SerializeField] private LayerMask platformMask;     // Platform layer (trigger)
 
     private PlayerStats stats;
     private PlayerMovement movement;
@@ -21,7 +22,6 @@ public class PlayerPitHandler : MonoBehaviour
     private bool isFalling = false;
 
     private Vector3 lastSafePosition;
-    private Collider2D currentPitTrigger;
 
     void Awake()
     {
@@ -36,14 +36,12 @@ public class PlayerPitHandler : MonoBehaviour
 
     void Update()
     {
-        // Only update lastSafePosition when:
-        // - Not falling
-        // - Not being pulled by hookshot
-        // - Clearly not near any pit trigger
         if (!isFalling && (hookshot == null || !hookshot.IsPulling))
         {
             bool nearPit = Physics2D.OverlapCircle(transform.position, safeRadiusFromPit, pitTriggerMask) != null;
-            if (!nearPit)
+
+            // ⭐ NEW: If inside a platform trigger, treat as safe
+            if (!nearPit || IsInsidePlatform())
             {
                 lastSafePosition = transform.position;
             }
@@ -53,20 +51,16 @@ public class PlayerPitHandler : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("PitTrigger"))
-        {
-            TryStartFall(other);
-        }
+            TryStartFall();
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("PitTrigger"))
-        {
-            TryStartFall(other);
-        }
+            TryStartFall();
     }
 
-    private void TryStartFall(Collider2D pit)
+    private void TryStartFall()
     {
         if (hookshot != null && hookshot.IsPulling)
             return;
@@ -74,8 +68,18 @@ public class PlayerPitHandler : MonoBehaviour
         if (isFalling)
             return;
 
-        currentPitTrigger = pit;
+        // ⭐ NEW: If inside a platform trigger, ignore pit
+        if (IsInsidePlatform())
+            return;
+
         StartCoroutine(FallRoutine());
+    }
+
+    private bool IsInsidePlatform()
+    {
+        // Check if overlapping any platform trigger
+        Collider2D hit = Physics2D.OverlapCircle(transform.position, 0.1f, platformMask);
+        return hit != null;
     }
 
     private IEnumerator FallRoutine()
@@ -90,10 +94,7 @@ public class PlayerPitHandler : MonoBehaviour
 
         stats.TakeDamage(1);
 
-        // TELEPORT to last safe position
         transform.position = lastSafePosition;
-
-        currentPitTrigger = null;
 
         movement.SetCanMove(true);
         attack.SetCanAttack(true);

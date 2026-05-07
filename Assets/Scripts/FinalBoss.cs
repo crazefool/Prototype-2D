@@ -37,7 +37,7 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
     [SerializeField] private GameObject[] phase3Summons;
     [SerializeField] private float summonRadius = 2.5f;
     [SerializeField] private float summonAnticipationTime = 0.5f;
-    [SerializeField] private Color summonAnticipationColor = new Color(1f, 0f, 1f); // Purple
+    [SerializeField] private Color summonAnticipationColor = new Color(1f, 0f, 1f);
 
     private bool phase2Triggered = false;
     private bool phase3Triggered = false;
@@ -108,7 +108,6 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
         {
             CheckPhaseTransitions();
 
-            // --- DASH / TELEPORT PHASE ---
             for (int i = 0; i < dashesPerCycle; i++)
             {
                 yield return TeleportRoutine();
@@ -120,17 +119,14 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
                 yield return new WaitForSeconds(waitAfterDash);
             }
 
-            // --- HAZARD PROJECTILE ---
             yield return ShootHazardProjectileRoutine();
             if (isDead) yield break;
 
             yield return new WaitForSeconds(waitAfterHazard);
 
-            // --- AOE CHARGE ---
             yield return AOEChargeRoutine();
             if (isDead) yield break;
 
-            // --- AOE EXPLOSION ---
             yield return AOEExplosionRoutine();
             if (isDead) yield break;
 
@@ -138,7 +134,6 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
         }
     }
 
-    // ---------- PHASE CHECK ----------
     private void CheckPhaseTransitions()
     {
         float hpPercent = (float)enemy.CurrentHealth / enemy.MaxHealth;
@@ -156,13 +151,11 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
         }
     }
 
-    // ---------- SUMMON ROUTINE ----------
     private IEnumerator SummonPhaseEnemies(GameObject[] list)
     {
         if (list == null || list.Length == 0)
             yield break;
 
-        // Anticipation flash
         if (sr != null)
             sr.color = summonAnticipationColor;
 
@@ -171,7 +164,6 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
         if (sr != null)
             sr.color = originalColor;
 
-        // Spawn in circle
         float angleStep = 360f / list.Length;
 
         for (int i = 0; i < list.Length; i++)
@@ -196,6 +188,11 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
             transform.localScale = Vector3.Lerp(originalScale, originalScale * 0.2f, t / squashDuration);
             yield return null;
         }
+
+        // ⭐ NEW: Cancel hookshot BEFORE teleporting
+        HookshotController hook = FindFirstObjectByType<HookshotController>();
+        if (hook != null && hook.IsPulling)
+            hook.CancelHookshot();
 
         transform.position = FindValidTeleportPosition();
 
@@ -235,7 +232,6 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
         return chosen;
     }
 
-    // ---------- DASH ----------
     private IEnumerator DashRoutine()
     {
         if (enemy.IsStunned)
@@ -279,7 +275,6 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
         rb.linearVelocity = Vector2.zero;
     }
 
-    // ---------- HAZARD PROJECTILE ----------
     private IEnumerator ShootHazardProjectileRoutine()
     {
         if (sr != null)
@@ -302,7 +297,6 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
         }
     }
 
-    // ---------- AOE ----------
     private IEnumerator AOEChargeRoutine()
     {
         float elapsed = 0f;
@@ -331,7 +325,6 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
         yield return new WaitForSecondsRealtime(0.2f);
     }
 
-    // ---------- DAMAGE / DEATH ----------
     private void OnTriggerEnter2D(Collider2D other)
     {
         PlayerAttack pa = other.GetComponent<PlayerAttack>();

@@ -3,9 +3,12 @@ using UnityEngine;
 public class PitFallHandler : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private bool isFlying = false; // manual override if needed
+    [SerializeField] private bool isFlying = false;
     [SerializeField] private bool destroyInstantly = true;
     [SerializeField] private float destroyDelay = 0.1f;
+
+    [Header("Environment")]
+    [SerializeField] private LayerMask platformMask;   // Platform trigger layer
 
     private Enemy enemy;
     private PullableObject pullable;
@@ -36,24 +39,31 @@ public class PitFallHandler : MonoBehaviour
 
     private void TryFallIntoPit()
     {
-        // ⭐ NEW: Flying enemies ignore pits
         if (ai != null && ai.IsFlying)
             return;
 
-        // ⭐ OLD: manual override still works
         if (isFlying)
             return;
 
-        // ⭐ Do not fall while being pulled
         if (enemy != null && enemy.IsBeingPulled)
             return;
 
         if (pullable != null && pullable.IsBeingPulled)
             return;
 
+        // ⭐ NEW: If inside a platform trigger, ignore pit
+        if (IsInsidePlatform())
+            return;
+
         if (destroyInstantly)
             Destroy(gameObject);
         else
             Destroy(gameObject, destroyDelay);
+    }
+
+    private bool IsInsidePlatform()
+    {
+        Collider2D hit = Physics2D.OverlapCircle(transform.position, 0.1f, platformMask);
+        return hit != null;
     }
 }
