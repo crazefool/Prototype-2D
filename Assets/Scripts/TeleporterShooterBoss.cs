@@ -117,10 +117,13 @@ public class TeleportShooterBoss : BaseEnemyAI, IBossHealth
     {
         isTeleporting = true;
 
-        // Cancel hookshot before teleport
+        // ⭐ FIXED: Only cancel hookshot if THIS boss is the one being pulled
         HookshotController hook = FindFirstObjectByType<HookshotController>();
         if (hook != null && hook.IsPulling)
-            hook.CancelHookshot();
+        {
+            if (enemy.IsBeingPulled)   // Only cancel if boss is the pulled target
+                hook.CancelHookshot();
+        }
 
         sr.color = teleportFlashColor;
         yield return new WaitForSeconds(teleportFlashDuration);
