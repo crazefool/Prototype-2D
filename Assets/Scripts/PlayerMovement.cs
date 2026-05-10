@@ -9,8 +9,6 @@ public class PlayerMovement : MonoBehaviour
     private PlayerDash dash;
 
     private bool canMove = true;
-
-    // ⭐ NEW: Movement multiplier for slow zones, etc.
     private float speedMultiplier = 1f;
 
     void Awake()
@@ -45,8 +43,8 @@ public class PlayerMovement : MonoBehaviour
         if (dash != null && dash.IsDashing())
             return;
 
-        // ⭐ NEW: Apply movement multiplier
-        rb.MovePosition(rb.position + movementInput * movementSpeed * speedMultiplier * Time.fixedDeltaTime);
+        Vector2 newPos = rb.position + movementInput * movementSpeed * speedMultiplier * Time.fixedDeltaTime;
+        rb.MovePosition(newPos);
     }
 
     public void SetCanMove(bool value)
@@ -54,14 +52,14 @@ public class PlayerMovement : MonoBehaviour
         canMove = value;
     }
 
-    public Vector2 GetMovementInput()
-    {
-        return movementInput;
-    }
-
-    // ⭐ NEW: Called by hazard zones to slow or restore speed
     public void SetMovementMultiplier(float value)
     {
         speedMultiplier = value;
+    }
+
+    // ⭐ Restored method required by PlayerDash.cs
+    public Vector2 GetMovementInput()
+    {
+        return movementInput;
     }
 }

@@ -20,7 +20,6 @@ public class PlayerPitHandler : MonoBehaviour
     private HookshotController hookshot;
 
     private bool isFalling = false;
-
     private Vector3 lastSafePosition;
 
     void Awake()
@@ -36,7 +35,6 @@ public class PlayerPitHandler : MonoBehaviour
 
     void Update()
     {
-        // ⭐ NEW: Do NOT update safe position while dashing
         if (dash != null && dash.IsDashing())
             return;
 
@@ -44,12 +42,22 @@ public class PlayerPitHandler : MonoBehaviour
         {
             bool nearPit = Physics2D.OverlapCircle(transform.position, safeRadiusFromPit, pitTriggerMask) != null;
 
-            // ⭐ If inside a platform trigger, treat as safe
             if (!nearPit || IsInsidePlatform())
-            {
                 lastSafePosition = transform.position;
-            }
         }
+    }
+
+    // ⭐ NEW: Parent player to platform when colliding
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out Platform platform))
+            transform.SetParent(platform.transform);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out Platform platform))
+            transform.SetParent(null);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -72,11 +80,9 @@ public class PlayerPitHandler : MonoBehaviour
         if (isFalling)
             return;
 
-        // ⭐ NEW: Ignore pit while dashing
         if (dash != null && dash.IsDashing())
             return;
 
-        // ⭐ Ignore pit if standing on a platform
         if (IsInsidePlatform())
             return;
 
@@ -100,7 +106,6 @@ public class PlayerPitHandler : MonoBehaviour
         yield return new WaitForSeconds(fallDelay);
 
         stats.TakeDamage(1);
-
         transform.position = lastSafePosition;
 
         movement.SetCanMove(true);

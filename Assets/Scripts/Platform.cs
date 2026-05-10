@@ -24,19 +24,17 @@ public class Platform : MonoBehaviour
             return;
 
         float step = moveSpeed * Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position, movingForward ? targetPos : startPos, step);
+
+        transform.position = Vector2.MoveTowards(
+            transform.position,
+            movingForward ? targetPos : startPos,
+            step
+        );
 
         if (Vector2.Distance(transform.position, movingForward ? targetPos : startPos) < 0.01f)
         {
             if (pingPong)
                 movingForward = !movingForward;
         }
-    }
-
-    // Optional: visualize movement path in editor
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawLine(transform.position, transform.position + (Vector3)moveOffset);
     }
 }
