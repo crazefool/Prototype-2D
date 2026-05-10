@@ -36,11 +36,15 @@ public class PlayerPitHandler : MonoBehaviour
 
     void Update()
     {
+        // ⭐ NEW: Do NOT update safe position while dashing
+        if (dash != null && dash.IsDashing())
+            return;
+
         if (!isFalling && (hookshot == null || !hookshot.IsPulling))
         {
             bool nearPit = Physics2D.OverlapCircle(transform.position, safeRadiusFromPit, pitTriggerMask) != null;
 
-            // ⭐ NEW: If inside a platform trigger, treat as safe
+            // ⭐ If inside a platform trigger, treat as safe
             if (!nearPit || IsInsidePlatform())
             {
                 lastSafePosition = transform.position;
@@ -68,7 +72,11 @@ public class PlayerPitHandler : MonoBehaviour
         if (isFalling)
             return;
 
-        // ⭐ NEW: If inside a platform trigger, ignore pit
+        // ⭐ NEW: Ignore pit while dashing
+        if (dash != null && dash.IsDashing())
+            return;
+
+        // ⭐ Ignore pit if standing on a platform
         if (IsInsidePlatform())
             return;
 
@@ -77,7 +85,6 @@ public class PlayerPitHandler : MonoBehaviour
 
     private bool IsInsidePlatform()
     {
-        // Check if overlapping any platform trigger
         Collider2D hit = Physics2D.OverlapCircle(transform.position, 0.1f, platformMask);
         return hit != null;
     }

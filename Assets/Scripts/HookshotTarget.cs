@@ -6,8 +6,6 @@ public class HookshotTarget : MonoBehaviour
     public HookType hookType;
 
     public GameObject detachablePart;
-
-    // ⭐ NEW: Visual rope attach point
     public Transform attachPoint;
 
     public void DetachPart()
@@ -17,13 +15,21 @@ public class HookshotTarget : MonoBehaviour
             shellAI.BreakShell();
 
         if (detachablePart != null)
-        {
             detachablePart.transform.SetParent(null);
-        }
     }
 
     public void Trigger()
     {
         Debug.Log("Hookshot triggered object: " + name);
+
+        LeverTrigger lever = GetComponent<LeverTrigger>();
+        if (lever != null)
+        {
+            lever.ActivateLever();
+        }
+        else
+        {
+            Debug.LogWarning("HookshotTarget.Trigger() called, but no LeverTrigger found on " + name);
+        }
     }
 }

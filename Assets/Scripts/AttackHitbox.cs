@@ -21,6 +21,14 @@ public class AttackHitbox : MonoBehaviour
     {
         Vector2 attackDir = player.GetLastAttackDirection();
 
+        // ⭐ NEW: Levers
+        LeverTrigger lever = collision.GetComponent<LeverTrigger>();
+        if (lever != null)
+        {
+            lever.ActivateLever();
+            return;
+        }
+
         // ⭐ 1. Punchable objects
         PunchableObject punchable = collision.GetComponent<PunchableObject>();
         if (punchable != null)
