@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class LeverTrigger : MonoBehaviour
 {
-    [Header("Object to Activate")]
-    [SerializeField] private GameObject targetObject;
+    [Header("Platform to Activate")]
+    [SerializeField] private GameObject platformToActivate;
 
     [Header("Optional: One-time use")]
     [SerializeField] private bool disableAfterUse = true;
@@ -17,20 +17,8 @@ public class LeverTrigger : MonoBehaviour
 
         hasTriggered = true;
 
-        if (targetObject != null)
-        {
-            // If it's a door
-            DoorOpener door = targetObject.GetComponent<DoorOpener>();
-            if (door != null)
-            {
-                door.OpenDoor();
-            }
-            else
-            {
-                // Default behavior: activate object (platform)
-                targetObject.SetActive(true);
-            }
-        }
+        if (platformToActivate != null)
+            platformToActivate.SetActive(true);
 
         if (disableAfterUse)
             gameObject.SetActive(false);

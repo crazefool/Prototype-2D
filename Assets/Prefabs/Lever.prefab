@@ -10,11 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3500060665460435268}
   - component: {fileID: 6058776035404178496}
-  - component: {fileID: 6215287002173760295}
   - component: {fileID: 3920663999637929122}
   - component: {fileID: 7690114533749192479}
   - component: {fileID: 6579790479323450096}
-  - component: {fileID: 5156294207327447909}
   m_Layer: 8
   m_Name: Lever
   m_TagString: Untagged
@@ -92,33 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &6215287002173760295
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1993931040502652456}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!61 &3920663999637929122
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -192,17 +163,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff980f7d7f3e53439926415336c2aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 0}
+  platformToActivate: {fileID: 0}
   disableAfterUse: 1
---- !u!114 &5156294207327447909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1993931040502652456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a192479337cfa44c86024007435993a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
