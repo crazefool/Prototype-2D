@@ -2,8 +2,17 @@ using UnityEngine;
 
 public class LeverTrigger : MonoBehaviour
 {
-    [Header("Platform to Activate")]
-    [SerializeField] private GameObject platformToActivate;
+    public enum LeverAction
+    {
+        ActivateObject,
+        DeactivateObject
+    }
+
+    [Header("Lever Behavior")]
+    [SerializeField] private LeverAction action = LeverAction.ActivateObject;
+
+    [Header("Target Object (Bridge or Door)")]
+    [SerializeField] private GameObject targetObject;
 
     [Header("Optional: One-time use")]
     [SerializeField] private bool disableAfterUse = true;
@@ -17,8 +26,19 @@ public class LeverTrigger : MonoBehaviour
 
         hasTriggered = true;
 
-        if (platformToActivate != null)
-            platformToActivate.SetActive(true);
+        if (targetObject != null)
+        {
+            switch (action)
+            {
+                case LeverAction.ActivateObject:
+                    targetObject.SetActive(true);
+                    break;
+
+                case LeverAction.DeactivateObject:
+                    targetObject.SetActive(false);
+                    break;
+            }
+        }
 
         if (disableAfterUse)
             gameObject.SetActive(false);
