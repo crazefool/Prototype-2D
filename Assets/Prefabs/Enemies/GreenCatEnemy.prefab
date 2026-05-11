@@ -12,13 +12,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreenCatEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 8915e8c807aff2b4e9b54c122e7e1046, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8915e8c807aff2b4e9b54c122e7e1046, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.42519188
+      value: -101.97522
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8915e8c807aff2b4e9b54c122e7e1046, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -23.175138
+      value: -51.95929
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8915e8c807aff2b4e9b54c122e7e1046, type: 3}
       propertyPath: m_LocalPosition.z
@@ -160,6 +164,7 @@ MonoBehaviour:
   knockbackStrength: 1.5
   knockbackDuration: 0.1
   isInvulnerable: 0
+  isBoss: 0
 --- !u!114 &7249897138940630333
 MonoBehaviour:
   m_ObjectHideFlags: 0

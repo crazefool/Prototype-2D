@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -8791492374884647715, guid: 2f4ed5c3ea7399442aa599b38db43349, type: 3}
+  m_Sprite: {fileID: -300394245976103344, guid: 41dbd937f158f384d9216a097b14addf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -216,3 +216,6 @@ MonoBehaviour:
   isFlying: 0
   destroyInstantly: 1
   destroyDelay: 0.1
+  platformMask:
+    serializedVersion: 2
+    m_Bits: 0

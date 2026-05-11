@@ -19,7 +19,7 @@ PrefabInstance:
     - target: {fileID: 3626916397498700004, guid: 40910713460d4d74c95d5d9db274ce91, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1740051990799555616, guid: f357671c65761554aabf0403e4204d35, type: 3}
+      objectReference: {fileID: -5631872798255133580, guid: 60d108c395698fb4599f6d8c8ae122a0, type: 3}
     - target: {fileID: 3626916397498700004, guid: 40910713460d4d74c95d5d9db274ce91, type: 3}
       propertyPath: m_SortingOrder
       value: 0
@@ -30,11 +30,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5a54367b635f25346a032ba385221471, type: 2}
     - target: {fileID: 7878350319992209165, guid: 40910713460d4d74c95d5d9db274ce91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -67.069305
+      value: -147.19653
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 40910713460d4d74c95d5d9db274ce91, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -75.56855
+      value: -63.2796
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 40910713460d4d74c95d5d9db274ce91, type: 3}
       propertyPath: m_LocalPosition.z
@@ -80,7 +80,10 @@ PrefabInstance:
       addedObject: {fileID: 3707256707047880008}
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 40910713460d4d74c95d5d9db274ce91, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8151839105050594456}
+      addedObject: {fileID: 6482084814597288487}
+    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 40910713460d4d74c95d5d9db274ce91, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5997908547850609917}
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 40910713460d4d74c95d5d9db274ce91, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8027754170190825714}
@@ -129,7 +132,44 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &8151839105050594456
+--- !u!70 &6482084814597288487
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481826281501043745}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.5}
+  m_Size: {x: 3.2, y: 1.37}
+  m_Direction: 1
+--- !u!58 &5997908547850609917
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,8 +203,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.11, y: 0.21}
-  m_Radius: 1
+  m_Offset: {x: -1.05, y: 0.63}
+  m_Radius: 0.45
 --- !u!114 &8027754170190825714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,13 +235,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b923de824419b0047b4727b2c48cf393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  detectionRange: 10
+  moveSpeed: 4
+  detectionRange: 15
   isFlying: 0
   pitTriggerMask:
     serializedVersion: 2
     m_Bits: 8192
-  pitAvoidRadius: 1
+  pitAvoidRadius: 2
   shellObject: {fileID: 880112199756692807}
 --- !u!114 &8890101875830214156
 MonoBehaviour:
@@ -233,6 +273,9 @@ MonoBehaviour:
   isFlying: 0
   destroyInstantly: 1
   destroyDelay: 0.1
+  platformMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &8468418882242108684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,16 +312,20 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 2f4ed5c3ea7399442aa599b38db43349, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -300394245976103344, guid: 41dbd937f158f384d9216a097b14addf, type: 3}
+    - target: {fileID: 3626916397498700004, guid: 2f4ed5c3ea7399442aa599b38db43349, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 2f4ed5c3ea7399442aa599b38db43349, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.34
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 2f4ed5c3ea7399442aa599b38db43349, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.25
+      value: 0.2500038
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 2f4ed5c3ea7399442aa599b38db43349, type: 3}
       propertyPath: m_LocalPosition.z
@@ -406,8 +453,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.36, y: 0.06}
-  m_Radius: 1.27
+  m_Offset: {x: -0.56, y: -0.72}
+  m_Radius: 1.9
 --- !u!114 &4746652491331164756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,6 +500,9 @@ MonoBehaviour:
   isFlying: 0
   destroyInstantly: 1
   destroyDelay: 0.1
+  platformMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &2598066134745955746
 MonoBehaviour:
   m_ObjectHideFlags: 0
