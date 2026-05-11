@@ -21,8 +21,6 @@ public class Enemy : MonoBehaviour
     public bool isInvulnerable = false;
 
     // ⭐ NEW: Is this enemy a boss?
-    // If true → Enemy.cs will NOT destroy it on death.
-    // Boss script handles destruction instead.
     public bool isBoss = false;
 
     public bool IsBeingPulled { get; set; } = false;
@@ -33,6 +31,9 @@ public class Enemy : MonoBehaviour
 
     public int CurrentHealth => currentHealth;
     public int MaxHealth => maxHealth;
+
+    // ⭐ NEW: Wave manager listens to this
+    public System.Action OnDeath;
 
     void Awake()
     {
@@ -55,11 +56,13 @@ public class Enemy : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            // ⭐ Notify wave manager
+            OnDeath?.Invoke();
+
             // ⭐ Normal enemies die here
             if (!isBoss)
                 Destroy(gameObject);
 
-            // ⭐ Bosses do NOT get destroyed here
             return true;
         }
 
