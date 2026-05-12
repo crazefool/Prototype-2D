@@ -35,6 +35,8 @@ public class PlayerAttack : MonoBehaviour
     private bool pendingAttack = false;
     private Vector2 lastAttackDirection;
 
+    [SerializeField] private Transform Face;
+
     void Awake()
     {
         playerStats = FindFirstObjectByType<PlayerStats>();
@@ -57,7 +59,6 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3))
             TrySlashDash();
 
-        // ⭐ NEW HEAL INPUT (Hold E)
         if (Input.GetKeyDown(KeyCode.E))
             playerStats.BeginHealCharge();
 
@@ -81,10 +82,11 @@ public class PlayerAttack : MonoBehaviour
 
         canAttack = false;
 
-        lastAttackDirection = transform.right.normalized;
+        // Use Face.right for direction
+        lastAttackDirection = Face.right.normalized;
 
-        Vector3 spawnPos = transform.position + transform.right * attackOffset;
-        Instantiate(attackHitboxPrefab, spawnPos, transform.rotation);
+        Vector3 spawnPos = transform.position + (Vector3)lastAttackDirection * attackOffset;
+        Instantiate(attackHitboxPrefab, spawnPos, Quaternion.Euler(0, 0, Mathf.Atan2(lastAttackDirection.y, lastAttackDirection.x) * Mathf.Rad2Deg));
 
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
@@ -104,8 +106,8 @@ public class PlayerAttack : MonoBehaviour
         if (!bladeBeamUnlocked || !canAttack) return;
         if (!playerStats.SpendMana(1)) return;
 
-        Vector3 spawnPos = transform.position + transform.right * bladeBeamOffset;
-        Instantiate(bladeBeamPrefab, spawnPos, transform.rotation);
+        Vector3 spawnPos = transform.position + (Vector3)Face.right * bladeBeamOffset;
+        Instantiate(bladeBeamPrefab, spawnPos, Quaternion.Euler(0, 0, Mathf.Atan2(Face.right.y, Face.right.x) * Mathf.Rad2Deg));
     }
 
     private void TryMegaSlash()
@@ -113,7 +115,7 @@ public class PlayerAttack : MonoBehaviour
         if (!megaSlashUnlocked || !canAttack) return;
         if (!playerStats.SpendMana(1)) return;
 
-        Instantiate(megaSlashPrefab, transform.position, transform.rotation);
+        Instantiate(megaSlashPrefab, transform.position, Quaternion.identity);
     }
 
     private void TrySlashDash()
@@ -121,7 +123,7 @@ public class PlayerAttack : MonoBehaviour
         if (!slashDashUnlocked || !canAttack) return;
         if (!playerStats.SpendMana(1)) return;
 
-        Instantiate(slashDashPrefab, transform.position, transform.rotation, transform);
+        Instantiate(slashDashPrefab, transform.position, Quaternion.identity, transform);
     }
 
     public void SetCanAttack(bool value) => canAttack = value;

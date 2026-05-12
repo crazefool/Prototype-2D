@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: 894c121f18a33de45be08fdc4ea8d8f8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7351445063988805631
+    second: HeroWalkCycle_0
+  - first:
+      213: -7332057163775649102
+    second: HeroWalkCycle_1
+  - first:
+      213: -8103041565794265442
+    second: HeroWalkCycle_2
+  - first:
+      213: 542015018771982568
+    second: HeroWalkCycle_3
+  - first:
+      213: -143191074672605183
+    second: HeroWalkCycle_4
+  - first:
+      213: 5668278907692059623
+    second: HeroWalkCycle_5
+  - first:
+      213: 9058175679216545136
+    second: HeroWalkCycle_6
+  - first:
+      213: -8422634355485902949
+    second: HeroWalkCycle_7
+  - first:
+      213: 3869869639559971653
+    second: HeroWalkCycle_8
+  - first:
+      213: -7224796634683487693
+    second: HeroWalkCycle_9
+  - first:
+      213: -8926043790970386566
+    second: HeroWalkCycle_10
+  - first:
+      213: 569876046830246168
+    second: HeroWalkCycle_11
+  - first:
+      213: 1633155125138303354
+    second: HeroWalkCycle_12
+  - first:
+      213: 2531415585029426168
+    second: HeroWalkCycle_13
+  - first:
+      213: -117126681617514853
+    second: HeroWalkCycle_14
+  - first:
+      213: 2061526944652021701
+    second: HeroWalkCycle_15
+  - first:
+      213: 6495322697313099773
+    second: HeroWalkCycle_16
+  - first:
+      213: 5051751164528999232
+    second: HeroWalkCycle_17
+  - first:
+      213: -1823587688861500917
+    second: HeroWalkCycle_18
+  - first:
+      213: 5097232543568241119
+    second: HeroWalkCycle_19
+  - first:
+      213: 3074071596878600330
+    second: HeroWalkCycle_20
+  - first:
+      213: -8569980003148119219
+    second: HeroWalkCycle_21
+  - first:
+      213: -9044126217701846390
+    second: HeroWalkCycle_22
+  - first:
+      213: 5689694590610683636
+    second: HeroWalkCycle_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HeroWalkCycle_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 0
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffff9d80654950660800000000000000
+      internalID: 7351445063988805631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroWalkCycle_1
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ba5b404bdc4f3a90800000000000000
+      internalID: -7332057163775649102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroWalkCycle_2
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 0
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e969b9ea0a63c8f80800000000000000
+      internalID: -8103041565794265442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroWalkCycle_3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 0
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e8a4d0b9cf958700800000000000000
+      internalID: 542015018771982568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroWalkCycle_4
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 0
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 108022be978430ef0800000000000000
+      internalID: -143191074672605183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroWalkCycle_5
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 0
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eb03dc72a5c9ae40800000000000000
+      internalID: 5668278907692059623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroWalkCycle_6
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07de8c8b9ca15bd70800000000000000
+      internalID: 9058175679216545136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroWalkCycle_7
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 0
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b97f240cdaacc1b80800000000000000
+      internalID: -8422634355485902949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroWalkCycle_8
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 0
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5438a090fe984b530800000000000000
+      internalID: 3869869639559971653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroWalkCycle_9
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 0
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33ac0474dbd5cbb90800000000000000
+      internalID: -7224796634683487693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroWalkCycle_10
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 0
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7701add672502480800000000000000
+      internalID: -8926043790970386566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroWalkCycle_11
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 0
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8191259ce3b98e700800000000000000
+      internalID: 569876046830246168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroWalkCycle_12
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 0
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a792af8fee12aa610800000000000000
+      internalID: 1633155125138303354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroWalkCycle_13
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 0
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fb01940015612320800000000000000
+      internalID: 2531415585029426168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroWalkCycle_14
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 0
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9eb77457e1ef5ef0800000000000000
+      internalID: -117126681617514853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroWalkCycle_15
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 0
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cf41ee65d30c9c10800000000000000
+      internalID: 2061526944652021701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroWalkCycle_16
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 0
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dff11ea5495042a50800000000000000
+      internalID: 6495322697313099773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroWalkCycle_17
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 0
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04bba673bec6b1640800000000000000
+      internalID: 5051751164528999232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroWalkCycle_18
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 0
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0a72a4a8a051b6e0800000000000000
+      internalID: -1823587688861500917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroWalkCycle_19
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 0
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd122f8fdf10db640800000000000000
+      internalID: 5097232543568241119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroWalkCycle_20
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 0
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a88111a84db49aa20800000000000000
+      internalID: 3074071596878600330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroWalkCycle_21
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 0
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d43c724c790511980800000000000000
+      internalID: -8569980003148119219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroWalkCycle_22
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 0
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8295127f1fcc7280800000000000000
+      internalID: -9044126217701846390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroWalkCycle_23
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 0
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f6bfc9b51bd5fe40800000000000000
+      internalID: 5689694590610683636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 935c3f63fcd1c1140af01ba9429ce94c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      HeroWalkCycle_0: 7351445063988805631
+      HeroWalkCycle_1: -7332057163775649102
+      HeroWalkCycle_10: -8926043790970386566
+      HeroWalkCycle_11: 569876046830246168
+      HeroWalkCycle_12: 1633155125138303354
+      HeroWalkCycle_13: 2531415585029426168
+      HeroWalkCycle_14: -117126681617514853
+      HeroWalkCycle_15: 2061526944652021701
+      HeroWalkCycle_16: 6495322697313099773
+      HeroWalkCycle_17: 5051751164528999232
+      HeroWalkCycle_18: -1823587688861500917
+      HeroWalkCycle_19: 5097232543568241119
+      HeroWalkCycle_2: -8103041565794265442
+      HeroWalkCycle_20: 3074071596878600330
+      HeroWalkCycle_21: -8569980003148119219
+      HeroWalkCycle_22: -9044126217701846390
+      HeroWalkCycle_23: 5689694590610683636
+      HeroWalkCycle_3: 542015018771982568
+      HeroWalkCycle_4: -143191074672605183
+      HeroWalkCycle_5: 5668278907692059623
+      HeroWalkCycle_6: 9058175679216545136
+      HeroWalkCycle_7: -8422634355485902949
+      HeroWalkCycle_8: 3869869639559971653
+      HeroWalkCycle_9: -7224796634683487693
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

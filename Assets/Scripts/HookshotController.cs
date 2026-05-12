@@ -26,6 +26,8 @@ public class HookshotController : MonoBehaviour
 
     private Coroutine pullRoutine = null;
 
+    [SerializeField] private Transform Face; // ⭐ NEW: reference to aim direction
+
     void Awake()
     {
         movement = GetComponent<PlayerMovement>();
@@ -46,7 +48,7 @@ public class HookshotController : MonoBehaviour
         line.endWidth = 0.05f;
         line.material = new Material(Shader.Find("Sprites/Default"));
 
-        // ⭐ NEW: Red rope color and render above platforms
+        // Rope color
         line.startColor = new Color(1f, 0.3f, 0.3f);
         line.endColor = new Color(1f, 0.3f, 0.3f);
         line.sortingLayerName = "Characters";
@@ -99,8 +101,15 @@ public class HookshotController : MonoBehaviour
 
     private void FireHook()
     {
-        Vector3 spawnPos = transform.position + transform.right * 0.5f;
-        Quaternion rot = Quaternion.Euler(0, 0, transform.eulerAngles.z);
+        // ⭐ Use Face.right for direction
+        Vector2 dir = Face.right.normalized;
+
+        // ⭐ Spawn hook in front of the Face arrow
+        Vector3 spawnPos = transform.position + (Vector3)dir * 0.6f;
+
+        // ⭐ Rotate hook to match aim direction
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        Quaternion rot = Quaternion.Euler(0, 0, angle);
 
         GameObject hookObj = Instantiate(hookProjectilePrefab, spawnPos, rot);
         activeHook = hookObj.GetComponent<HookshotProjectile>();
