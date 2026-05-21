@@ -26,27 +26,32 @@ public class SlashDash : MonoBehaviour
         playerLayer = LayerMask.NameToLayer("Player");
         enemyLayer = LayerMask.NameToLayer("Enemy");
 
-        // ⭐ Disable collisions between player and enemies during dash
+        // Disable collisions between player and enemies during dash
         Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
 
-        // ⭐ Player is invincible during dash
+        // Player is invincible during dash
         if (playerStats != null)
             playerStats.SetInvincible(true);
 
-        // Always dash in facing direction
+        // Dash direction is already set by PlayerAttack rotation
         Vector2 dashDir = transform.right.normalized;
 
         if (playerDash != null)
             playerDash.ForceDash(dashDir, dashDistance, dashSpeed);
 
-        // Keep hitbox alive for entire dash
         float dashTime = dashDistance / dashSpeed;
         Destroy(gameObject, dashTime);
     }
 
+    private void Update()
+    {
+        // ⭐ Keep hitbox following the player's position
+        if (playerAttack != null)
+            transform.position = playerAttack.transform.position;
+    }
+
     private void OnDestroy()
     {
-        // ⭐ Re-enable collisions after dash ends
         Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, false);
 
         if (playerStats != null)

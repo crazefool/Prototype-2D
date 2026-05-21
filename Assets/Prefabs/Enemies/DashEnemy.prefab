@@ -18,11 +18,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8b6c0e12398692a4a8bb033be332d35e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.406395
+      value: -220.8
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8b6c0e12398692a4a8bb033be332d35e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.847565
+      value: -28.2
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8b6c0e12398692a4a8bb033be332d35e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -95,7 +95,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1778833536581040618}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -168,6 +168,7 @@ MonoBehaviour:
   knockbackStrength: 1.5
   knockbackDuration: 0.1
   isInvulnerable: 0
+  isBoss: 0
 --- !u!114 &3210155394127003042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +227,9 @@ MonoBehaviour:
   isFlying: 0
   destroyInstantly: 1
   destroyDelay: 0.1
+  platformMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &6110796181980681579
 MonoBehaviour:
   m_ObjectHideFlags: 0

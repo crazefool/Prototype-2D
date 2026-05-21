@@ -20,6 +20,10 @@ public class RangedEnemyAI : BaseEnemyAI
     [SerializeField] private float anticipationTime = 0.25f;
     [SerializeField] private Color anticipationColor = Color.red;
 
+    [Header("Environment")]
+    [SerializeField] private LayerMask wallMask;
+    [SerializeField] private float wallAvoidRadius = 0.3f;
+
     private float fireTimer = 0f;
     private SpriteRenderer sr;
     private Color originalColor;
@@ -98,12 +102,22 @@ public class RangedEnemyAI : BaseEnemyAI
         if (enemy.IsStunned)
             return;
 
-        Vector2 dir = ((Vector2)transform.position - GetPlayerCenter()).normalized;
-        Vector2 targetPos = (Vector2)transform.position + dir * moveSpeed * Time.deltaTime;
+        Vector2 currentPos = transform.position;
+        Vector2 dir = (currentPos - GetPlayerCenter()).normalized;
+        Vector2 targetPos = currentPos + dir * moveSpeed * Time.deltaTime;
 
         if (IsNearPit(targetPos))
             return;
 
+        if (IsNearWall(targetPos))
+            return;
+
         transform.position = targetPos;
+    }
+
+    private bool IsNearWall(Vector2 targetPos)
+    {
+        Collider2D hit = Physics2D.OverlapCircle(targetPos, wallAvoidRadius, wallMask);
+        return hit != null;
     }
 }

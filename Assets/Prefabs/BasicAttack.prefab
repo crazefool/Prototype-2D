@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8753752458147822486}
   - component: {fileID: 2352064195264458192}
   m_Layer: 15
-  m_Name: SwordSlashPixel.1 1
+  m_Name: BasicAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

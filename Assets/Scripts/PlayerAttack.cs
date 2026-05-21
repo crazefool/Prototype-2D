@@ -86,7 +86,11 @@ public class PlayerAttack : MonoBehaviour
         lastAttackDirection = Face.right.normalized;
 
         Vector3 spawnPos = transform.position + (Vector3)lastAttackDirection * attackOffset;
-        Instantiate(attackHitboxPrefab, spawnPos, Quaternion.Euler(0, 0, Mathf.Atan2(lastAttackDirection.y, lastAttackDirection.x) * Mathf.Rad2Deg));
+        Instantiate(
+            attackHitboxPrefab,
+            spawnPos,
+            Quaternion.Euler(0, 0, Mathf.Atan2(lastAttackDirection.y, lastAttackDirection.x) * Mathf.Rad2Deg)
+        );
 
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
@@ -107,7 +111,11 @@ public class PlayerAttack : MonoBehaviour
         if (!playerStats.SpendMana(1)) return;
 
         Vector3 spawnPos = transform.position + (Vector3)Face.right * bladeBeamOffset;
-        Instantiate(bladeBeamPrefab, spawnPos, Quaternion.Euler(0, 0, Mathf.Atan2(Face.right.y, Face.right.x) * Mathf.Rad2Deg));
+        Instantiate(
+            bladeBeamPrefab,
+            spawnPos,
+            Quaternion.Euler(0, 0, Mathf.Atan2(Face.right.y, Face.right.x) * Mathf.Rad2Deg)
+        );
     }
 
     private void TryMegaSlash()
@@ -118,12 +126,20 @@ public class PlayerAttack : MonoBehaviour
         Instantiate(megaSlashPrefab, transform.position, Quaternion.identity);
     }
 
+    // ⭐ UPDATED — SlashDash now rotates toward the mouse like BladeBeam
     private void TrySlashDash()
     {
         if (!slashDashUnlocked || !canAttack) return;
         if (!playerStats.SpendMana(1)) return;
 
-        Instantiate(slashDashPrefab, transform.position, Quaternion.identity, transform);
+        Vector2 dir = Face.right.normalized;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        Instantiate(
+            slashDashPrefab,
+            transform.position,
+            Quaternion.Euler(0, 0, angle)
+        );
     }
 
     public void SetCanAttack(bool value) => canAttack = value;
