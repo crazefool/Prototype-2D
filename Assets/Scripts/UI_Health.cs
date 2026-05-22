@@ -4,7 +4,9 @@ using UnityEngine.UI;
 public class UI_Health : MonoBehaviour
 {
     [SerializeField] private PlayerStats playerStats;
-    [SerializeField] private Image[] hearts; // Assign your 4 heart images here
+
+    // Assign ALL 10 heart images here (children of TopLeftUI)
+    [SerializeField] private Image[] hearts;
 
     private void Start()
     {
@@ -15,7 +17,13 @@ public class UI_Health : MonoBehaviour
     {
         for (int i = 0; i < hearts.Length; i++)
         {
-            hearts[i].enabled = i < playerStats.CurrentHealth;
+            bool shouldShow = i < playerStats.CurrentHealth;
+
+            if (hearts[i] != null)
+            {
+                // This will also turn on hearts that start disabled
+                hearts[i].gameObject.SetActive(shouldShow);
+            }
         }
     }
 }

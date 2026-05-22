@@ -82,6 +82,18 @@ public class PlayerStats : MonoBehaviour
         FindFirstObjectByType<UI_Health>().UpdateHearts();
     }
 
+    public void IncreaseMaxHealth(int amount)
+    {
+        maxHealth += amount;
+
+        if (maxHealth > 10)
+            maxHealth = 10;
+
+        CurrentHealth = maxHealth;
+
+        FindFirstObjectByType<UI_Health>().UpdateHearts();
+    }
+
     private IEnumerator InvincibilityFrames()
     {
         isInvincible = true;
@@ -168,10 +180,8 @@ public class PlayerStats : MonoBehaviour
         if (rb != null)
             rb.linearVelocity = Vector2.zero;
 
-        // ⭐ Spawn heal charge effect
         activeChargeEffect = Instantiate(healChargeEffectPrefab, transform.position, Quaternion.identity, transform);
 
-        // ⭐ NEW: Make heal charge particles green + visible above platforms
         var chargeRenderer = activeChargeEffect.GetComponent<ParticleSystemRenderer>();
         if (chargeRenderer != null)
         {
@@ -210,12 +220,10 @@ public class PlayerStats : MonoBehaviour
         SpendMana(1);
         Heal(1);
 
-        // ⭐ Spawn heal burst effect
         if (healBurstEffectPrefab != null)
         {
             GameObject burst = Instantiate(healBurstEffectPrefab, transform.position, Quaternion.identity);
 
-            // ⭐ NEW: Make burst particles green + visible above platforms
             var burstRenderer = burst.GetComponent<ParticleSystemRenderer>();
             if (burstRenderer != null)
             {
