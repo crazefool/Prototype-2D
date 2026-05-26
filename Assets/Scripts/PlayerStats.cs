@@ -151,6 +151,20 @@ public class PlayerStats : MonoBehaviour
         return true;
     }
 
+    // ---------------- CHECKPOINT HELPERS ----------------
+
+    public void RestoreFullHealth()
+    {
+        CurrentHealth = maxHealth;
+        FindFirstObjectByType<UI_Health>().UpdateHearts();
+    }
+
+    public void RestoreFullMana()
+    {
+        CurrentMana = maxMana;
+        FindFirstObjectByType<UI_Mana>().UpdateMana();
+    }
+
     // ---------------- HEAL SYSTEM ----------------
 
     public void BeginHealCharge()

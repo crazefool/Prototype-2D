@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d9e839d99ecc35444bec9317bac09770
+guid: 973775cb0b4ffab47a10d6b886688a79
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6838032667258788570
-    second: top_left_grass_tile_0
+      213: -2230229002620744338
+    second: Start Button_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: top_left_grass_tile_0
+      name: Start Button_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 32
-        height: 32
+        y: 21
+        width: 64
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ada1a7e3b7295ee50800000000000000
-      internalID: 6838032667258788570
+      spriteID: e6d4403d982ac01e0800000000000000
+      internalID: -2230229002620744338
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      top_left_grass_tile_0: 6838032667258788570
+      Start Button_0: -2230229002620744338
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
