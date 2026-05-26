@@ -133,8 +133,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.36}
-  m_Size: {x: 1.13, y: 1.42}
+  m_Offset: {x: 0, y: -0.45}
+  m_Size: {x: 1.12, y: 0.64}
   m_Direction: 0
 --- !u!50 &8055024841501542874
 Rigidbody2D:
@@ -182,11 +182,11 @@ MonoBehaviour:
   hitPushbackDuration: 0.05
   bladeBeamPrefab: {fileID: 6920360171857515929, guid: 934cd304121dc1d49a93a4a136e2cab4, type: 3}
   bladeBeamOffset: 1
-  bladeBeamUnlocked: 1
+  bladeBeamUnlocked: 0
   megaSlashPrefab: {fileID: 5993508973531613498, guid: 1b91ff1a48cee254cb12850cc26401af, type: 3}
-  megaSlashUnlocked: 1
+  megaSlashUnlocked: 0
   slashDashPrefab: {fileID: 8631193559439448332, guid: ea29234296b62ba449ea41c8ee032741, type: 3}
-  slashDashUnlocked: 1
+  slashDashUnlocked: 0
   Face: {fileID: 5150337552698802857}
 --- !u!114 &649163200712665566
 MonoBehaviour:
@@ -200,8 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269ce6995436bd34da20d27ef11736bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashDistance: 10
-  dashSpeed: 30
+  dashDistance: 20
+  dashSpeed: 40
   dashCooldown: 0.5
 --- !u!114 &6173439013357259147
 MonoBehaviour:
@@ -251,7 +251,7 @@ MonoBehaviour:
   healChargeTime: 1.2
   healChargeEffectPrefab: {fileID: 8012206198290441149, guid: 9cf6f7d4c65812c489ae923342dca50c, type: 3}
   healBurstEffectPrefab: {fileID: 771841628473236464, guid: cfd412f097055404cb3faef1cd363703, type: 3}
-  invincibilityDuration: 0.5
+  invincibilityDuration: 0.3
 --- !u!114 &7796453581989539712
 MonoBehaviour:
   m_ObjectHideFlags: 0

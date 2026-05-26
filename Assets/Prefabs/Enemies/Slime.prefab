@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2706317901594744941}
   - component: {fileID: 1007431397646605297}
   - component: {fileID: 2187585435407175383}
-  - component: {fileID: 5896745556531777509}
+  - component: {fileID: 2621564164295694766}
   - component: {fileID: 1386605827379663389}
   - component: {fileID: 2103657847698731886}
   - component: {fileID: 2029713347232844815}
@@ -121,7 +121,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!70 &5896745556531777509
+--- !u!70 &2621564164295694766
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,7 +156,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 3.1, y: 1.9}
+  m_Size: {x: 1.9375, y: 1.1875}
   m_Direction: 1
 --- !u!114 &1386605827379663389
 MonoBehaviour:
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  detectionRange: 15
+  detectionRange: 20
   isFlying: 0
   pitTriggerMask:
     serializedVersion: 2
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 893a3f086797905478f1ed95110d7d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 2
   contactDamage: 1
   knockbackStrength: 1.5
   knockbackDuration: 0.1
