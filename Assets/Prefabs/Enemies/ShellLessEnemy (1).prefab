@@ -30,11 +30,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5a54367b635f25346a032ba385221471, type: 2}
     - target: {fileID: 7878350319992209165, guid: 40910713460d4d74c95d5d9db274ce91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -147.19653
+      value: -429.94702
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 40910713460d4d74c95d5d9db274ce91, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -63.2796
+      value: 6.650158
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 40910713460d4d74c95d5d9db274ce91, type: 3}
       propertyPath: m_LocalPosition.z
@@ -368,6 +368,9 @@ PrefabInstance:
       addedObject: {fileID: 3332605032267179456}
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 2f4ed5c3ea7399442aa599b38db43349, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 5138661381542642731}
+    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 2f4ed5c3ea7399442aa599b38db43349, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 7535002803058785490}
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 2f4ed5c3ea7399442aa599b38db43349, type: 3}
       insertIndex: -1
@@ -419,6 +422,42 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!58 &5138661381542642731
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880112199756692807}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.18441677, y: 0.6122637}
+  m_Radius: 0.97
 --- !u!58 &7535002803058785490
 CircleCollider2D:
   m_ObjectHideFlags: 0

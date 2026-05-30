@@ -18,15 +18,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8b6c0e12398692a4a8bb033be332d35e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -220.8
+      value: 112.600006
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8b6c0e12398692a4a8bb033be332d35e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -28.2
+      value: 45.8
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8b6c0e12398692a4a8bb033be332d35e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8b6c0e12398692a4a8bb033be332d35e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -34,15 +34,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8b6c0e12398692a4a8bb033be332d35e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8b6c0e12398692a4a8bb033be332d35e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8b6c0e12398692a4a8bb033be332d35e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8b6c0e12398692a4a8bb033be332d35e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 893a3f086797905478f1ed95110d7d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 5
   contactDamage: 1
   knockbackStrength: 1.5
   knockbackDuration: 0.1
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  detectionRange: 10
+  detectionRange: 15
   isFlying: 0
   pitTriggerMask:
     serializedVersion: 2
