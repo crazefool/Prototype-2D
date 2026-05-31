@@ -4,10 +4,10 @@ using System.Collections;
 public class Checkpoint : MonoBehaviour
 {
     [Header("Visuals")]
-    [SerializeField] private GameObject checkpointText;   // TMP text object
-    [SerializeField] private GameObject flashEffect;      // Optional screen flash
+    [SerializeField] private GameObject checkpointText;
+    [SerializeField] private GameObject flashEffect;
 
-    private bool activated = false;
+    private bool activatedOnce = false;
 
     private void Awake()
     {
@@ -20,33 +20,35 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (activated) return;
-        if (!other.CompareTag("Player")) return;
-
-        activated = true;
+        if (!other.CompareTag("Player"))
+            return;
 
         PlayerStats stats = other.GetComponent<PlayerStats>();
-        if (stats != null)
+        if (stats == null)
+            return;
+
+        WorldStateManager.Instance.SaveCheckpoint(other.transform.position);
+
+        if (!activatedOnce)
         {
+            activatedOnce = true;
+
             stats.RestoreFullHealth();
             stats.RestoreFullMana();
+
+            WorldStateManager.Instance.MarkCheckpointUsedOnce();
+
+            StartCoroutine(CheckpointRoutine(true));
         }
-
-        SaveCheckpointPosition(other.transform.position);
-
-        StartCoroutine(CheckpointRoutine());
+        else
+        {
+            StartCoroutine(CheckpointRoutine(false));
+        }
     }
 
-    private void SaveCheckpointPosition(Vector3 pos)
+    private IEnumerator CheckpointRoutine(bool firstTime)
     {
-        PlayerPrefs.SetFloat("CheckpointX", pos.x);
-        PlayerPrefs.SetFloat("CheckpointY", pos.y);
-        PlayerPrefs.Save();
-    }
-
-    private IEnumerator CheckpointRoutine()
-    {
-        if (flashEffect != null)
+        if (firstTime && flashEffect != null)
         {
             flashEffect.SetActive(true);
             yield return new WaitForSeconds(0.2f);

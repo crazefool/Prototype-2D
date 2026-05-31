@@ -43,8 +43,6 @@ public class PlayerStats : MonoBehaviour
         hitFlash = GetComponent<HitFlash>();
     }
 
-    // ---------------- HEALTH ----------------
-
     public void TakeDamage(int amount)
     {
         if (isInvincible)
@@ -114,10 +112,8 @@ public class PlayerStats : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Player died");
+        RespawnManager.RespawnPlayer(this);
     }
-
-    // ---------------- MANA ----------------
 
     public void GainManaFromHit()
     {
@@ -151,8 +147,6 @@ public class PlayerStats : MonoBehaviour
         return true;
     }
 
-    // ---------------- CHECKPOINT HELPERS ----------------
-
     public void RestoreFullHealth()
     {
         CurrentHealth = maxHealth;
@@ -164,8 +158,6 @@ public class PlayerStats : MonoBehaviour
         CurrentMana = maxMana;
         FindFirstObjectByType<UI_Mana>().UpdateMana();
     }
-
-    // ---------------- HEAL SYSTEM ----------------
 
     public void BeginHealCharge()
     {
