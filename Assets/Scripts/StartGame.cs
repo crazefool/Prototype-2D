@@ -4,6 +4,6 @@ public class StartGame : MonoBehaviour
 {
     public void LoadGame()
     {
-        SceneManager.LoadScene("Ole Scene");
+        SceneManager.LoadScene("Story Scene");
     }
 }
