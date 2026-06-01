@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  detectionRange: 10
+  detectionRange: 30
   isFlying: 0
   pitTriggerMask:
     serializedVersion: 2
