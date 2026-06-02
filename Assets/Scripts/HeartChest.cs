@@ -3,7 +3,7 @@ using UnityEngine;
 public class HeartChest : MonoBehaviour
 {
     [Header("Heart Reward")]
-    [SerializeField] private Sprite heartSprite;   // Drop your heart sprite here
+    [SerializeField] private Sprite heartSprite;
 
     [Header("Interaction Icon")]
     [SerializeField] private GameObject interactIcon;
@@ -12,6 +12,13 @@ public class HeartChest : MonoBehaviour
 
     private void Awake()
     {
+        // ⭐ If chest was already opened in saved progress → remove it
+        if (SaveGameManager.IsChestOpened(gameObject.name))
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         if (interactIcon != null)
             interactIcon.SetActive(false);
     }
@@ -46,13 +53,15 @@ public class HeartChest : MonoBehaviour
         if (opened) return;
         opened = true;
 
+        // ⭐ Save chest opened
+        SaveGameManager.MarkChestOpened(gameObject.name);
+
         if (interactIcon != null)
             interactIcon.SetActive(false);
 
         // Give heart upgrade
         stats.IncreaseMaxHealth(1);
 
-        // Spawn heart sprite above chest
         if (heartSprite != null)
         {
             GameObject go = new GameObject("HeartReward");
@@ -62,7 +71,6 @@ public class HeartChest : MonoBehaviour
             sr.sprite = heartSprite;
             sr.sortingOrder = 50;
 
-            // ⭐ Remove after 1.2 seconds
             Destroy(go, 1.2f);
         }
 

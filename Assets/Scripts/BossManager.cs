@@ -82,6 +82,9 @@ public class BossManager : MonoBehaviour
 
     public void OnBossDefeated()
     {
+        // ⭐ SAVE PROGRESS
+        SaveGameManager.MarkBossDefeated(bossName);
+
         if (healthBar != null)
             healthBar.gameObject.SetActive(false);
 
@@ -97,9 +100,7 @@ public class BossManager : MonoBehaviour
 
     private IEnumerator OpenDoorDelayed()
     {
-        // Wait a short moment to ensure boss destruction doesn’t interrupt
         yield return new WaitForSeconds(0.3f);
-
         door.OpenDoor();
     }
 }

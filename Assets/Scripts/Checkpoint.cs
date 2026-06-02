@@ -30,6 +30,9 @@ public class Checkpoint : MonoBehaviour
         // Save checkpoint position on the player
         stats.SetCheckpoint(other.transform.position);
 
+        // ⭐ Save full progress (bosses, chests, levers, gauntlets, upgrades, position)
+        SaveGameManager.SaveProgress(stats);
+
         if (!activatedOnce)
         {
             activatedOnce = true;

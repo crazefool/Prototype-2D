@@ -12,6 +12,13 @@ public class Chest : MonoBehaviour
 
     private void Awake()
     {
+        // ⭐ If chest was already opened in saved progress → remove it
+        if (SaveGameManager.IsChestOpened(gameObject.name))
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         if (interactIcon != null)
             interactIcon.SetActive(false);
     }
@@ -20,14 +27,12 @@ public class Chest : MonoBehaviour
     {
         if (isOpened) return;
 
-        // Show icon when player is close
         if (other.CompareTag("Player"))
         {
             if (interactIcon != null)
                 interactIcon.SetActive(true);
         }
 
-        // Sword hitbox opens chest instantly
         PlayerAttack pa = other.GetComponent<PlayerAttack>();
         if (pa != null)
         {
@@ -35,8 +40,6 @@ public class Chest : MonoBehaviour
         }
     }
 
-    // ⭐ FIX: If the sword hitbox spawns already overlapping the chest,
-    // OnTriggerEnter2D will NOT fire. OnTriggerStay2D ensures instant reaction.
     private void OnTriggerStay2D(Collider2D other)
     {
         if (isOpened) return;
@@ -56,18 +59,18 @@ public class Chest : MonoBehaviour
 
     private void OpenChest()
     {
+        if (isOpened) return;
         isOpened = true;
+
+        // ⭐ Save chest opened
+        SaveGameManager.MarkChestOpened(gameObject.name);
 
         if (interactIcon != null)
             interactIcon.SetActive(false);
 
-        // Spawn reward above chest
         if (rewardPrefab != null)
-        {
             Instantiate(rewardPrefab, transform.position, Quaternion.identity);
-        }
 
-        // Remove chest
         Destroy(gameObject);
     }
 }

@@ -11,12 +11,25 @@ public class BossRoomTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (triggered) return;
-        if (!other.CompareTag("Player")) return;
+        if (!other.CompareTag("Player"))
+            return;
 
+        // ⭐ If boss already defeated → skip fight entirely
+        if (SaveGameManager.IsBossDefeated(bossObject.name))
+        {
+            if (door != null)
+                door.OpenDoor();
+
+            if (bossObject != null)
+                bossObject.SetActive(false);
+
+            gameObject.SetActive(false);
+            return;
+        }
+
+        if (triggered) return;
         triggered = true;
 
-        // Activate the door object if it’s disabled
         if (door != null && !door.gameObject.activeSelf)
             door.gameObject.SetActive(true);
 

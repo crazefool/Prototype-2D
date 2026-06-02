@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -36,24 +37,46 @@ public class PlayerStats : MonoBehaviour
 
     private HitFlash hitFlash;
 
-    // CHECKPOINT DATA (new)
+    // CHECKPOINT DATA
     private bool hasCheckpoint = false;
     private Vector3 checkpointPosition;
 
-    void Awake()
+    private void Awake()
     {
         CurrentHealth = maxHealth;
         CurrentMana = 0;
+
         hitFlash = GetComponent<HitFlash>();
+
+        // ⭐ Apply saved progress (max HP, max mana, position)
+        SaveGameManager.ApplyProgressAfterSceneLoad(this);
     }
 
-    // Called by Checkpoint when player touches a save statue
+    // SAVE SYSTEM SUPPORT
+    public int MaxHealth => maxHealth;
+
+    public void SetMaxHealth(int value)
+    {
+        maxHealth = value;
+        CurrentHealth = Mathf.Clamp(CurrentHealth, 0, maxHealth);
+        FindFirstObjectByType<UI_Health>()?.UpdateHearts();
+    }
+
+    public void SetMaxMana(int value)
+    {
+        maxMana = value;
+        CurrentMana = Mathf.Clamp(CurrentMana, 0, maxMana);
+        FindFirstObjectByType<UI_Mana>()?.UpdateMana();
+    }
+
+    // CHECKPOINT
     public void SetCheckpoint(Vector3 position)
     {
         hasCheckpoint = true;
         checkpointPosition = position;
     }
 
+    // DAMAGE
     public void TakeDamage(int amount)
     {
         if (isInvincible)
@@ -79,7 +102,7 @@ public class PlayerStats : MonoBehaviour
             invincibleRoutine = StartCoroutine(InvincibilityFrames());
         }
 
-        FindFirstObjectByType<UI_Health>().UpdateHearts();
+        FindFirstObjectByType<UI_Health>()?.UpdateHearts();
     }
 
     public void Heal(int amount)
@@ -88,7 +111,7 @@ public class PlayerStats : MonoBehaviour
         if (CurrentHealth > maxHealth)
             CurrentHealth = maxHealth;
 
-        FindFirstObjectByType<UI_Health>().UpdateHearts();
+        FindFirstObjectByType<UI_Health>()?.UpdateHearts();
     }
 
     public void IncreaseMaxHealth(int amount)
@@ -100,7 +123,7 @@ public class PlayerStats : MonoBehaviour
 
         CurrentHealth = maxHealth;
 
-        FindFirstObjectByType<UI_Health>().UpdateHearts();
+        FindFirstObjectByType<UI_Health>()?.UpdateHearts();
     }
 
     private IEnumerator InvincibilityFrames()
@@ -121,29 +144,14 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    // DEATH
     private void Die()
     {
-        if (!hasCheckpoint)
-        {
-            // No checkpoint: full reset
-            UnityEngine.SceneManagement.SceneManager.LoadScene(
-                UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex
-            );
-            return;
-        }
-
-        // Has checkpoint: restore to last saved state in the SAME scene
-        Transform t = transform;
-        t.position = checkpointPosition;
-
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (rb != null)
-            rb.linearVelocity = Vector2.zero;
-
-        RestoreFullHealth();
-        RestoreFullMana();
+        // NEW SAVE SYSTEM: reload scene always
+        SceneManager.LoadScene("Ole Scene");
     }
 
+    // MANA SYSTEM
     public void GainManaFromHit()
     {
         hitCounter++;
@@ -154,7 +162,7 @@ public class PlayerStats : MonoBehaviour
             AddMana(1);
         }
 
-        FindFirstObjectByType<UI_Mana>().UpdateMana();
+        FindFirstObjectByType<UI_Mana>()?.UpdateMana();
     }
 
     public void AddMana(int amount)
@@ -163,7 +171,7 @@ public class PlayerStats : MonoBehaviour
         if (CurrentMana > maxMana)
             CurrentMana = maxMana;
 
-        FindFirstObjectByType<UI_Mana>().UpdateMana();
+        FindFirstObjectByType<UI_Mana>()?.UpdateMana();
     }
 
     public bool SpendMana(int amount)
@@ -172,22 +180,23 @@ public class PlayerStats : MonoBehaviour
             return false;
 
         CurrentMana -= amount;
-        FindFirstObjectByType<UI_Mana>().UpdateMana();
+        FindFirstObjectByType<UI_Mana>()?.UpdateMana();
         return true;
     }
 
     public void RestoreFullHealth()
     {
         CurrentHealth = maxHealth;
-        FindFirstObjectByType<UI_Health>().UpdateHearts();
+        FindFirstObjectByType<UI_Health>()?.UpdateHearts();
     }
 
     public void RestoreFullMana()
     {
         CurrentMana = maxMana;
-        FindFirstObjectByType<UI_Mana>().UpdateMana();
+        FindFirstObjectByType<UI_Mana>()?.UpdateMana();
     }
 
+    // HEAL CHARGE
     public void BeginHealCharge()
     {
         if (isHealing || CurrentMana < 1)
