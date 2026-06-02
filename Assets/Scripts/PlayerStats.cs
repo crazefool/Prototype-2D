@@ -36,11 +36,22 @@ public class PlayerStats : MonoBehaviour
 
     private HitFlash hitFlash;
 
+    // CHECKPOINT DATA (new)
+    private bool hasCheckpoint = false;
+    private Vector3 checkpointPosition;
+
     void Awake()
     {
         CurrentHealth = maxHealth;
         CurrentMana = 0;
         hitFlash = GetComponent<HitFlash>();
+    }
+
+    // Called by Checkpoint when player touches a save statue
+    public void SetCheckpoint(Vector3 position)
+    {
+        hasCheckpoint = true;
+        checkpointPosition = position;
     }
 
     public void TakeDamage(int amount)
@@ -112,7 +123,25 @@ public class PlayerStats : MonoBehaviour
 
     private void Die()
     {
-        RespawnManager.RespawnPlayer(this);
+        if (!hasCheckpoint)
+        {
+            // No checkpoint: full reset
+            UnityEngine.SceneManagement.SceneManager.LoadScene(
+                UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex
+            );
+            return;
+        }
+
+        // Has checkpoint: restore to last saved state in the SAME scene
+        Transform t = transform;
+        t.position = checkpointPosition;
+
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+            rb.linearVelocity = Vector2.zero;
+
+        RestoreFullHealth();
+        RestoreFullMana();
     }
 
     public void GainManaFromHit()
