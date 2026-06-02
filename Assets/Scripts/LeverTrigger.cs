@@ -4,15 +4,15 @@ public class LeverTrigger : MonoBehaviour
 {
     public enum LeverAction
     {
-        ActivateObject,
-        DeactivateObject
+        ActivateObjects,
+        DeactivateObjects
     }
 
     [Header("Lever Behavior")]
-    [SerializeField] private LeverAction action = LeverAction.ActivateObject;
+    [SerializeField] private LeverAction action = LeverAction.ActivateObjects;
 
-    [Header("Target Object (Bridge or Door)")]
-    [SerializeField] private GameObject targetObject;
+    [Header("Targets (put multiple objects here)")]
+    [SerializeField] private GameObject[] targetObjects;
 
     [Header("Optional: One-time use")]
     [SerializeField] private bool disableAfterUse = true;
@@ -26,16 +26,18 @@ public class LeverTrigger : MonoBehaviour
 
         hasTriggered = true;
 
-        if (targetObject != null)
+        foreach (GameObject obj in targetObjects)
         {
+            if (obj == null) continue;
+
             switch (action)
             {
-                case LeverAction.ActivateObject:
-                    targetObject.SetActive(true);
+                case LeverAction.ActivateObjects:
+                    obj.SetActive(true);
                     break;
 
-                case LeverAction.DeactivateObject:
-                    targetObject.SetActive(false);
+                case LeverAction.DeactivateObjects:
+                    obj.SetActive(false);
                     break;
             }
         }
