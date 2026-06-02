@@ -302,8 +302,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Tile Palette\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1240
-    y: 79
+    x: 1241
+    y: 24
     width: 679
     height: 907
   m_SerializedDataModeController:
@@ -367,7 +367,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 79
+    y: 24
     width: 342
     height: 543
   m_SerializedDataModeController:
@@ -383,24 +383,24 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 4246}
+      scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
       m_ExpandedIDs: d819fdffea25feff1841feff2241feff6848feffdc49feffbc6afeff166bfeffb077feffba77feff6478feff067ffefffe7ffeffc280feff288bfeff008cfefffe8cfeffec8dfeffe28efeff1e9bfeffe49bfeff92a6feff64aafeffb0b8feffb0dbfeff3eecfeffa4f2feff8efdfeffa8fffeff3a20ffff8c32ffff725dffff2e71ffffec9effff6caaffff96abffff52acffff0eadffffcaadffff92aeffff3cb9fffff6ddffff00e2ffff3cf3ffffe0f7ffffac0c0100d60c0100ce490100704c0100884d01006c5e0100b0620100e063010064650100fe890100248a0100f0ab0100a4ae01008c5b0200d273020014770200e67c0200447d0200
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Crate (13)
-        m_OriginalName: Crate (13)
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -113852
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
         m_ClientGUIView: {fileID: 8}
@@ -432,8 +432,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Scene\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 343
-    y: 79
+    x: 344
+    y: 24
     width: 895
     height: 543
   m_SerializedDataModeController:
@@ -1030,7 +1030,7 @@ MonoBehaviour:
       m_Fade:
         m_Target: 0
         speed: 2
-        m_Value: 1
+        m_Value: 0
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 1, y: 1}
@@ -1237,7 +1237,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 648
+    y: 593
     width: 1239
     height: 338
   m_SerializedDataModeController:
@@ -1282,7 +1282,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 40.228462}
     m_SelectedIDs: 36c20000
     m_LastClickedID: 49718
-    m_ExpandedIDs: 0000000034c2000036c2000022c400002ec4000000ca9a3b
+    m_ExpandedIDs: 00000000e4d00000e6d00000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1311,7 +1311,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000034c2000036c20000
+    m_ExpandedIDs: 00000000e4d00000e6d00000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
