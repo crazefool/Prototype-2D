@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 2639152868831950320}
   - component: {fileID: 7014347573824974293}
   - component: {fileID: 5317681926148513461}
-  - component: {fileID: 4768874971012707408}
   - component: {fileID: 2994506229981221246}
   - component: {fileID: 4806026721412417508}
   - component: {fileID: 3133683237007671869}
   - component: {fileID: 279267120568674153}
   - component: {fileID: 2061614405168287967}
+  - component: {fileID: 107084352316123323}
   m_Layer: 9
   m_Name: RangedEnemy
   m_TagString: Untagged
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 3
   m_Sprite: {fileID: -340482163586400398, guid: 5511b39ee252cdd48bcc6c3c38cc555d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -121,43 +121,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!70 &4768874971012707408
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2935766869046868258}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 1
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 1.55}
-  m_Size: {x: 1.85, y: 2.6}
-  m_Direction: 0
 --- !u!114 &2994506229981221246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +158,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   pitAvoidRadius: 3
-  shootRange: 6
+  shootRange: 20
   retreatRange: 5
   fireCooldown: 1
   projectilePrefab: {fileID: 1197598480320707866, guid: 236ef6085005a0c4eba2edcfb1092169, type: 3}
@@ -254,3 +217,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashDuration: 0.1
   flashIntensity: 4
+--- !u!70 &107084352316123323
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2935766869046868258}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 2.17, y: 3.1}
+  m_Direction: 0
