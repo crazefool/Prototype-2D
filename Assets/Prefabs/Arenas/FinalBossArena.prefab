@@ -140,7 +140,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -290,7 +290,7 @@ MonoBehaviour:
   introText: {fileID: 0}
   bossMusic: {fileID: 0}
   normalMusic: {fileID: 0}
-  door: {fileID: 1997147642887250480}
+  doors: []
 --- !u!1 &5780917810049400332
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +369,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -565,7 +565,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -861,7 +861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossManager: {fileID: 859497533877516698}
   bossObject: {fileID: 8765484975330280357}
-  door: {fileID: 1997147642887250480}
+  doors: []
 --- !u!1 &8903884819126079437
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,8 +920,8 @@ Transform:
   m_GameObject: {fileID: 8993968652384963356}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -93.31066, y: -33.16873, z: 0.20916599}
-  m_LocalScale: {x: 27.942411, y: 8.243066, z: 1}
+  m_LocalPosition: {x: -93.3948, y: -33.16873, z: 0.20916599}
+  m_LocalScale: {x: 27.774757, y: 8.243066, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8493246118156903371}
@@ -971,7 +971,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1041,7 +1041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5863676417424218840, guid: 30e0843b96b6ebd459a5cc6c0bb0e805, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6738420116037181412, guid: 30e0843b96b6ebd459a5cc6c0bb0e805, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1083,10 +1083,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5314213852903779613, guid: 30e0843b96b6ebd459a5cc6c0bb0e805, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5863676417424218840, guid: 30e0843b96b6ebd459a5cc6c0bb0e805, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 7018081222161807973}
   m_SourcePrefab: {fileID: 100100000, guid: 30e0843b96b6ebd459a5cc6c0bb0e805, type: 3}
 --- !u!4 &8464825433597937305 stripped
 Transform:
@@ -1098,3 +1102,40 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5863676417424218840, guid: 30e0843b96b6ebd459a5cc6c0bb0e805, type: 3}
   m_PrefabInstance: {fileID: 2952870996751817085}
   m_PrefabAsset: {fileID: 0}
+--- !u!70 &7018081222161807973
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8765484975330280357}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.89, y: 3.2}
+  m_Direction: 0
