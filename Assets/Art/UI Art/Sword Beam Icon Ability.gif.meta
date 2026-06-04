@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a3bb0a6abc9e2bd428acd74474e6bc3c
+guid: 1fbb48120c6843a458b892d734e217b6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2465587494741231682
-    second: Stone Tile_0
+      213: 7784003356955873381
+    second: Sword Beam Icon Ability_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 62
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Stone Tile_0
+      name: Sword Beam Icon Ability_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 24842b263c6873220800000000000000
-      internalID: 2465587494741231682
+      spriteID: 5609dcdcfc5560c60800000000000000
+      internalID: 7784003356955873381
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c610092e16e42164d966d60d5fa5c23c
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Stone Tile_0: 2465587494741231682
+      Sword Beam Icon Ability_0: 7784003356955873381
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
