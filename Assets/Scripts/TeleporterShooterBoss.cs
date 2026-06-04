@@ -117,11 +117,10 @@ public class TeleportShooterBoss : BaseEnemyAI, IBossHealth
     {
         isTeleporting = true;
 
-        // ⭐ FIXED: Only cancel hookshot if THIS boss is the one being pulled
         HookshotController hook = FindFirstObjectByType<HookshotController>();
         if (hook != null && hook.IsPulling)
         {
-            if (enemy.IsBeingPulled)   // Only cancel if boss is the pulled target
+            if (enemy.IsBeingPulled)
                 hook.CancelHookshot();
         }
 
@@ -158,7 +157,6 @@ public class TeleportShooterBoss : BaseEnemyAI, IBossHealth
         PlayerAttack pa = other.GetComponent<PlayerAttack>();
         if (pa != null)
         {
-            // Prevent damage if player is currently being pulled by hookshot
             HookshotController hook = FindFirstObjectByType<HookshotController>();
             if (hook != null && hook.IsPulling)
                 return;
@@ -189,6 +187,12 @@ public class TeleportShooterBoss : BaseEnemyAI, IBossHealth
         if (bossManager != null)
             bossManager.OnBossDefeated();
 
-        Destroy(gameObject, 1.5f);
+        StartCoroutine(DisableAfterDelay());
+    }
+
+    private IEnumerator DisableAfterDelay()
+    {
+        yield return new WaitForSeconds(1.5f);
+        gameObject.SetActive(false);
     }
 }
