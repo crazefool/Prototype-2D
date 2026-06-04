@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BossManager : MonoBehaviour
 {
@@ -18,7 +19,8 @@ public class BossManager : MonoBehaviour
     [SerializeField] private AudioSource normalMusic;
 
     [Header("Door Control")]
-    [SerializeField] private BossDoor door;
+    [Tooltip("Add all doors that should close when the fight starts and open when the boss is defeated.")]
+    [SerializeField] private List<BossDoor> doors = new List<BossDoor>();
 
     private bool fightStarted = false;
 
@@ -80,6 +82,13 @@ public class BossManager : MonoBehaviour
         healthBar.gameObject.SetActive(true);
         healthBar.Initialize(boss);
 
+        // Close all doors when fight starts
+        foreach (BossDoor d in doors)
+        {
+            if (d != null)
+                d.CloseDoor();
+        }
+
         (boss as MonoBehaviour)?.SendMessage("BeginFight", SendMessageOptions.DontRequireReceiver);
     }
 
@@ -97,13 +106,18 @@ public class BossManager : MonoBehaviour
         if (normalMusic != null)
             normalMusic.Play();
 
-        if (door != null)
-            StartCoroutine(OpenDoorDelayed());
+        // Open all doors after short delay
+        StartCoroutine(OpenDoorsDelayed());
     }
 
-    private IEnumerator OpenDoorDelayed()
+    private IEnumerator OpenDoorsDelayed()
     {
         yield return new WaitForSeconds(0.3f);
-        door.OpenDoor();
+
+        foreach (BossDoor d in doors)
+        {
+            if (d != null)
+                d.OpenDoor();
+        }
     }
 }

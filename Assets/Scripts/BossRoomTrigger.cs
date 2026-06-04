@@ -1,11 +1,15 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class BossRoomTrigger : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private BossManager bossManager;
     [SerializeField] private GameObject bossObject;
-    [SerializeField] private BossDoor door;
+
+    [Header("Doors")]
+    [Tooltip("Add all doors that should close when entering and open when boss is defeated.")]
+    [SerializeField] private List<BossDoor> doors = new List<BossDoor>();
 
     private bool triggered = false;
 
@@ -14,11 +18,14 @@ public class BossRoomTrigger : MonoBehaviour
         if (!other.CompareTag("Player"))
             return;
 
-        // Use the SAME name that BossManager used when saving
+        // If boss already defeated → skip fight entirely
         if (SaveGameManager.IsBossDefeated(bossManager.BossName))
         {
-            if (door != null)
-                door.OpenDoor();
+            foreach (BossDoor d in doors)
+            {
+                if (d != null)
+                    d.OpenDoor();
+            }
 
             if (bossObject != null)
                 bossObject.SetActive(false);
@@ -30,17 +37,28 @@ public class BossRoomTrigger : MonoBehaviour
         if (triggered) return;
         triggered = true;
 
-        if (door != null && !door.gameObject.activeSelf)
-            door.gameObject.SetActive(true);
+        // Close ALL doors
+        foreach (BossDoor d in doors)
+        {
+            if (d != null)
+            {
+                if (!d.gameObject.activeSelf)
+                    d.gameObject.SetActive(true);
 
-        door?.CloseDoor();
+                d.CloseDoor();
+            }
+        }
 
+        // Activate boss
         if (bossObject != null)
             bossObject.SetActive(true);
 
-        IBossHealth boss = bossObject.GetComponent<IBossHealth>(); // or GetComponentInChildren<IBossHealth>()
+        // Assign boss to manager
+        IBossHealth boss = bossObject.GetComponent<IBossHealth>();
         if (boss != null)
             bossManager.SetBoss(boss);
+        else
+            Debug.LogError("BossRoomTrigger: Could not find IBossHealth on bossObject!");
 
         bossManager.StartBossFight();
     }
