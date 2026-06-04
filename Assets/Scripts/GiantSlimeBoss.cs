@@ -27,7 +27,7 @@ public class GiantSlimeBoss : MonoBehaviour, IBossHealth
     [SerializeField] private LayerMask wallMask;
 
     [Header("Boss Manager Reference")]
-    [SerializeField] private BossManager bossManager;   // 🔹 assign DG_BossManager here in Inspector
+    [SerializeField] private BossManager bossManager;
 
     private Enemy enemy;
     private SpriteRenderer sr;
@@ -51,7 +51,6 @@ public class GiantSlimeBoss : MonoBehaviour, IBossHealth
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<CapsuleCollider2D>();
 
-        // Safety: if not assigned, try to find a BossManager in the same arena
         if (bossManager == null)
             bossManager = GetComponentInParent<BossManager>();
     }
@@ -166,12 +165,17 @@ public class GiantSlimeBoss : MonoBehaviour, IBossHealth
 
     private void Die()
     {
-        // 🔹 Explicitly notify the correct BossManager
         if (bossManager != null)
             bossManager.OnBossDefeated();
         else
             Debug.LogWarning($"{name}: No BossManager assigned, cannot notify OnBossDefeated.");
 
-        Destroy(gameObject, 0.2f);
+        StartCoroutine(DisableAfterDelay());
+    }
+
+    private IEnumerator DisableAfterDelay()
+    {
+        yield return new WaitForSeconds(0.2f);
+        gameObject.SetActive(false);
     }
 }

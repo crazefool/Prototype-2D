@@ -22,6 +22,9 @@ public class BossManager : MonoBehaviour
 
     private bool fightStarted = false;
 
+    // Expose the name used for saving
+    public string BossName => bossName;
+
     public void SetBoss(IBossHealth bossRef)
     {
         boss = bossRef;
@@ -82,7 +85,7 @@ public class BossManager : MonoBehaviour
 
     public void OnBossDefeated()
     {
-        // ⭐ SAVE PROGRESS
+        // SAVE PROGRESS under bossName
         SaveGameManager.MarkBossDefeated(bossName);
 
         if (healthBar != null)

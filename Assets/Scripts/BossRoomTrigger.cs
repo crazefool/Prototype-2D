@@ -14,8 +14,8 @@ public class BossRoomTrigger : MonoBehaviour
         if (!other.CompareTag("Player"))
             return;
 
-        // ⭐ If boss already defeated → skip fight entirely
-        if (SaveGameManager.IsBossDefeated(bossObject.name))
+        // Use the SAME name that BossManager used when saving
+        if (SaveGameManager.IsBossDefeated(bossManager.BossName))
         {
             if (door != null)
                 door.OpenDoor();
@@ -38,7 +38,7 @@ public class BossRoomTrigger : MonoBehaviour
         if (bossObject != null)
             bossObject.SetActive(true);
 
-        IBossHealth boss = bossObject.GetComponent<IBossHealth>();
+        IBossHealth boss = bossObject.GetComponent<IBossHealth>(); // or GetComponentInChildren<IBossHealth>()
         if (boss != null)
             bossManager.SetBoss(boss);
 

@@ -21,16 +21,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 5e916f57ccc54e246b70d1f3a8f0963f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3820267638796414831, guid: e09927e40a9d3184aac8421192d8eb8f, type: 3}
+    - target: {fileID: 3626916397498700004, guid: 5e916f57ccc54e246b70d1f3a8f0963f, type: 3}
       propertyPath: m_SortingOrder
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 5e916f57ccc54e246b70d1f3a8f0963f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -84.22516
+      value: -82.38
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 5e916f57ccc54e246b70d1f3a8f0963f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -22.94743
+      value: -20.13
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 5e916f57ccc54e246b70d1f3a8f0963f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -100,7 +104,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1968500609254757210}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -149,13 +153,13 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 2.35}
-  m_Size: {x: 2.11, y: 1.79}
-  m_Direction: 1
+  m_Offset: {x: 0.052303314, y: -0.06462097}
+  m_Size: {x: 1.531517, y: 2.6085243}
+  m_Direction: 0
 --- !u!114 &8787619480835773965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,9 +226,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   pitAvoidRadius: 0
-  teleportCooldown: 2.5
-  waitDuration: 1.2
-  attackCooldown: 1
+  teleportCooldown: 2
+  waitDuration: 0
+  attackCooldown: 0.5
   teleportPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -232,10 +236,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   projectilePrefab: {fileID: 1797018839494973791, guid: dbac9ddc7cd79f4418117ead3292246f, type: 3}
-  projectileSpeed: 7
-  projectileLifetime: 2
+  projectileSpeed: 12
+  projectileLifetime: 3
   batPrefab: {fileID: 4303327838990949414, guid: fc8c3159baff2f84986d5466bd6dc650, type: 3}
-  batsPerSummon: 3
+  batsPerSummon: 2
   summonRadius: 2
   summonPhase2Threshold: 0.66
   summonPhase3Threshold: 0.33
