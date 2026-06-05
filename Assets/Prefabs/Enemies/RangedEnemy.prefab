@@ -158,7 +158,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   pitAvoidRadius: 3
-  shootRange: 20
+  shootRange: 6
   retreatRange: 5
   fireCooldown: 1
   projectilePrefab: {fileID: 1197598480320707866, guid: 236ef6085005a0c4eba2edcfb1092169, type: 3}
