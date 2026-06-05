@@ -181,18 +181,24 @@ public class TeleportShooterBoss : BaseEnemyAI, IBossHealth
         if (isDead) return;
         isDead = true;
 
+        // Stop all behavior immediately
         StopAllCoroutines();
-        sr.color = Color.gray;
 
+        // Notify boss manager instantly
         if (bossManager != null)
             bossManager.OnBossDefeated();
 
+        // Visual feedback
+        sr.color = Color.gray;
+
+        // Disable boss shortly after
         StartCoroutine(DisableAfterDelay());
     }
 
     private IEnumerator DisableAfterDelay()
     {
-        yield return new WaitForSeconds(1.5f);
+        // One frame delay is enough
+        yield return null;
         gameObject.SetActive(false);
     }
 }

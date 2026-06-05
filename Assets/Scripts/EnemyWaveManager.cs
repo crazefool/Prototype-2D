@@ -10,6 +10,9 @@ public class EnemyWaveManager : MonoBehaviour
         public List<GameObject> enemies;
     }
 
+    [Header("Gauntlet ID")]
+    [SerializeField] private string gauntletID;
+
     [Header("Waves")]
     public List<Wave> waves = new List<Wave>();
 
@@ -27,8 +30,7 @@ public class EnemyWaveManager : MonoBehaviour
 
     private void Awake()
     {
-        // ⭐ If gauntlet already cleared → open doors and disable trigger
-        if (SaveGameManager.IsGauntletCleared(gameObject.name))
+        if (SaveGameManager.IsGauntletCleared(gauntletID))
         {
             foreach (var door in doorsToOpen)
                 door.SetActive(false);
@@ -45,8 +47,7 @@ public class EnemyWaveManager : MonoBehaviour
         if (!other.CompareTag("Player"))
             return;
 
-        // ⭐ If gauntlet already cleared → skip entirely
-        if (SaveGameManager.IsGauntletCleared(gameObject.name))
+        if (SaveGameManager.IsGauntletCleared(gauntletID))
         {
             foreach (var door in doorsToOpen)
                 door.SetActive(false);
@@ -79,8 +80,7 @@ public class EnemyWaveManager : MonoBehaviour
         foreach (var door in doorsToOpen)
             door.SetActive(false);
 
-        // ⭐ Save gauntlet cleared
-        SaveGameManager.MarkGauntletCleared(gameObject.name);
+        SaveGameManager.MarkGauntletCleared(gauntletID);
 
         gameObject.SetActive(false);
     }
@@ -92,7 +92,7 @@ public class EnemyWaveManager : MonoBehaviour
         foreach (var enemyPrefab in waves[waveIndex].enemies)
         {
             Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-            GameObject enemy = Object.Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+            GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
 
             aliveEnemies.Add(enemy);
 

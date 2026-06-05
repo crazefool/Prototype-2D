@@ -6,6 +6,9 @@ public class BossDoor : MonoBehaviour
     private SpriteRenderer sr;
     private BoxCollider2D col;
 
+    [Header("Door Settings")]
+    [SerializeField] private float fadeSpeed = 1f;
+
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -14,7 +17,6 @@ public class BossDoor : MonoBehaviour
 
     public void CloseDoor()
     {
-        // Door becomes visible and solid
         gameObject.SetActive(true);
 
         if (sr != null)
@@ -31,34 +33,39 @@ public class BossDoor : MonoBehaviour
 
     public void OpenDoor()
     {
-        // Door stops blocking, fades out visually
         if (col != null)
             col.enabled = false;
 
         if (sr != null)
         {
+            Color c = sr.color;
+            c.a = 1f;
+            sr.color = c;
+
             sr.enabled = true;
-            StartCoroutine(FadeOutAndDisable());
+            StartCoroutine(FadeOut());
         }
     }
 
-    private IEnumerator FadeOutAndDisable()
+    private IEnumerator FadeOut()
     {
         if (sr == null) yield break;
 
         Color c = sr.color;
-        for (float t = 1f; t >= 0f; t -= Time.deltaTime * 2f)
+
+        for (float t = 1f; t >= 0f; t -= Time.deltaTime * fadeSpeed)
         {
             c.a = t;
             sr.color = c;
             yield return null;
         }
 
+        // ⭐ DO NOT DISABLE THE GAMEOBJECT
+        // Just hide the sprite
         sr.enabled = false;
+
+        // Reset alpha for next time
         c.a = 1f;
         sr.color = c;
-
-        // Disable the door object completely after fade
-        gameObject.SetActive(false);
     }
 }
