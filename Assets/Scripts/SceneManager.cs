@@ -9,6 +9,12 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("Main Menu");
     }
 
+    public void LoadEndScene()
+    {
+        Debug.Log("Loading End Scene...");
+        SceneManager.LoadScene("EndScene");
+    }
+
     public void QuitGame()
     {
         Debug.Log("Quitting Game...");

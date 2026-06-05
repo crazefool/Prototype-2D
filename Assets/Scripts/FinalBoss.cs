@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class FinalBoss : BaseEnemyAI, IBossHealth
@@ -352,6 +353,12 @@ public class FinalBoss : BaseEnemyAI, IBossHealth
         if (bossManager != null)
             bossManager.OnBossDefeated();
 
-        Destroy(gameObject, 1.5f);
+        StartCoroutine(LoadEndScene());
+    }
+
+    private IEnumerator LoadEndScene()
+    {
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene("EndScene");
     }
 }
