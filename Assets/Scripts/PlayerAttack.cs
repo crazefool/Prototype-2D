@@ -105,45 +105,6 @@ public class PlayerAttack : MonoBehaviour
             playerStats.GainManaFromHit();
     }
 
-    private void TryBladeBeam()
-    {
-        if (!bladeBeamUnlocked || !canAttack) return;
-        if (!playerStats.SpendMana(1)) return;
-
-        Vector3 spawnPos = transform.position + (Vector3)Face.right * bladeBeamOffset;
-        Instantiate(
-            bladeBeamPrefab,
-            spawnPos,
-            Quaternion.Euler(0, 0, Mathf.Atan2(Face.right.y, Face.right.x) * Mathf.Rad2Deg)
-        );
-    }
-
-    private void TryMegaSlash()
-    {
-        if (!megaSlashUnlocked || !canAttack) return;
-        if (!playerStats.SpendMana(1)) return;
-
-        Instantiate(megaSlashPrefab, transform.position, Quaternion.identity);
-    }
-
-    // ⭐ UPDATED — SlashDash now rotates toward the mouse like BladeBeam
-    private void TrySlashDash()
-    {
-        if (!slashDashUnlocked || !canAttack) return;
-        if (!playerStats.SpendMana(1)) return;
-
-        Vector2 dir = Face.right.normalized;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
-        Instantiate(
-            slashDashPrefab,
-            transform.position,
-            Quaternion.Euler(0, 0, angle)
-        );
-    }
-
-    public void SetCanAttack(bool value) => canAttack = value;
-
     public void ApplyHitPushback(Vector2 attackDirection)
     {
         StartCoroutine(HitPushbackRoutine(attackDirection));
@@ -176,4 +137,42 @@ public class PlayerAttack : MonoBehaviour
         Time.timeScale = originalTimeScale;
         isHitStopping = false;
     }
+
+    private void TryBladeBeam()
+    {
+        if (!bladeBeamUnlocked || !canAttack) return;
+        if (!playerStats.SpendMana(1)) return;
+
+        Vector3 spawnPos = transform.position + (Vector3)Face.right * bladeBeamOffset;
+        Instantiate(
+            bladeBeamPrefab,
+            spawnPos,
+            Quaternion.Euler(0, 0, Mathf.Atan2(Face.right.y, Face.right.x) * Mathf.Rad2Deg)
+        );
+    }
+
+    private void TryMegaSlash()
+    {
+        if (!megaSlashUnlocked || !canAttack) return;
+        if (!playerStats.SpendMana(1)) return;
+
+        Instantiate(megaSlashPrefab, transform.position, Quaternion.identity);
+    }
+
+    private void TrySlashDash()
+    {
+        if (!slashDashUnlocked || !canAttack) return;
+        if (!playerStats.SpendMana(1)) return;
+
+        Vector2 dir = Face.right.normalized;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        Instantiate(
+            slashDashPrefab,
+            transform.position,
+            Quaternion.Euler(0, 0, angle)
+        );
+    }
+
+    public void SetCanAttack(bool value) => canAttack = value;
 }

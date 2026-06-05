@@ -12,9 +12,11 @@ public class PlayerMovement : MonoBehaviour
     private float speedMultiplier = 1f;
 
     [SerializeField] private Animator animator;
-    [SerializeField] private Transform Face;
 
-    // ⭐ Smoothed aim direction to reduce jitter
+    // ⭐ Changed from private → public (fixes PlayerDash access)
+    [SerializeField] public Transform Face;
+
+    // Smoothed aim direction to reduce jitter
     private Vector2 smoothedAim = Vector2.right;
 
     void Awake()
@@ -36,28 +38,27 @@ public class PlayerMovement : MonoBehaviour
         movementInput.y = Input.GetAxisRaw("Vertical");
         movementInput = movementInput.normalized;
 
-        // Mouse position and raw aim direction
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 aimDirection = (mousePos - transform.position).normalized;
+        // Mouse world position
+        Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorld.z = 0f;
 
-        // ⭐ Dead‑zone: ignore tiny flickers around zero
-        if (Mathf.Abs(aimDirection.x) < 0.1f) aimDirection.x = 0f;
-        if (Mathf.Abs(aimDirection.y) < 0.1f) aimDirection.y = 0f;
+        // Direction from player to mouse
+        Vector2 aimDirection = (mouseWorld - transform.position).normalized;
 
-        // ⭐ Smooth the aim direction to avoid jitter
+        // Smooth the aim direction to avoid jitter
         smoothedAim = Vector2.Lerp(smoothedAim, aimDirection, Time.deltaTime * 10f);
 
         // If smoothedAim becomes zero (e.g. mouse exactly on player), keep last direction
         if (smoothedAim.sqrMagnitude < 0.0001f)
             smoothedAim = Vector2.right;
 
+        // ⭐ Keep Face orbiting around player at fixed radius (WORLD space)
+        float orbitRadius = 1.0f;
+        Face.position = transform.position + (Vector3)smoothedAim * orbitRadius;
+
         // Rotate Face so its right vector points toward the smoothed aim
         float angle = Mathf.Atan2(smoothedAim.y, smoothedAim.x) * Mathf.Rad2Deg;
         Face.rotation = Quaternion.Euler(0, 0, angle);
-
-        // Keep Face orbiting around player at fixed radius
-        float orbitRadius = 1.0f;
-        Face.localPosition = smoothedAim * orbitRadius;
 
         // Animation direction based on smoothed aim
         animator.SetFloat("Move_DirecX", smoothedAim.x);

@@ -39,7 +39,13 @@ public class PlayerDash : MonoBehaviour
             ghostTrail.StartTrail();
 
         Vector2 moveInput = movement.GetMovementInput();
-        Vector2 dashDirection = moveInput != Vector2.zero ? moveInput : (Vector2)transform.right;
+
+        // ⭐ FIXED:
+        // If moving → dash in movement direction
+        // If NOT moving → dash in aim direction (Face.right)
+        Vector2 dashDirection = moveInput != Vector2.zero
+            ? moveInput
+            : (Vector2)movement.Face.right;
 
         float dashDuration = dashDistance / dashSpeed;
 
