@@ -15,7 +15,7 @@ public class LoadSceneOnSpace : MonoBehaviour
             }
             else if (currentScene == "End Scene")
             {
-                SceneManager.LoadScene("MainMenu");
+                SceneManager.LoadScene("Main Menu");
             }
         }
     }
