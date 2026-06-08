@@ -190,7 +190,7 @@ MonoBehaviour:
   pitAvoidRadius: 1
   minTeleportDistance: 3
   maxTeleportDistance: 6
-  teleportCooldown: 1.5
+  teleportCooldown: 2
   teleportCheckRadius: 0.4
   blockedMask:
     serializedVersion: 2
