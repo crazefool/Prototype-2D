@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6ed99a0bf1ae13842b72ad7c482f8316
+guid: 2ca74e712be098d4988e78dfefe493f2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2838802325815051886
-    second: Hammer Icon Ability_0
+      213: -1725027262524113995
+    second: Icon Hammer Ability_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hammer Icon Ability_0
+      name: Icon Hammer Ability_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 299bd36435c8a98d0800000000000000
-      internalID: -2838802325815051886
+      spriteID: 5bbb26528d87f08e0800000000000000
+      internalID: -1725027262524113995
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Hammer Icon Ability_0: -2838802325815051886
+      Icon Hammer Ability_0: -1725027262524113995
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

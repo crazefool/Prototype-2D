@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5edfc8491a27a7f41a8ebced518ca90b
+guid: 80b8247a5258cad4cb9c9c73055464b6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8658292033161898956
-    second: Dash Icon Ability_0
+      213: 1006966263718837071
+    second: Icon Healing Ability_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dash Icon Ability_0
+      name: Icon Healing Ability_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4345ac9f44197d780800000000000000
-      internalID: -8658292033161898956
+      spriteID: f4b73c15b7679fd00800000000000000
+      internalID: 1006966263718837071
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Dash Icon Ability_0: -8658292033161898956
+      Icon Healing Ability_0: 1006966263718837071
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

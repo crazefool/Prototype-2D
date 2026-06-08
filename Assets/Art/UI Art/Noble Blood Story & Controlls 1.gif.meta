@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 973775cb0b4ffab47a10d6b886688a79
+guid: d6eafac2a568fc846913c0909bb32f5f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2230229002620744338
-    second: Start Button_0
+      213: -2789144724754927861
+    second: Noble Blood Story & Controlls 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Start Button_0
+      name: Noble Blood Story & Controlls 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 21
-        width: 64
-        height: 22
+        y: 0
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e6d4403d982ac01e0800000000000000
-      internalID: -2230229002620744338
+      spriteID: b0fe3dd76a7fa49d0800000000000000
+      internalID: -2789144724754927861
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Start Button_0: -2230229002620744338
+      Noble Blood Story & Controlls 1_0: -2789144724754927861
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

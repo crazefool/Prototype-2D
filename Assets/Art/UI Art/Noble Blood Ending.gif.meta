@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bc5cf7d98d045544c94d3771c6ba806d
+guid: 4f117eb70dd966a479d4d647a285bd90
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6891728398760666226
-    second: Healing Icon Ability_0
+      213: 6974408209809618257
+    second: Noble Blood Ending_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Healing Icon Ability_0
+      name: Noble Blood Ending_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e8b16670989ab50a0800000000000000
-      internalID: -6891728398760666226
+      spriteID: 155354890531ac060800000000000000
+      internalID: 6974408209809618257
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Healing Icon Ability_0: -6891728398760666226
+      Noble Blood Ending_0: 6974408209809618257
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
