@@ -12,6 +12,13 @@ public static class SaveGameManager
     public static bool hasSave = false;
 
     // -------------------------
+    // SPELL UNLOCKS
+    // -------------------------
+    public static bool bladeBeamUnlocked;
+    public static bool megaSlashUnlocked;
+    public static bool slashDashUnlocked;
+
+    // -------------------------
     // BOSSES
     // -------------------------
     private static HashSet<string> defeatedBosses = new HashSet<string>();
@@ -81,6 +88,15 @@ public static class SaveGameManager
         savedPlayerPosition = player.transform.position;
         savedMaxHealth = player.MaxHealth;
         savedMaxMana = player.MaxMana;
+
+        // Save spell unlocks
+        PlayerAttack attack = Object.FindFirstObjectByType<PlayerAttack>();
+        if (attack != null)
+        {
+            bladeBeamUnlocked = attack.bladeBeamUnlocked;
+            megaSlashUnlocked = attack.megaSlashUnlocked;
+            slashDashUnlocked = attack.slashDashUnlocked;
+        }
     }
 
     // -------------------------
@@ -97,5 +113,14 @@ public static class SaveGameManager
 
         // Move player to saved statue
         player.transform.position = savedPlayerPosition;
+
+        // Restore spell unlocks
+        PlayerAttack attack = Object.FindFirstObjectByType<PlayerAttack>();
+        if (attack != null)
+        {
+            attack.bladeBeamUnlocked = bladeBeamUnlocked;
+            attack.megaSlashUnlocked = megaSlashUnlocked;
+            attack.slashDashUnlocked = slashDashUnlocked;
+        }
     }
 }

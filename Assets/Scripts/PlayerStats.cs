@@ -48,7 +48,7 @@ public class PlayerStats : MonoBehaviour
 
         hitFlash = GetComponent<HitFlash>();
 
-        // ⭐ Apply saved progress (max HP, max mana, position)
+        // Apply saved progress (max HP, max mana, position)
         SaveGameManager.ApplyProgressAfterSceneLoad(this);
     }
 
@@ -147,7 +147,6 @@ public class PlayerStats : MonoBehaviour
     // DEATH
     private void Die()
     {
-        // NEW SAVE SYSTEM: reload scene always
         SceneManager.LoadScene("Ole Scene");
     }
 
@@ -237,7 +236,7 @@ public class PlayerStats : MonoBehaviour
         if (chargeSystem != null)
         {
             var main = chargeSystem.main;
-            main.startColor = Color.green;
+            main.startColor = new Color(1f, 0.4f, 0.7f); // pink
         }
 
         float timer = 0f;
@@ -279,7 +278,7 @@ public class PlayerStats : MonoBehaviour
             if (burstSystem != null)
             {
                 var main = burstSystem.main;
-                main.startColor = Color.green;
+                main.startColor = new Color(1f, 0.4f, 0.7f); // pink
             }
         }
 

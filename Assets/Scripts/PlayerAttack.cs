@@ -50,19 +50,23 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && canAttack)
             pendingAttack = true;
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        // Blade Beam → 1 or Left Shift
+        if ((Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.LeftShift)))
             TryBladeBeam();
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        // Mega Slash → 2 or E
+        if ((Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.E)))
             TryMegaSlash();
 
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        // Slash Dash → 3 or Q
+        if ((Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Q)))
             TrySlashDash();
 
-        if (Input.GetKeyDown(KeyCode.E))
+        // Heal → R only
+        if (Input.GetKeyDown(KeyCode.R))
             playerStats.BeginHealCharge();
 
-        if (Input.GetKeyUp(KeyCode.E))
+        if (Input.GetKeyUp(KeyCode.R))
             playerStats.CancelHealCharge();
     }
 
@@ -82,7 +86,6 @@ public class PlayerAttack : MonoBehaviour
 
         canAttack = false;
 
-        // Use Face.right for direction
         lastAttackDirection = Face.right.normalized;
 
         Vector3 spawnPos = transform.position + (Vector3)lastAttackDirection * attackOffset;
