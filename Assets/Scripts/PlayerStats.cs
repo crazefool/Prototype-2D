@@ -261,7 +261,7 @@ public class PlayerStats : MonoBehaviour
         }
 
         SpendMana(1);
-        Heal(1);
+        Heal(2);
 
         if (healBurstEffectPrefab != null)
         {
