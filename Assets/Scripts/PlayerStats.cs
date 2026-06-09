@@ -41,6 +41,9 @@ public class PlayerStats : MonoBehaviour
     private bool hasCheckpoint = false;
     private Vector3 checkpointPosition;
 
+    // Prevent unused variable warning without removing anything
+    private bool CheckpointFlagUsed => hasCheckpoint;
+
     private void Awake()
     {
         CurrentHealth = maxHealth;
@@ -236,7 +239,7 @@ public class PlayerStats : MonoBehaviour
         if (chargeSystem != null)
         {
             var main = chargeSystem.main;
-            main.startColor = new Color(1f, 0.4f, 0.7f); // pink
+            main.startColor = new Color(1f, 0.4f, 0.7f);
         }
 
         float timer = 0f;
@@ -278,7 +281,7 @@ public class PlayerStats : MonoBehaviour
             if (burstSystem != null)
             {
                 var main = burstSystem.main;
-                main.startColor = new Color(1f, 0.4f, 0.7f); // pink
+                main.startColor = new Color(1f, 0.4f, 0.7f);
             }
         }
 
