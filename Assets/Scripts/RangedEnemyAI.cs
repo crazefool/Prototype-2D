@@ -84,9 +84,29 @@ public class RangedEnemyAI : BaseEnemyAI
         isShooting = true;
         fireTimer = fireCooldown;
 
-        sr.color = anticipationColor;
+        if (sr != null)
+        {
+            Color flashColor = anticipationColor;
+
+            // If white, force a very bright white flash
+            if (flashColor == Color.white)
+                flashColor = new Color(3f, 3f, 3f);
+
+            var block = new MaterialPropertyBlock();
+            sr.GetPropertyBlock(block);
+            block.SetColor("_Color", flashColor);
+            sr.SetPropertyBlock(block);
+        }
+
         yield return new WaitForSeconds(anticipationTime);
-        sr.color = originalColor;
+
+        if (sr != null)
+        {
+            var block = new MaterialPropertyBlock();
+            sr.GetPropertyBlock(block);
+            block.SetColor("_Color", originalColor);
+            sr.SetPropertyBlock(block);
+        }
 
         Vector2 dir = (GetPlayerCenter() - (Vector2)transform.position).normalized;
 

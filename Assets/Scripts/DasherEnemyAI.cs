@@ -83,18 +83,32 @@ public class DasherEnemyAI : BaseEnemyAI
         dashDirection = (GetPlayerCenter() - (Vector2)transform.position).normalized;
 
         if (sr != null)
-            sr.color = anticipationColor;
+        {
+            Color flashColor = anticipationColor;
+
+            // If white, force a VERY bright white flash
+            if (flashColor == Color.white)
+                flashColor = new Color(3f, 3f, 3f);
+
+            var block = new MaterialPropertyBlock();
+            sr.GetPropertyBlock(block);
+            block.SetColor("_Color", flashColor);
+            sr.SetPropertyBlock(block);
+        }
 
         yield return new WaitForSeconds(anticipationTime);
 
         if (sr != null)
-            sr.color = originalColor;
+        {
+            var block = new MaterialPropertyBlock();
+            sr.GetPropertyBlock(block);
+            block.SetColor("_Color", originalColor);
+            sr.SetPropertyBlock(block);
+        }
 
         isAnticipating = false;
         isDashing = true;
         cooldownTimer = dashCooldown;
-
-        // ⭐ REMOVED: enemy.isInvulnerable = true;
 
         float elapsed = 0f;
         ContactFilter2D filter = new ContactFilter2D();
@@ -122,9 +136,6 @@ public class DasherEnemyAI : BaseEnemyAI
         }
 
         rb.linearVelocity = Vector2.zero;
-
-        // ⭐ REMOVED: enemy.isInvulnerable = false;
-
         isDashing = false;
     }
 }

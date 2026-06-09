@@ -5,7 +5,7 @@ public class HitFlash : MonoBehaviour
 {
     [Header("Flash Settings")]
     [SerializeField] private float flashDuration = 0.1f;
-    [SerializeField] private float flashIntensity = 4f; // Higher = whiter silhouette
+    [SerializeField] private float flashIntensity = 4f;
 
     private SpriteRenderer sr;
     private MaterialPropertyBlock block;
@@ -34,8 +34,8 @@ public class HitFlash : MonoBehaviour
 
     private IEnumerator FlashRoutine()
     {
-        // Overbrighten the sprite to force a white silhouette
-        block.SetColor("_Color", originalColor * flashIntensity);
+        // Red flash instead of white
+        block.SetColor("_Color", new Color(1f, 0f, 0f) * flashIntensity);
         sr.SetPropertyBlock(block);
 
         yield return new WaitForSeconds(flashDuration);
