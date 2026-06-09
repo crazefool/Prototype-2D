@@ -161,7 +161,7 @@ MonoBehaviour:
   shootRange: 6
   retreatRange: 5
   fireCooldown: 1
-  projectilePrefab: {fileID: 1197598480320707866, guid: 236ef6085005a0c4eba2edcfb1092169, type: 3}
+  projectilePrefab: {fileID: 1797018839494973791, guid: dbac9ddc7cd79f4418117ead3292246f, type: 3}
   projectileSpeed: 7
   projectileLifetime: 3
   anticipationTime: 0.25

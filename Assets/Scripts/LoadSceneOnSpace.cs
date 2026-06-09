@@ -7,7 +7,16 @@ public class LoadSceneOnSpace : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene("Ole Scene");
+            string currentScene = SceneManager.GetActiveScene().name;
+
+            if (currentScene == "Story Scene")
+            {
+                SceneManager.LoadScene("Ole Scene");
+            }
+            else if (currentScene == "End Scene")
+            {
+                SceneManager.LoadScene("Main Menu");
+            }
         }
     }
 }
