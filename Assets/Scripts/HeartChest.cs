@@ -12,7 +12,6 @@ public class HeartChest : MonoBehaviour
 
     private void Awake()
     {
-        // ⭐ If chest was already opened in saved progress → remove it
         if (SaveGameManager.IsChestOpened(gameObject.name))
         {
             Destroy(gameObject);
@@ -32,7 +31,7 @@ public class HeartChest : MonoBehaviour
             if (interactIcon != null)
                 interactIcon.SetActive(true);
 
-            PlayerStats stats = other.GetComponent<PlayerStats>();
+            PlayerStats stats = other.GetComponentInParent<PlayerStats>();
             if (stats != null)
             {
                 OpenChest(stats);
@@ -53,13 +52,11 @@ public class HeartChest : MonoBehaviour
         if (opened) return;
         opened = true;
 
-        // ⭐ Save chest opened
         SaveGameManager.MarkChestOpened(gameObject.name);
 
         if (interactIcon != null)
             interactIcon.SetActive(false);
 
-        // Give heart upgrade
         stats.IncreaseMaxHealth(1);
 
         if (heartSprite != null)
@@ -73,6 +70,8 @@ public class HeartChest : MonoBehaviour
 
             Destroy(go, 1.2f);
         }
+
+        SaveGameManager.SaveProgressWithoutPosition(stats);
 
         Destroy(gameObject);
     }

@@ -45,24 +45,33 @@ public class PlayerAttack : MonoBehaviour
         hookshot = FindFirstObjectByType<HookshotController>();
     }
 
+    void OnEnable()
+    {
+        // Load saved spell unlocks whenever the scene loads
+        ApplySavedSpellUnlocks();
+    }
+
+    public void ApplySavedSpellUnlocks()
+    {
+        bladeBeamUnlocked = SaveGameManager.bladeBeamUnlocked;
+        megaSlashUnlocked = SaveGameManager.megaSlashUnlocked;
+        slashDashUnlocked = SaveGameManager.slashDashUnlocked;
+    }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && canAttack)
             pendingAttack = true;
 
-        // Blade Beam → 1 or Left Shift
         if ((Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.LeftShift)))
             TryBladeBeam();
 
-        // Mega Slash → 2 or E
         if ((Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.E)))
             TryMegaSlash();
 
-        // Slash Dash → 3 or Q
         if ((Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Q)))
             TrySlashDash();
 
-        // Heal → R only
         if (Input.GetKeyDown(KeyCode.R))
             playerStats.BeginHealCharge();
 

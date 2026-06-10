@@ -12,7 +12,6 @@ public class Chest : MonoBehaviour
 
     private void Awake()
     {
-        // ⭐ If chest was already opened in saved progress → remove it
         if (SaveGameManager.IsChestOpened(gameObject.name))
         {
             Destroy(gameObject);
@@ -33,10 +32,11 @@ public class Chest : MonoBehaviour
                 interactIcon.SetActive(true);
         }
 
-        PlayerAttack pa = other.GetComponent<PlayerAttack>();
-        if (pa != null)
+        PlayerAttack pa = other.GetComponentInParent<PlayerAttack>();
+        PlayerStats stats = other.GetComponentInParent<PlayerStats>();
+        if (pa != null && stats != null)
         {
-            OpenChest();
+            OpenChest(pa, stats);
         }
     }
 
@@ -44,10 +44,11 @@ public class Chest : MonoBehaviour
     {
         if (isOpened) return;
 
-        PlayerAttack pa = other.GetComponent<PlayerAttack>();
-        if (pa != null)
+        PlayerAttack pa = other.GetComponentInParent<PlayerAttack>();
+        PlayerStats stats = other.GetComponentInParent<PlayerStats>();
+        if (pa != null && stats != null)
         {
-            OpenChest();
+            OpenChest(pa, stats);
         }
     }
 
@@ -57,19 +58,25 @@ public class Chest : MonoBehaviour
             interactIcon.SetActive(false);
     }
 
-    private void OpenChest()
+    private void OpenChest(PlayerAttack attack, PlayerStats stats)
     {
         if (isOpened) return;
         isOpened = true;
 
-        // ⭐ Save chest opened
         SaveGameManager.MarkChestOpened(gameObject.name);
 
         if (interactIcon != null)
             interactIcon.SetActive(false);
 
+        // NEW: unlock the spell directly here
+        attack.bladeBeamUnlocked = true; // test with Blade Beam first
+
+        // Visual reward still spawned
         if (rewardPrefab != null)
             Instantiate(rewardPrefab, transform.position, Quaternion.identity);
+
+        // Save AFTER unlock
+        SaveGameManager.SaveProgressWithoutPosition(stats);
 
         Destroy(gameObject);
     }
