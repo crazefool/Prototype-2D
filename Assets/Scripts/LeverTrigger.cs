@@ -14,19 +14,34 @@ public class LeverTrigger : MonoBehaviour
     [Header("Targets (put multiple objects here)")]
     [SerializeField] private GameObject[] targetObjects;
 
+    [Header("Lever Visual")]
+    [SerializeField] private Sprite activatedSprite;
+
     [Header("Optional: One-time use")]
     [SerializeField] private bool disableAfterUse = true;
 
     private bool hasTriggered = false;
+    private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
-        // ⭐ If lever was already used in saved progress → apply instantly
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        // If lever was already used in saved progress → apply instantly
         if (SaveGameManager.IsLeverUsed(gameObject.name))
         {
             ApplyLeverEffect();
+
+            if (activatedSprite != null)
+                spriteRenderer.sprite = activatedSprite;
+
             if (disableAfterUse)
-                gameObject.SetActive(false);
+            {
+                Collider2D col = GetComponent<Collider2D>();
+                if (col != null)
+                    col.enabled = false;
+            }
+
             hasTriggered = true;
         }
     }
@@ -38,13 +53,22 @@ public class LeverTrigger : MonoBehaviour
 
         hasTriggered = true;
 
-        // ⭐ Save lever used
+        // Save lever used
         SaveGameManager.MarkLeverUsed(gameObject.name);
 
         ApplyLeverEffect();
 
+        // Change lever sprite
+        if (activatedSprite != null)
+            spriteRenderer.sprite = activatedSprite;
+
+        // Disable collider so it can't be activated again
         if (disableAfterUse)
-            gameObject.SetActive(false);
+        {
+            Collider2D col = GetComponent<Collider2D>();
+            if (col != null)
+                col.enabled = false;
+        }
     }
 
     private void ApplyLeverEffect()
