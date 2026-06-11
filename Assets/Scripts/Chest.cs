@@ -2,8 +2,16 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
+    public enum SpellReward
+    {
+        BladeBeam,
+        MegaSlash,
+        SlashDash
+    }
+
     [Header("Reward Settings")]
     [SerializeField] private GameObject rewardPrefab;
+    [SerializeField] private SpellReward spellReward;   // select which spell this chest unlocks
 
     [Header("Interaction Icon")]
     [SerializeField] private GameObject interactIcon;
@@ -68,8 +76,29 @@ public class Chest : MonoBehaviour
         if (interactIcon != null)
             interactIcon.SetActive(false);
 
-        // NEW: unlock the spell directly here
-        attack.bladeBeamUnlocked = true; // test with Blade Beam first
+        // Unlock the correct spell + update save + UI
+        SpellbarUI ui = FindFirstObjectByType<SpellbarUI>();
+
+        switch (spellReward)
+        {
+            case SpellReward.BladeBeam:
+                attack.bladeBeamUnlocked = true;
+                SaveGameManager.bladeBeamUnlocked = true;
+                if (ui != null) ui.SetBladeBeamVisible(true);
+                break;
+
+            case SpellReward.MegaSlash:
+                attack.megaSlashUnlocked = true;
+                SaveGameManager.megaSlashUnlocked = true;
+                if (ui != null) ui.SetMegaSlashVisible(true);
+                break;
+
+            case SpellReward.SlashDash:
+                attack.slashDashUnlocked = true;
+                SaveGameManager.slashDashUnlocked = true;
+                if (ui != null) ui.SetSlashDashVisible(true);
+                break;
+        }
 
         // Visual reward still spawned
         if (rewardPrefab != null)

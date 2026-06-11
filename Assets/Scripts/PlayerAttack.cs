@@ -66,10 +66,10 @@ public class PlayerAttack : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.LeftShift)))
             TryBladeBeam();
 
-        if ((Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.E)))
+        if ((Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Q)))
             TryMegaSlash();
 
-        if ((Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Q)))
+        if ((Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.E)))
             TrySlashDash();
 
         if (Input.GetKeyDown(KeyCode.R))
