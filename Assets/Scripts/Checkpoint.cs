@@ -7,6 +7,10 @@ public class Checkpoint : MonoBehaviour
     [SerializeField] private GameObject checkpointText;
     [SerializeField] private GameObject flashEffect;
 
+    [Header("Sound")]
+    [SerializeField] private AudioClip checkpointSound;   // NEW
+    private AudioSource audioSource;                      // NEW
+
     private bool activatedOnce = false;
 
     private void Awake()
@@ -16,6 +20,13 @@ public class Checkpoint : MonoBehaviour
 
         if (flashEffect != null)
             flashEffect.SetActive(false);
+
+        // Add AudioSource automatically if missing
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
+
+        audioSource.playOnAwake = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -30,7 +41,7 @@ public class Checkpoint : MonoBehaviour
         // Save checkpoint position on the player
         stats.SetCheckpoint(other.transform.position);
 
-        // Save full progress (bosses, chests, levers, gauntlets, upgrades, position)
+        // Save full progress
         SaveGameManager.SaveProgress(stats);
 
         if (!activatedOnce)
@@ -39,6 +50,10 @@ public class Checkpoint : MonoBehaviour
 
             stats.RestoreFullHealth();
             stats.RestoreFullMana();
+
+            // Play sound ONLY first time
+            if (checkpointSound != null)
+                audioSource.PlayOneShot(checkpointSound);
 
             StartCoroutine(CheckpointRoutine(true));
         }

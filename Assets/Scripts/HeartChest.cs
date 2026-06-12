@@ -8,6 +8,13 @@ public class HeartChest : MonoBehaviour
     [Header("Interaction Icon")]
     [SerializeField] private GameObject interactIcon;
 
+    [Header("Sound")]
+    [SerializeField] private AudioClip chestSound;
+    private AudioSource audioSource;
+
+    [Header("Destroy Delay")]
+    [SerializeField] private float destroyDelay = 0.5f;   // ADDED
+
     private bool opened = false;
 
     private void Awake()
@@ -20,6 +27,14 @@ public class HeartChest : MonoBehaviour
 
         if (interactIcon != null)
             interactIcon.SetActive(false);
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
+
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 0f;
+        audioSource.volume = 1f;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -57,6 +72,9 @@ public class HeartChest : MonoBehaviour
         if (interactIcon != null)
             interactIcon.SetActive(false);
 
+        if (chestSound != null)
+            audioSource.PlayOneShot(chestSound);
+
         stats.IncreaseMaxHealth(1);
 
         if (heartSprite != null)
@@ -73,6 +91,7 @@ public class HeartChest : MonoBehaviour
 
         SaveGameManager.SaveProgressWithoutPosition(stats);
 
-        Destroy(gameObject);
+        // ADDED: adjustable delay
+        Destroy(gameObject, destroyDelay);
     }
 }

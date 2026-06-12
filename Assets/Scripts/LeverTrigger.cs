@@ -20,6 +20,10 @@ public class LeverTrigger : MonoBehaviour
     [Header("Optional: One-time use")]
     [SerializeField] private bool disableAfterUse = true;
 
+    [Header("Sound")]
+    [SerializeField] private AudioClip leverSound;   // <— NEW
+    private AudioSource audioSource;                // <— NEW
+
     private bool hasTriggered = false;
     private SpriteRenderer spriteRenderer;
 
@@ -27,7 +31,13 @@ public class LeverTrigger : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // If lever was already used in saved progress → apply instantly
+        // Add AudioSource automatically if missing
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
+
+        audioSource.playOnAwake = false;
+
         if (SaveGameManager.IsLeverUsed(gameObject.name))
         {
             ApplyLeverEffect();
@@ -53,16 +63,17 @@ public class LeverTrigger : MonoBehaviour
 
         hasTriggered = true;
 
-        // Save lever used
         SaveGameManager.MarkLeverUsed(gameObject.name);
 
         ApplyLeverEffect();
 
-        // Change lever sprite
         if (activatedSprite != null)
             spriteRenderer.sprite = activatedSprite;
 
-        // Disable collider so it can't be activated again
+        // Play sound
+        if (leverSound != null)
+            audioSource.PlayOneShot(leverSound);
+
         if (disableAfterUse)
         {
             Collider2D col = GetComponent<Collider2D>();

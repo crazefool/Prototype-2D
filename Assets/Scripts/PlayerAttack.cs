@@ -8,6 +8,10 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float attackCooldown = 0.3f;
     [SerializeField] private float attackOffset = 1f;
 
+    [Header("Attack Sound")]
+    [SerializeField] private AudioClip swordSound;   // ADDED
+    private AudioSource audioSource;                // ADDED
+
     [Header("Attack Feedback")]
     [SerializeField] private float hitPushbackForce = 2f;
     [SerializeField] private float hitPushbackDuration = 0.05f;
@@ -43,11 +47,19 @@ public class PlayerAttack : MonoBehaviour
         movement = GetComponent<PlayerMovement>();
         rb = GetComponent<Rigidbody2D>();
         hookshot = FindFirstObjectByType<HookshotController>();
+
+        // ADDED: AudioSource setup
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
+
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 0f;
+        audioSource.volume = 1f;
     }
 
     void OnEnable()
     {
-        // Load saved spell unlocks whenever the scene loads
         ApplySavedSpellUnlocks();
     }
 
@@ -94,6 +106,10 @@ public class PlayerAttack : MonoBehaviour
             hookshot.CancelHookshot();
 
         canAttack = false;
+
+        // ADDED: play sword sound
+        if (swordSound != null)
+            audioSource.PlayOneShot(swordSound);
 
         lastAttackDirection = Face.right.normalized;
 

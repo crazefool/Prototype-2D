@@ -9,6 +9,10 @@ public class HookshotController : MonoBehaviour
     [SerializeField] private float pullSpeed = 12f;
     [SerializeField] private float maxHookDistance = 12f;
 
+    [Header("Sound")]
+    [SerializeField] private AudioClip hookshotSound;   // ADDED
+    private AudioSource audioSource;                   // ADDED
+
     private LineRenderer line;
     private HookshotProjectile activeHook;
     public bool IsPulling { get; private set; } = false;
@@ -26,7 +30,7 @@ public class HookshotController : MonoBehaviour
 
     private Coroutine pullRoutine = null;
 
-    [SerializeField] private Transform Face; // ⭐ NEW: reference to aim direction
+    [SerializeField] private Transform Face;
 
     void Awake()
     {
@@ -47,12 +51,19 @@ public class HookshotController : MonoBehaviour
         line.startWidth = 0.05f;
         line.endWidth = 0.05f;
         line.material = new Material(Shader.Find("Sprites/Default"));
-
-        // Rope color
         line.startColor = new Color(1f, 0.3f, 0.3f);
         line.endColor = new Color(1f, 0.3f, 0.3f);
         line.sortingLayerName = "Characters";
         line.sortingOrder = 5;
+
+        // ADDED: AudioSource setup
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
+
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 0f;
+        audioSource.volume = 1f;
     }
 
     void Update()
@@ -101,13 +112,12 @@ public class HookshotController : MonoBehaviour
 
     private void FireHook()
     {
-        // ⭐ Use Face.right for direction
+        // ADDED: play sound
+        if (hookshotSound != null)
+            audioSource.PlayOneShot(hookshotSound);
+
         Vector2 dir = Face.right.normalized;
-
-        // ⭐ Spawn hook in front of the Face arrow
         Vector3 spawnPos = transform.position + (Vector3)dir * 0.6f;
-
-        // ⭐ Rotate hook to match aim direction
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         Quaternion rot = Quaternion.Euler(0, 0, angle);
 

@@ -5449,3 +5449,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkpointText: {fileID: 3144425540588215021}
   flashEffect: {fileID: 2775553774108160281}
+  checkpointSound: {fileID: 8300000, guid: 2014d936e1834f14c9a83d2bf9d7822c, type: 3}
